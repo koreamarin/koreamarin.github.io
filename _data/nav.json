@@ -2,10 +2,12 @@
   "items": [
     {
       "name": "Portfolio",
+      "id": "portfolio",
       "link": "/portfolio/"
     },
     {
       "name": "Blog",
+      "id": "blog",
       "link": "/blog/"
     }
   ]

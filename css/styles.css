@@ -83,3 +83,13 @@ footer .footer_wrap .copyright span {
 main, footer>.footer_wrap, .nav-container {
   max-width: 1344px;
 }
+
+.selected {
+  border-bottom: 2px solid #333e4c;
+  font-weight: 700;
+  color: #333e4c;
+}
+
+.nav-item {
+  font-size: 20px;
+}
