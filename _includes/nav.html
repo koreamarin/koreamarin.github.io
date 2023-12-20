@@ -6,6 +6,11 @@
                     <i class="fa fa-home"></i>
                 </span>
             </a>
+            {% for item in site.data.nav.items %}
+            <a class="nav-item" href="{{ item.link | relative_url }}">
+                <span>{{item.name}}</span>
+            </a>
+            {% endfor %}
         </div>
 
         <div class="nav-center">
@@ -14,25 +19,26 @@
                     <i class="fa fa-github"></i>
                 </span>
             </a>
+            <!--
             <a class="nav-item" target="_blank" href="https://www.twitter.com/{{site.twitter.username}}/">
                 <span class="icon">
                     <i class="fa fa-twitter"></i>
                 </span>
             </a>
+            -->
         </div>
 
+        <!--
         <span class="nav-toggle">
         <span></span>
         <span></span>
         <span></span>
         </span>
 
+        
         <div class="nav-right nav-menu">
-            {% for item in site.data.nav.items %}
-            <a class="nav-item" href="{{ item.link | relative_url }}">
-                <span>{{item.name}}</span>
-            </a>
-            {% endfor %}
+            
         </div>
+        -->
 
 </nav>
