@@ -1,18 +1,31 @@
-<footer class="page-footer">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-4">
-                <div class="content">
-                    <p>
-                        <small>
-                            <span>Powered by</span>
-                            <a target="_blank" href="http://jekyllrb.com/">Jekyll</a>
-                            <span> / Styled using </span>
-                            <a target="_blank" href="http://bulma.io/">Bulma</a>
-                        </small>
-                    </p>
-                </div>
+<footer>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                {{ site.name }} 🧚‍♀️
+            </div>
+            <a href="mailto:{{ site.email }}" class="email">
+                {{ site.email }}
+            </a>
+            <div class="accounts">
+                <a class="nav-item" target="_blank" href="https://www.github.com/{{site.github.username}}/">
+                    <span class="icon">
+                        <i class="fa fa-github"></i>
+                    </span>
+                </a>
+                <!--
+                <a class="nav-item" target="_blank" href="https://www.twitter.com/{{site.twitter.username}}/">
+                    <span class="icon">
+                        <i class="fa fa-twitter"></i>
+                    </span>
+                </a>
+                -->
             </div>
         </div>
-    </div>
+        <div class="copyright">
+            <span>
+                © {{ site.github.username }}. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
 </footer>
