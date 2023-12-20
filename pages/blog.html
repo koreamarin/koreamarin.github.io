@@ -1,14 +1,8 @@
 ---
-layout: default
+layout: blog
 title: Blog
 permalink: /blog/
 ---
-
-{% include header.html %}
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter">
 
                 {% for post in site.posts %}
                 <div class="box">
@@ -25,7 +19,3 @@ permalink: /blog/
                 </div>
                 {% endfor %}
 
-            </div>
-        </div>
-    </div>
-</section>
