@@ -126,7 +126,7 @@ main, footer>.footer_wrap, .nav-container {
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
-    width: 80%;
+    width: 100%;
   }
   .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
     margin-left: 0%;

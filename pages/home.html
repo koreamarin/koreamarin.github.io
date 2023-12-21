@@ -12,16 +12,44 @@ permalink: index.html
             <div class='nickname'>@{{site.github.username}}</div>
             <div class='name'>류지원</div>
 
-            <hr>
+            <br><br>
 
-            <div> 
+            <div>
                 <div>Experience</div>
-                <div>싸피...</div>
-
+                {% for item in site.data.home.experience %}
+                <hr>
+                <div>{{ item.name }}</div>
+                <div>{{ item.date }}</div>
+                <div>{{ item.jobPosition }}</div>
+                <div>
+                    {% for skill in item.skills %}
+                    <span>
+                        #{{ skill }}
+                    </span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <hr>
             </div>
+
+
             <div>
                 <div>Skill</div>
-                <div>자바랑 파이썬이랑 뭐랑...</div>
+                <div>
+                    {% for platform in site.data.home.skills.platforms %}
+                    <span>{{ platform }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {% for lan in site.data.home.skills.language %}
+                    <span>{{ lan }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {% for item in site.data.home.skills.Etc %}
+                    <span>{{ item }}</span>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
