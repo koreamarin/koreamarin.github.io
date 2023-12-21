@@ -17,10 +17,8 @@ layout: default
                 </div>
             </div>
         </div>
-        <div>
-            {% if page.comments != false %}
-            <div>{% include diqus.html %}</div>
-            {% endif %}
-        </div>
+        {% if page.comments != false %}
+        <div id='disqus'>{% include diqus.html %}</div>
+        {% endif %}
     </div>
 </section>
