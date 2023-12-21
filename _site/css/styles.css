@@ -169,6 +169,27 @@ main, footer>.footer_wrap, .nav-container {
     margin : 4px
 }
 
+.tag-set {
+  display: inline-block;
+}
+
+.cards {
+  max-width: 700px;
+  margin: auto;
+  display: block;
+}
+
+.portfolio-figure {
+  max-width: 600px;
+  margin: auto;
+  display: block;
+}
+
+.portfolio-img {
+  margin: auto;
+  display: block;
+}
+
 @media screen and (min-width: 769px), print{
   .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
       margin-left: 10%;

@@ -39,15 +39,21 @@ permalink: index.html
             <div>
                 <div class='orange' style='margin-bottom: 17px;'>💪 Skill 🦾</div>
                 <div>
-                    {% for platform in site.data.home.skills.platforms %}
-                    <span class='tag big-tag tag-fill-orange'>{{ platform }}</span>
-                    {% endfor %}
-                    {% for lan in site.data.home.skills.language %}
-                    <span class='tag big-tag is-primary'>{{ lan }}</span>
-                    {% endfor %}
-                    {% for item in site.data.home.skills.Etc %}
-                    <span class='tag big-tag tag-orange'>{{ item }}</span>
-                    {% endfor %}
+                    <div class='tag-set'>
+                        {% for platform in site.data.home.skills.platforms %}
+                        <span class='tag big-tag tag-fill-orange'>{{ platform }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class='tag-set'>
+                        {% for lan in site.data.home.skills.language %}
+                        <span class='tag big-tag is-primary'>{{ lan }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class='tag-set'>
+                        {% for item in site.data.home.skills.Etc %}
+                        <span class='tag big-tag tag-orange'>{{ item }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <br><br>

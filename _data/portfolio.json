@@ -1,12 +1,20 @@
 {
-    "items": [{
-        "name": "Project One",
-        "link": "",
-        "image": "http://via.placeholder.com/480x320",
-        "date_added": "2017-06-09",
-        "description": "This is a description<br><small><em>attribute - attribute link</em></small>",
-        "technologies": [
-            "Java", "Spring Framework", "Postgres", "JavaScript", "AngularJS"
-        ]
-    }]
+  "items": [
+    {
+      "name": "Project One",
+      "link": "https://www.freecodecamp.org/korean/news/how-to-center-an-image-in-css/",
+      "image": "http://via.placeholder.com/480x320",
+      "date_added": "2017-06-09",
+      "description": "This is a description<br><small><em>attribute - attribute link</em></small>",
+      "technologies": ["Java", "Spring Framework", "Postgres", "JavaScript", "AngularJS"]
+    },
+    {
+      "name": "Project two",
+      "link": "",
+      "image": "https://github.com/koreamarin/koreamarin.github.io/assets/110477854/6f790953-75c4-46d1-840d-f4c73b1fd442",
+      "date_added": "2017-06-09",
+      "description": "This is a description<br><small><em>attribute - attribute link</em></small>",
+      "technologies": ["Java", "Spring Framework", "Postgres", "JavaScript", "AngularJS"]
+    }
+  ]
 }
