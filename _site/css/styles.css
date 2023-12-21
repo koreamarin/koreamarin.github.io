@@ -185,9 +185,9 @@ main, footer>.footer_wrap, .nav-container {
   
 }
 
-@media screen and (max-width: 769px), print{
+@media screen and (max-width: 550px), print{
   .experience-name {
     float: none;
     width: 100%;
-}
+  }
 }
