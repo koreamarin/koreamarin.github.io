@@ -174,9 +174,7 @@ main, footer>.footer_wrap, .nav-container {
 }
 
 .cards {
-  max-width: 700px;
-  margin: auto;
-  display: block;
+  max-width: 1000px;
 }
 
 .portfolio-figure {

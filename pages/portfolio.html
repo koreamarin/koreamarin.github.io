@@ -5,19 +5,22 @@ permalink: /portfolio/
 ---
 
 <div class="cards">
-
     {% for item in site.data.portfolio.items %}
         <div class="">
             <div class="card-image">
                 <figure class="portfolio-figure">
+                    {% if item.link !="" %}
+                    <a style="font-size: 1.25rem;" href="{{item.link}}" target="_blank"><img class="portfolio-img" src="{{item.image}}" alt="Image"></a>
+                    {% else %}
                     <img class="portfolio-img" src="{{item.image}}" alt="Image">
+                    {% endif %}
                 </figure>
             </div>
             <div class="card-content">
                 <div class="media">
                     <div class="media-content">
                         {% if item.link !="" %}
-                        <a style="font-size: 1.25rem;" href="{{item.link}}" target="_blank">{{item.name}}</a>
+                        <a style="font-size: 1.25rem;" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
                         {% else %}
                         <p class="title is-5">{{item.name}}</p>
                         {% endif %}
