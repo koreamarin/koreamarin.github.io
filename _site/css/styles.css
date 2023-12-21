@@ -176,7 +176,7 @@ main, footer>.footer_wrap, .nav-container {
 
 .tag-set {
   display: inline-block;
-  margin: 0 5px
+  margin: 0 5px 0 0;
 }
 
 .cards {
@@ -220,3 +220,10 @@ main, footer>.footer_wrap, .nav-container {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 710px), print{
+  .card-description {
+    padding: 1.5rem 0 0 0rem;
+  }
+}
+

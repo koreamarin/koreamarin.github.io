@@ -22,9 +22,9 @@ permalink: /portfolio/
                         {% if item.link !="" %}
                         <a style="font-size: 23px;" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
                         {% else %}
-                        <p style="font-size: 23px;">{{item.name}}</p>
+                        <div style="font-size: 23px;">{{item.name}}</div>
                         {% endif %}
-                        <div>{{item.item_description}}</div>
+                        <div style='margin-top: 10px;'>{{item.item_description}}</div>
                         <p style="margin: 7px 0px;"class="date">{{item.date_added}}</p>
                     </div>
                 </div>
