@@ -1,10 +1,10 @@
 # Site settings
 name: Jiwon's Blog
 email: awldnjs2@gmail.com
-url: url
+url: https://koreamarin.github.io/
 description: "A blog and a portfolio"
 author: "Jiwon Ryu"
-title: "BlogFolio"
+title: "블로그"
 permalink: pretty
 baseurl: /
 
