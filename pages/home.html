@@ -20,12 +20,12 @@ permalink: index.html
                 <hr>
                 <div class='experience-name'>{{ item.name }}</div>
                 <div class='experience-info'>
-                    <div>{{ item.jobPosition }}</div>
-                    <div class='experience-date'>{{ item.date }}</div>
+                    <div class='experience-position'>{{ item.position }}</div>
+                    <div class='date'>{{ item.date }}</div>
                     <div style='margin-top: 15px;'>
                         {% for skill in item.skills %}
-                        <span class='tag tag-mint'>
-                            #{{ skill }}
+                        <span class='tag big-tag tag-mint'>
+                            {{ skill }}
                         </span>
                         {% endfor %}
                     </div>

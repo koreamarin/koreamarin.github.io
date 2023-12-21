@@ -2,15 +2,15 @@
   "experience": [
     {
       "name": "삼성 청년 소프트웨어 아카데미",
-      "jobPosition": "Learner",
+      "position": "Learner",
       "date": "2023.07.05-Present",
       "skills": ["SpringBoot", "Vue.js", "React.js"]
     }
   ],
 
   "skills": {
-    "platforms": ["SpringBoot", "Vue.js", "Django"],
-    "language": ["Java", "JavaScript", "Python"],
+    "platforms": ["SpringBoot", "Vue.js", "Django", "MyBatis"],
+    "language": ["Java", "JavaScript", "Python", "MySQL"],
     "Etc": ["NClude"]
   }
 }

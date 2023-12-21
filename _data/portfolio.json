@@ -1,20 +1,17 @@
 {
   "items": [
     {
-      "name": "Project One",
-      "link": "https://www.freecodecamp.org/korean/news/how-to-center-an-image-in-css/",
-      "image": "http://via.placeholder.com/480x320",
-      "date_added": "2017-06-09",
-      "description": "This is a description<br><small><em>attribute - attribute link</em></small>",
-      "technologies": ["Java", "Spring Framework", "Postgres", "JavaScript", "AngularJS"]
-    },
-    {
-      "name": "Project two",
-      "link": "",
-      "image": "https://github.com/koreamarin/koreamarin.github.io/assets/110477854/6f790953-75c4-46d1-840d-f4c73b1fd442",
-      "date_added": "2017-06-09",
-      "description": "This is a description<br><small><em>attribute - attribute link</em></small>",
-      "technologies": ["Java", "Spring Framework", "Postgres", "JavaScript", "AngularJS"]
+      "name": "Poravel",
+      "link": "https://github.com/koreamarin/Poravel",
+      "image": "https://file.notion.so/f/f/a9e95446-d49f-4247-b0b1-e1e67493883e/796e079b-51d1-4de0-9f48-c1d77d3141a3/main.gif?id=b68b2777-7ab6-495b-b3ac-11eedbdc790e&table=block&spaceId=a9e95446-d49f-4247-b0b1-e1e67493883e&expirationTimestamp=1703246400000&signature=eK2Kkz4YfDscJzRVrm4fuvQvh-MV58UG5V43MwaFW88&downloadName=main.gif",
+      "date_added": "2023.11.16 - 2023.11.23",
+      "item_description": "각 지역의 사진명소 정보를 제공 및 공유하는 서비스",
+      "my_role": ["DB 및 BackEnd 전반 설계", "아이디, 비밀번호 찾기 Front 구현"],
+      "skills": {
+        "platforms": ["SpringBoot", "Vue.js", "Django", "MyBatis"],
+        "language": ["Java", "JavaScript", "Python", "MySQL"],
+        "Etc": ["NClude"]
+      }
     }
   ]
 }

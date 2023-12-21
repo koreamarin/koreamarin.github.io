@@ -47,7 +47,7 @@ body {
 
 footer {
   font-family: "Source Sans Pro",sans-serif;
-  padding: 36px 0 46px 0;
+  padding: 26px 0 26px 0;
   background-color: #f6f9fc;
   color: #8898aa;
   border-top: 1px solid #D8E0E7;
@@ -144,37 +144,47 @@ main, footer>.footer_wrap, .nav-container {
   color :#00d1b2;
 }
 
+.tag-fill-mint {
+  background-color:#00d1b2;
+  color : #fff;
+}
+
 .experience-name {
-  font-size: 17px;
+  font-size: 23px;
   float: left;
-  width: 55%;
+  width: 60%;
 }
 
 .experience-info {
   display: inline-block;
 }
 
-.experience-jobPosition {
-  font-size: 13px;
-  color:gray
+.experience-position {
+  font-size: 20px;
 }
 
-.experience-date {
-  font-size: 12px;
+.date {
+  font-size: 15px;
   color:gray
 }
 
 .big-tag {
     padding : 15px;
-    margin : 4px
+    margin : 4px;
+    font-size: 13px;
 }
 
 .tag-set {
   display: inline-block;
+  margin: 0 5px
 }
 
 .cards {
   max-width: 1000px;
+}
+
+.card-description {
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .portfolio-figure {

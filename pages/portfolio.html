@@ -16,24 +16,39 @@ permalink: /portfolio/
                     {% endif %}
                 </figure>
             </div>
-            <div class="card-content">
+            <div class="card-description">
                 <div class="media">
                     <div class="media-content">
                         {% if item.link !="" %}
-                        <a style="font-size: 1.25rem;" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
+                        <a style="font-size: 23px;" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
                         {% else %}
-                        <p class="title is-5">{{item.name}}</p>
+                        <p style="font-size: 23px;">{{item.name}}</p>
                         {% endif %}
-                        
-                        
-                        <p class="subtitle is-6"><small>{{item.date_added}}</small></p>
+                        <div>{{item.item_description}}</div>
+                        <p style="margin: 7px 0px;"class="date">{{item.date_added}}</p>
                     </div>
                 </div>
-                <div class="content">
-                    <p>{{item.description}}</p>
-                    {% for tech in item.technologies %}
-                    <span class="tag is-primary">{{tech}}</span>
+                <div>
+                    {% for role in item.my_role %}
+                    <div style="margin: 2px 0px; font-size: 14px;">- {{ role }}</div>
                     {% endfor %}
+                </div>
+                <div style="margin:10px 0px;">
+                    <div class='tag-set'>
+                        {% for platform in item.skills.platforms %}
+                        <span class="tag tag-fill-orange">{{platform}}</span>
+                        {% endfor %}
+                    </div>
+                    <div class='tag-set'>
+                        {% for lan in item.skills.language %}
+                        <span class="tag tag tag-mint">{{lan}}</span>
+                        {% endfor %}
+                    </div>
+                    <div class='tag-set'>
+                        {% for item in item.skills.Etc %}
+                        <span class="tag tag-orange">{{item}}</span>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
