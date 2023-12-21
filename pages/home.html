@@ -15,42 +15,42 @@ permalink: index.html
             <br><br>
 
             <div>
-                <div>Experience</div>
+                <div class='orange'>📖 Experience 📖</div>
                 {% for item in site.data.home.experience %}
                 <hr>
-                <div>{{ item.name }}</div>
-                <div>{{ item.date }}</div>
-                <div>{{ item.jobPosition }}</div>
-                <div>
-                    {% for skill in item.skills %}
-                    <span>
-                        #{{ skill }}
-                    </span>
-                    {% endfor %}
+                <div class='experience-name'>{{ item.name }}</div>
+                <div class='experience-info'>
+                    <div>{{ item.jobPosition }}</div>
+                    <div class='experience-date'>{{ item.date }}</div>
+                    <div style='margin-top: 15px;'>
+                        {% for skill in item.skills %}
+                        <span class='tag tag-mint'>
+                            #{{ skill }}
+                        </span>
+                        {% endfor %}
+                    </div>
                 </div>
                 {% endfor %}
                 <hr>
             </div>
 
+            <br><br><br>
 
             <div>
-                <div>Skill</div>
+                <div class='orange' style='margin-bottom: 17px;'>💪 Skill 🦾</div>
                 <div>
                     {% for platform in site.data.home.skills.platforms %}
-                    <span>{{ platform }}</span>
+                    <span class='tag big-tag tag-fill-orange'>{{ platform }}</span>
                     {% endfor %}
-                </div>
-                <div>
                     {% for lan in site.data.home.skills.language %}
-                    <span>{{ lan }}</span>
+                    <span class='tag big-tag is-primary'>{{ lan }}</span>
                     {% endfor %}
-                </div>
-                <div>
                     {% for item in site.data.home.skills.Etc %}
-                    <span>{{ item }}</span>
+                    <span class='tag big-tag tag-orange'>{{ item }}</span>
                     {% endfor %}
                 </div>
             </div>
+            <br><br>
         </div>
     </div>
     

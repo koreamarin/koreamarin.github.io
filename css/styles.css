@@ -62,7 +62,7 @@ footer .footer_wrap {
 
 main, footer>.footer_wrap, .nav-container, .nav>.container, .content{
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
 }
 
 footer .footer_wrap .information .myname {
@@ -102,6 +102,7 @@ main, footer>.footer_wrap, .nav-container {
 
 .nav-item {
   font-size: 20px;
+  margin-right: 10px;
 }
 
 .container {
@@ -109,13 +110,63 @@ main, footer>.footer_wrap, .nav-container {
 }
 
 .name {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   line-height: 1.17;
 }
 
 .nickname {
-  color :#ff9469
+  color :#ff9469;
+  font-size: 12px;
+}
+
+.orange {
+  color :#ff9469;
+}
+
+.tag {
+  background-color: white;
+  margin : 3px 0px;
+}
+
+.tag-orange {
+  border: 1px solid #ff9469;
+  color :#ff9469;
+}
+
+.tag-fill-orange {
+  background-color:#ff9469;
+  color : #fff;
+}
+
+.tag-mint {
+  border: 1px solid #00d1b2;
+  color :#00d1b2;
+}
+
+.experience-name {
+  font-size: 17px;
+  float: left;
+  width: 55%;
+}
+
+.experience-info {
+  display: inline-block;
+}
+
+.experience-jobPosition {
+  font-size: 13px;
+  color:gray
+}
+
+.experience-date {
+  font-size: 12px;
+  color:gray
+}
+
+.big-tag {
+    padding : 15px;
+    margin : 4px
 }
 
 @media screen and (min-width: 769px), print{
@@ -131,4 +182,12 @@ main, footer>.footer_wrap, .nav-container {
   .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
     margin-left: 0%;
   }
+  
+}
+
+@media screen and (max-width: 769px), print{
+  .experience-name {
+    float: none;
+    width: 100%;
+}
 }
