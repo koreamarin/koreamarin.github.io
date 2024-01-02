@@ -1,9 +1,10 @@
 {
   "items": [
     {
+      "type": "Web application",
       "name": "Poravel",
       "link": "https://github.com/koreamarin/Poravel",
-      "image": "https://file.notion.so/f/f/a9e95446-d49f-4247-b0b1-e1e67493883e/796e079b-51d1-4de0-9f48-c1d77d3141a3/main.gif?id=b68b2777-7ab6-495b-b3ac-11eedbdc790e&table=block&spaceId=a9e95446-d49f-4247-b0b1-e1e67493883e&expirationTimestamp=1703246400000&signature=eK2Kkz4YfDscJzRVrm4fuvQvh-MV58UG5V43MwaFW88&downloadName=main.gif",
+      "image": "https://raw.githubusercontent.com/koreamarin/Poravel/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/main.gif",
       "date_added": "2023.11.16 - 2023.11.23",
       "item_description": "각 지역의 사진명소 정보를 제공 및 공유하는 서비스",
       "my_role": ["DB 및 BackEnd 전반 설계", "아이디, 비밀번호 찾기 Front 구현"],

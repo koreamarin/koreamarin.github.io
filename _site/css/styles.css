@@ -227,3 +227,27 @@ main, footer>.footer_wrap, .nav-container {
   }
 }
 
+.item-type{
+  font-size: 13px;
+  padding-bottom: 10px;
+}
+
+.box {
+  width: 90%;
+  margin: auto;
+}
+
+.post-description {
+  color:gray;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-decoration: none;
+}
+
+.post-content {
+  font-size: 13px;
+  color : rgb(199, 199, 199);
+}
