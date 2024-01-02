@@ -7,29 +7,9 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 	<lastBuildDate>Tue, 02 Jan 2024 12:30:58 +0900</lastBuildDate>
 	
-	<item>
-		<title>아직 작성중 입니다.</title>
-        
-        
-            <description>&lt;p&gt;작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중작성중&lt;/p&gt;
-</description>
-        
-        <pubDate>Tue, 02 Jan 2024 12:30:58 +0900</pubDate>
-        <link>http://localhost:4000/develop/2024/01/02/%EC%9E%91%EC%84%B1%EC%A4%91/</link>
-        <guid isPermaLink="true">http://localhost:4000/develop/2024/01/02/%EC%9E%91%EC%84%B1%EC%A4%91/</guid>
-      </item>
     
-	<item>
-		<title>복사용 &amp; jekyll 사용법</title>
-        
-        
-            <description>&lt;p&gt;이 게시물은 귀하의 디렉토리에서 찾을 수 있습니다 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 계속해서 편집하고 사이트를 다시 구축하여 변경 사항을 확인하세요. 다양한 방법으로 사이트를 다시 구축할 수 있지만 가장 일반적인 방법은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;웹 서버를 시작하고 파일이 업데이트될 때 사이트를 자동으로 다시 생성하는 를 실행하는 것입니다.&lt;/p&gt;
-</description>
-        
-        <pubDate>Sun, 31 Dec 2023 21:30:58 +0900</pubDate>
-        <link>http://localhost:4000/develop/2023/12/31/%EB%B3%B5%EC%82%AC%EC%9A%A9/</link>
-        <guid isPermaLink="true">http://localhost:4000/develop/2023/12/31/%EB%B3%B5%EC%82%AC%EC%9A%A9/</guid>
-      </item>
+    
+    
     
   </channel>
 </rss>
