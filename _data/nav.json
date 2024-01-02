@@ -1,9 +1,9 @@
 {
   "items": [
     {
-      "name": "Portfolio",
-      "id": "portfolio",
-      "link": "/portfolio/"
+      "name": "Project",
+      "id": "project",
+      "link": "/project/"
     },
     {
       "name": "Blog",
