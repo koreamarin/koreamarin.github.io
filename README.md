@@ -1,24 +1,20 @@
-# Jekyll Theme - BlogFolio
+## [Blog Link]([https://unluckyjung.github.io/](https://koreamarin.github.io/))
 
-A simple and easy to use blog and portfolio theme for Jekyll
+Jeklly 블로그 프레임워크를 사용한 개인 블로그.
 
-## Install
+------
 
-1. Clone or download `https://github.com/lamccloskey/jekyll-theme-blogfolio.git`
-2. Enter folder `cd jekyll-theme-blogfolio/`
-3. Start Jekyll Server `jekyll serve`
-4. Enter url `localhost:4000/jekyll-theme-blogfolio/`
+### 테스트
 
-## Demo
+1. 아래의 커멘드를 실행한다.
+```bash
+$ bundle exec jekyll serve
+```
 
-[https://lamccloskey.github.io/jekyll-theme-blogfolio/](https://lamccloskey.github.io/jekyll-theme-blogfolio/)
+2. `localhost:4000` 으로 접속하여 확인
 
-## Preview
-
-![alt text](blogfolio.gif "Blogfolio")
-
+------
+### 규칙
+- post 파일 이름 : 연도-월-일-제목 (파일 이름은 반드시 영어로.) ex)2024-01-01-test.md
+- 띄어쓰기는 공백 두개 만든 뒤 엔터.
 ---
-
-_Powered by [Jekyll](http://jekyllrb.com/) and styled using [Bulma](http://bulma.io/)_
-
-test
