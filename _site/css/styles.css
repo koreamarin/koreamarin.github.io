@@ -251,3 +251,8 @@ main, footer>.footer_wrap, .nav-container {
   font-size: 13px;
   color : rgb(199, 199, 199);
 }
+
+a:hover.a-hide {
+  color: rgb(199, 199, 199);
+  cursor: text;
+}

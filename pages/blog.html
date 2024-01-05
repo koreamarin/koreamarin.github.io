@@ -30,10 +30,11 @@ permalink: /blog/
                         <p style="color:#00d1b2">{{post.categories}}</p>
                         <p class="title is-4" style="margin-bottom: 10px;">{{post.title}} <span class="tag is-white is-pulled-right"><small>{{ post.date | date: '%B %d, %Y'}}</small></span></p>
                         <div class="post-description">{{post.description}}</div>
-                        <div class="post-content">작성중인 글이예요. 조금만 기다려주세요!!</div>
+                        <div class="post-content">작성중인 글이예요. 조금만 기다려주세요<a href="{{ post.url | relative_url }}" class="post-content a-hide" style="cursor: text;">!!</a></div>
                 </div>
             </div>
         </article>
+
     </div>
     {% endif %}
 {% endfor %}
