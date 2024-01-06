@@ -7,6 +7,7 @@ author: "Jiwon Ryu"
 title: "블로그"
 permalink: pretty
 baseurl: /
+future: ture # true이면 현재 날짜 이후의 포스트글들도 보임, false이면 현재날짜 이후의 포스트글은 리스트에 보이지않음.
 
 # social
 github:

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Windows에 Linux설치하기 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/6f790953-75c4-46d1-840d-f4c73b1fd442">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="blog" class="nav-item " href="/blog/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+    <div class="container">
+        <div class="heading has-text-centered">
+            <p class="title is-2">Windows에 Linux설치하기</p>
+            <p class="subtitle is-6"><span class="tag is-white"><small>January 01, 2024</small></span></p>
+        </div>
+        <br>
+        <div class="columns is-multiline">
+
+            <div class="column is-half is-offset-one-quarter">
+                <div class="content">
+                    <p>VirtualBox라는 프로그램을 설치하여 Windows OS에 가상머신을 만들고, 그 가상환경에 Ubuntu를 설치하는 포스팅입니다.
+추가로 가상머신의 우분투에 네트워크 연결 설정을 하고, 많이 사용하는 네트워크 방식에 대해 알아본다.</p>
+
+<hr />
+
+<h2 id="1-virtualbox-설치하기">1. VirtualBox 설치하기</h2>
+
+<ul>
+  <li>VirtualBox는 가상머신을 만들어 가상머신 내에 리눅스를 설치할 수 있도록 해주므로 VirtualBox를 설치해야한다.</li>
+  <li><a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a>에 접속하여 VirtualBox를 설치한다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/c3c25d1a-6787-484f-9f1f-e407813eec2c" alt="image" /></li>
+  <li>아래 이미지의 빨간 박스가 있는 버튼을 눌러 설치한다.<br />
+ <img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4b8d9bc8-b498-4e61-8846-e703f7c1d9f1" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/8027f4d2-27fa-49da-aa15-de935957aab3" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/0eeca65d-6f3e-4c8d-94c5-fd8ff50b90b3" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4c35c8b8-6fe1-4556-95e8-f4d521150fbb" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/72a17abc-2926-4f1c-a7dd-cef9936342b4" alt="image" /></li>
+</ul>
+
+<h2 id="2-ubuntu-이미지-다운받기">2. Ubuntu 이미지 다운받기</h2>
+
+<ul>
+  <li>우분투를 설치할 이미지파일을 아래 설명을 따라 다운받는다.</li>
+  <li><a href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a> 링크를 타고 이동하여 우분투를 설치한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/f09aaac3-8090-49dc-89ac-c1e76fd1676a" alt="image" /></li>
+</ul>
+
+<h2 id="3-virtualbox에-ubuntu가-설치된-가상머신-생성하기">3. VirtualBox에 Ubuntu가 설치된 가상머신 생성하기</h2>
+
+<ul>
+  <li>새로만들기를 누른다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/14ae9e02-edb2-4927-be6c-06288886e528" alt="image" /></li>
+  <li>이름에 ubuntu를 입력한다. 이름에 ubuntu를 입력하면 종류와 버전이 자동으로 설정된다.</li>
+  <li>ISO이미지 선택바에서 기타를 눌러서 다운받았던 ubuntu 이미지를 선택한다.</li>
+  <li>무인설치 건너뛰기를 하면 무인설치가 되는데, 이 포스트에서는 무인 설치를 하지 않을 것이므로 무인설치 건너뛰기를 체크한다.</li>
+  <li>다음 버튼을 누른다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/b29e1e03-ed53-4d17-83da-0b33b00e8f8c" alt="image" /></li>
+  <li>가상머신의 성능을 조절할 수 있는 창이 나타나게 되는데, 이 포스팅에서는 메모리를 4096MB으로 설정하여 진행한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/aab57097-c39e-4dae-bff0-d859da36b062" alt="image" /></li>
+  <li>가상 하드 디스크 설정하기. 25GB에서 건드리지 않고 다음을 누른다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/7b89a21b-8e56-4dcb-84b1-bad3fdffc485" alt="image" /></li>
+  <li>완료 버튼을 누른다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/de4c3491-a26f-4106-a1bf-5f9b1d7c377a" alt="image" /></li>
+  <li>가상머신이 생성되었다!!
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/8ab738ca-f670-4d7a-a025-a017ab9e95f8" alt="image" /></li>
+  <li>가상머신 실행을 위해 시작 버튼을 살펴보자.</li>
+  <li>일반 시작은 GUI 모드로 시작하는 것이고, 헤드리스 시작은 CLI로 실행하는 것이다.</li>
+  <li>이 포스팅에서는 일단 우분투 설치를 위해 일반 시작을 클릭한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ddc6042f-b6ed-4c29-a023-0f8ba540cb4e" alt="image" /></li>
+  <li>가상머신 화면이 뜨면 Try or install ubuntu를 선택하여 우분투를 설치한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9ca62823-5c73-43c7-ac67-dc6d82a0bd08" alt="image" /></li>
+  <li>ubuntu가 실행되면 설치 세팅화면이 나오는데 웬만하면 영어가 좋다. 한글로 하고싶으면 해도 되는데, 추 후 인코딩문제 책임안진다.</li>
+  <li>언어 선택 후 install ubuntu를 클릭한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/35a66a29-533e-4e5a-8366-3c4c9205c51b" alt="image" /></li>
+  <li>키보드 레이아웃 선택 후 continue를 클릭한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e97dfe13-0e65-45bb-9ce2-8b9c309d79a6" alt="image" /></li>
+  <li>노말 설치는 웹 브라우저, 오피스, 소프트웨어, 게임, 미디어 플레이어를 설치하는데 필요없으니 최소설치(Minimal installation)을 선택한다.</li>
+  <li>버전 업데이트는 필요없으므로 Download updates while installing Ubuntu를 체크 해제한다.</li>
+  <li>Continue를 누른다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/3c981d2d-fa05-4c4c-9d00-5b60b4ef2933" alt="image" /></li>
+  <li>디스크를 지우고 ubuntu설치(Erase disk and install Ubuntu)를 선택하고 지금설치(Install Now)를 선택한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ad62276a-f990-479f-a08b-4ab9a8a06004" alt="image" /></li>
+  <li>Continue를 눌러 계속 설치를 한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/51ef7193-155e-4e90-abb3-e6c54d018aa0" alt="image" /></li>
+  <li>지역이 아마 Seoul로 잡혀있을 것이다. Seoul로 설정한 후 계속한다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1b79897c-a3d2-4b53-8808-28226ac1a2e2" alt="image" /></li>
+  <li>이름과 패스워드를 입력한다. 이름을 입력하면 컴퓨터 이름과 닉네임은 자동으로 입력된다.</li>
+  <li>자동로그인과 로그인할때마다 패스워드 입력하는 라디오 버튼 중에서 알아서 선택한다. 이 포스트에서는 비밀번호 입력 필수를 선택한다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/bac60f77-3458-4725-ab83-6a391383cc5d" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/5995fda2-085d-4f1d-a03a-c928a604e7ed" alt="image" /></li>
+  <li>설치가 시작되니 기다린다!!</li>
+</ul>
+
+<h2 id="4-네트워크-방식-알아보기">4. 네트워크 방식 알아보기</h2>
+
+<ul>
+  <li>우분투가 설치되면 일단 인터넷은 된다. 하지만 네트워크 방식에 대해서 알아보자.</li>
+  <li>VirtualBox에서 설정에 들어간다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9df5b14d-404b-4668-9faf-ccd890c290b9" alt="image" /></li>
+  <li>설정 창이 열리면 네트워크 탭에 들어가서 “다음에 연결됨”을 열어본다.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/73102d21-1924-4c0a-9884-0ecab7b4d5ec" alt="image" /></li>
+</ul>
+
+<h3 id="용어">용어</h3>
+
+<ul>
+  <li>호스트 : 내 Windows 컴퓨터</li>
+  <li>게스트 : 가상머신에서 만들어진 Linux 컴퓨터</li>
+</ul>
+
+<h4 id="natnetwork-address-traslation--네트워크-주소-변환">NAT(Network Address Traslation / 네트워크 주소 변환)</h4>
+
+<ul>
+  <li>내부 네트워크에서 외부 네트워크로 단방향 연결. host 내부 네트워크와 통신 불가.</li>
+  <li>호스트와 내부 게스트간 통신을 하려면 포트포워딩을 해야 함.</li>
+  <li>게스트들은 아이피가 모두 같음.</li>
+  <li>여러 가상머신을 만들어 사용할 때에는 적합하지 않음.</li>
+</ul>
+
+<h4 id="어댑터에-브리지">어댑터에 브리지</h4>
+
+<ul>
+  <li>외부 라우터에서 IP주소를 직접 받아옴. 즉, 실제 사용되는 공유기에서 192.168.0.??? 주소를 직접 받아옴.</li>
+  <li>가장 마음 편한 방식. 공유기(라우터)에서 바로 IP를 할당해 주므로 따로 포트포워딩이 필요 없음.</li>
+  <li>다만 virtualBOX 내부의 네트워크 환경을 사용하는 것이 아니라는 것이 단점.</li>
+</ul>
+
+<h4 id="nat-network">NAT Network</h4>
+
+<ul>
+  <li>NAT 방식과 비슷하지만 NAT Network는 내부 네트워크의 게스트간에 통신이 가능함.</li>
+  <li>NAT 방식과 다르게 게스트들간의 IP가 다르게 할당되어 있음.</li>
+  <li>DHCP에 의해 IP address를 자동으로 할당 받음. DHCP는 ip를 자동으로 할당, 관리하기 위한 통신 규약이다.</li>
+  <li>NAT와 마찬가지로 포트포워딩은 필요함.</li>
+</ul>
+
+<h4 id="호스트-전용-어댑터">호스트 전용 어댑터</h4>
+
+<ul>
+  <li>호스트와 게스트간 통신은 되지만 외부 인터넷은 안됨</li>
+</ul>
+
+<h4 id="내부-네트워크">내부 네트워크</h4>
+
+<ul>
+  <li>게스트간 통신만 가능</li>
+  <li>호스트와 게스트간의 통신은 불가능. 인터넷 안됨</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        
+        <div id='disqus' style="padding :41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//devops/2024/01/01/%EA%B0%80%EC%83%81%EB%A8%B8%EC%8B%A0%EB%A6%AC%EB%88%85%EC%8A%A4,%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%84%A4%EC%A0%95-copy/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Windows에 Linux설치하기'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+        
+    </div>
+</section>
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
