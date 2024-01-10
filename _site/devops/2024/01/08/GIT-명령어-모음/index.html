@@ -76,9 +76,255 @@
 
             <div class="column is-half is-offset-one-quarter">
                 <div class="content">
-                    <p>깃 설치방법
-windows에 설치방법
-리눅스에 설치방법</p>
+                    <h1 id="깃-설치방법">깃 설치방법</h1>
+
+<h3 id="windows에-설치하기">Windows에 설치하기</h3>
+
+<ul>
+  <li><a href="https://git-scm.com/">https://git-scm.com/</a>에 들어가서 Download for Windows 버튼 클릭
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e0862629-2d75-418a-bb78-8b44bf23cf43" alt="image" /></li>
+  <li>사용자 컴퓨터에 맞춰 Git Setup 파일 다운
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/2d332644-783b-4bd8-a17b-cc4c4135cbc3" alt="image" /></li>
+  <li>
+    <p>따라 설치하기<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/43c8199b-11e0-4937-a1bd-3506151426ec" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1922b514-1d8e-409c-9c94-035bf21fcad7" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4acf7d44-877e-4096-a49d-b5dd5615667d" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/a8bf8221-529c-4303-9145-b037c8871b65" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/cdd3dbd5-d8db-4927-bde2-1423f70eeb85" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1189b143-5488-4d9f-b944-112f04b99c35" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/0debf4ea-a409-4dff-908a-930f7792534c" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/19047b05-67e8-4f80-97d3-44f372efd904" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e528daa5-beea-45df-8b3b-9115da0e6b50" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/d68bfbbc-8a7b-4eac-a546-f1dea3b3c470" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9cc6e3ae-4e8a-4416-b5c9-c6a9a6c56021" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/22e5f0b7-9b47-413a-aac9-e4b5043fed9f" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/c8670e7c-73d8-481e-9e60-52c12788066c" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/a1fd48d9-4740-4aeb-b7f0-11cb50d994d9" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ddff4e85-1d45-4cb4-b357-f7087c09677d" alt="image" />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ef1ca482-7f97-4727-a147-6800f2a1d934" alt="image" /></p>
+  </li>
+  <li>커멘트창에 <code class="language-plaintext highlighter-rouge">git --version</code> 입력하여 버전이 확인되면 설치 완료
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e1b819af-5b6c-4166-bb28-41780899d736" alt="image" /></li>
+</ul>
+
+<h3 id="linux에-설치하기">Linux에 설치하기</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sudo apt update</code> 입력</li>
+  <li><code class="language-plaintext highlighter-rouge">sudo apt install git</code> 입력</li>
+  <li>커멘트창에 <code class="language-plaintext highlighter-rouge">git --version</code> 입력하여 버전이 확인되면 설치 완료
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/f6fff008-80fb-4127-8c2c-18c2841a7e5c" alt="image" /></li>
+</ul>
+
+<h1 id="git-구성하기">Git 구성하기</h1>
+
+<ul>
+  <li>사용자 이름 설정하기</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="p">[</span><span class="no">MyName</span><span class="p">]</span>
+  <span class="n">ex</span><span class="p">)</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="n">koreamarin</span>
+  </code></pre></figure>
+
+<ul>
+  <li>사용자 이메일 설정하기</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="p">[</span><span class="no">MyEmail</span><span class="p">]</span>
+  <span class="n">ex</span><span class="p">)</span> <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="nf">email</span> <span class="n">awldnjs2</span><span class="vi">@gmail</span><span class="p">.</span><span class="nf">com</span>
+  </code></pre></figure>
+
+<ul>
+  <li>기본 브랜치명 변경 (main으로 기본 브랜치를 변경할 때)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">init</span><span class="p">.</span><span class="nf">defaultBranch</span> <span class="n">main</span>
+  </code></pre></figure>
+
+<ul>
+  <li>잘 입력 됐는지 확인하기</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">list</span>
+  </code></pre></figure>
+
+<h1 id="깃에서-관리되지-않는-파일폴더-설정하기">깃에서 관리되지 않는 파일/폴더 설정하기</h1>
+
+<ul>
+  <li>
+    <ol>
+      <li>.gitignore 파일을 만든다.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>.gitignore 파일 내용에 포함을 원치않는 파일명을 넣는다. 여러개일 경우에는 엔터를 눌러 한칸을 띄움으로서 나눠서 입력한다.</li>
+    </ol>
+  </li>
+  <li>파일을 무시하고 싶을 때는 [파일명.확장자명]으로 작성 ex) text.txt</li>
+  <li>확장자를 무시하고 싶을 때는 [*.확장자명]으로 작성 ex) *.txt</li>
+  <li>폴더를 무시하고 싶을 때는 [폴더명/]으로 작성 ex) conding_folder/</li>
+  <li>무시된 확장자지만 무시하고 싶지 않은 파일 ex) !text.txt</li>
+  <li>logs란 이름의 파일 또는 폴더와 그 내용들 ex) logs</li>
+  <li>logs란 이름의 폴더와 그 내용들 ex) logs/</li>
+  <li>logs 폴더바로 안의 debug.log파일 무시 ex) logs/debug.log</li>
+  <li>logs 폴더 안, 더 깊은 폴더안의 debug.log 파일 무시 ex) logs/**/debug.log</li>
+</ul>
+
+<h1 id="git-명령어">Git 명령어</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git init</code> : 깃 레포지토리를 생성하여 깃 시작하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git status</code> : 깃의 현재 상태 보여주기. 수정된 파일들이 커밋됐는지, 스테이징 되었는지 등의 상태를 보여줌.</li>
+  <li><code class="language-plaintext highlighter-rouge">git add text.txt</code> : text.txt파일을 스테이징하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git add .</code> : 모든 파일 스테이징하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git reset text.txt</code> : text.txt파일 스테이징 취소하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git reset</code> : 모든 스테이징된 파일 스테이징 취소하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git commit -m "commit message"</code> : 스테이징된 파일들을 커밋하면서 커밋메세지로 “commit message”라고 입력하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git log</code> : 커밋된 내용들 최근 순서부터 확인하기. 종료는 q를 누르면 됨.</li>
+</ul>
+
+<h4 id="과거로-돌아가기-깃-코드">과거로 돌아가기 깃 코드</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git reset --hard [되돌아갈 커밋 해시]</code> : 되돌아갈 커밋구간으로 되돌아가며, 그 때의 파일 상태로 되돌아간다.
+<code class="language-plaintext highlighter-rouge">git log</code>를 사용했을 때 볼 수 있는 commit 해시코드를 사용하여 되돌아간다.<br />
+해시코드는 전부를 입력하지 않아도 되고, 6~7글자정도만 입력하여도 된다.<br />
+다만, 되돌아간 커밋 이후의 커밋들은 삭제되어버린다.<br />
+따라서, 협업시 다른사람들과 공유되어 있는 경우 큰 충돌이 일어날 수 있으므로 주의해야 한다.<br />
+혼자 사용할 때 잘 못 커밋했을 때만 사용해야하는 명령어이다.<br />
+되돌리기를 취소하기가 어려우므로 조심해야하는 명령어이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">git revert</code> [이전 커밋 해시] : 이전 커밋의 내용을 반대로 다시 커밋하는 명령어이다.<br />
+되돌리고싶은 이전 커밋이 text.txt 파일을 생성했던 내용이라면, revert를 사용하면 text.txt파일이 삭제되는 것이다.<br />
+즉, revert는 이전 커밋을 반대로 시행한다.
+revert 명령어 사용 시 vim으로 이동하여 <code class="language-plaintext highlighter-rouge">:wq</code>를 사용하여 vim을 나오면 된다.<br />
+revert 명령어 사용 시 커밋관리에 따라 충돌되는 파일이 나타날 수 있다.<br />
+이때에는 revert가 일시 중지되고, 파일을 삭제해야할지, 추가해야할지 물어보는 명령어가 나올 수 있다.<br />
+주로 파일을 수정하는 내역에 대해서 충돌이 일어나서 그 파일을 추가할지 삭제할지를 사용자한테 물어보곤 한다.<br />
+revert는 파일 수정내역에서는 되돌아가기가 잘 안되며, 파일추가, 삭제 내역을 되돌아갈때에는 잘 작동한다.<br />
+만약 삭제해야할 시에는 <code class="language-plaintext highlighter-rouge">git rm text.txt</code>를 하면 되며, 추가해야할 때에는 <code class="language-plaintext highlighter-rouge">git add test.txt</code>를 하면 된다.
+그 후 <code class="language-plaintext highlighter-rouge">git revert --continue</code>를 입력하면 일시중지되었던 revert가 계속 진행되어 완료된다.</li>
+</ul>
+
+<h4 id="branch분기-만들기">Branch(분기) 만들기</h4>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git branch</code> : 현재 생성되어있는 로컬branch들 보기.</li>
+  <li><code class="language-plaintext highlighter-rouge">git branch -a</code> : 현재 생성되어있는 로컬 branch + 원격 branch들 보기</li>
+  <li><code class="language-plaintext highlighter-rouge">git branch develop</code> : 브랜치명이 develop인 브랜치 생성하기</li>
+  <li><code class="language-plaintext highlighter-rouge">git switch develop</code> : 브랜치명이 develop인 브랜치로 스위칭하기.(develop 브랜치로 이동.)</li>
+  <li><code class="language-plaintext highlighter-rouge">git switch -c develop</code> : 브랜치명이 develop인 브랜치를 생성하면서 스위칭(이동)까지 같이 하기.</li>
+  <li><code class="language-plaintext highlighter-rouge">git branch -d develop</code> : 브랜치명이 develop인 브랜치를 삭제한다.<br />
+다만, 커밋내용이 로컷저장소에만 있고 원격저장소에는 있지않다면 삭제가 불가능하다.</li>
+  <li><code class="language-plaintext highlighter-rouge">git branch -D develop</code> : 브랜치명이 develop인 브랜치를 강제삭제한다.<br />
+커밋내용이 원격저장소에 있지않고 로컬저장소에만 있는 상태이더라도 삭제가 가능하다.</li>
+</ul>
+
+<h4 id="branch-합치기">Branch 합치기</h4>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git merge develop</code> : develop 브랜치를 main으로 합치고싶을 때 main 브랜치로 스위칭한 상태로<br />
+ 해당 명령어를 입력하면 develop브랜치를 main브랜치로 합침. 협업할 때 많이 사용됨.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9ef39f07-d51d-4fdd-9faa-a7aace10bd73" alt="image" /></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git rebase main</code> : 현재 있는 브랜치를 main브랜치 뒤에 붙여버릴 떄 사용. (main 브랜치 아니여도 사용가능하며 main은 예시임)<br />
+예를 들어 develop 브랜치를 main브랜치에 뒤에 붙이고 싶을떄 develop 브랜치로 이동 후 해당명령어 뒤에 붙이고싶은 브랜치를 입력.<br />
+merge와의 차이점은 분기가 붙이는 브랜치 뒤에 통째로 붙어버려 분기되었던 브랜치 내역이 남지 않게 됨.<br />
+협업에서는 잘 쓰이지 않고, 만약 썼을 경우 깃이 꼬일 수 있으므로 혼자 Flow를 고칠때 사용하는 편이 좋음.<br />
+merge와는 현재 브랜치와 명령어에 들어가는 브랜치명이 반대로 쓰이므로 주의하기!!<br />
+브랜치가 main 뒤에 통째로 붙어버리고 브랜치가 삭제되지는 않음.<br />
+main 뒤에 붙이고 나서 main과 붙힌 브랜치를 merge해주어 main을 최신화시켜주고 붙혔던 브랜치는 필요가 없어졌으므로 주로 삭제시킴.
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/73147ae8-4990-4cf1-9613-5d606eb6a8c1" alt="image" /></p>
+  </li>
+</ul>
+
+<h4 id="branch-충돌-해결하기">Branch 충돌 해결하기</h4>
+
+<p>서로 다른 분기에서 같은 파일의 같은 줄에 수정내용이 있다면 컴퓨터는 어떤 것을 채택할지 모르므로 사람에게 충돌내용을 보여주며 넘기게 된다.
+merge를 하여 충돌이 발생했을때 나타나는 메세지 중에서 Head는 현재 브랜치의 내용, incoming은 추가된 브랜치의 내용이다.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git merge --abort</code> : 충돌 내용이 손쓸수 없이 많아서 merge를 중단하고 싶을 때 사용하는 명령어. merge를 중단한다.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">git rebase --abord</code> : rebase를 했을 때 충돌 내용이 손쓸수 없이 많아서 rebase를 중단하고 싶을 경우 쓰는 명령어.</li>
+  <li><code class="language-plaintext highlighter-rouge">git rebase --continue</code> : rebase의 충돌을 해결 한 후 쓰는 명령어.<br />
+충돌을 해결하고 난 후에는 <code class="language-plaintext highlighter-rouge">git add .</code>을 먼저 써서 스테이징한 후 <code class="language-plaintext highlighter-rouge">git rebase --continue</code>를 사용한다.<br />
+하지만 다시 충돌이 나타날 수도 있다.</li>
+</ul>
+
+<h5 id="tip">Tip</h5>
+
+<ul>
+  <li>다 사용한 Branch는 <code class="language-plaintext highlighter-rouge">git branch -d [branchName]</code>을 이용해서 지워줘야 깔끔하게 사용할 수 있음.</li>
+</ul>
+
+<h3 id="github-관련-명령어-원격저장소-관련-명령어">GitHub 관련 명령어 (원격저장소 관련 명령어)</h3>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git remote add [origin] [원격저장소 주소]</code> : 로컬의 git과 원격저장소 github와 연결하는 명령어.
+origin은 원격 저장소이름이고 다른이름으로도 사용 가능하나 흔히 origin으로 많이 사용됨.
+여러 원격저장소를 연결가능함.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">git remote</code> : 현재 로컬저장소에 연결되어있는 원격저장소들의 이름을 볼 수 있음.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git remote -v</code> : 현재 로컬저장소에 연결되어있는 원격저장소들의 이름, 주소, 상태를 볼 수 있음.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git branch -M [main]</code> : GitHub 권장 - 현재 브랜치명을 main으로 바꿈. (원격저장소 관련된 명령어는 아님)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git clone [원격저장소 주소]</code> : 현재 위치에 원격저장소에 있는 레포지토리를 로컬로 불러옴.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">git push</code> : 그냥 다 갖다 푸쉬해버리는거. 로컬에 있는 것들을 원격저장소로 밀어 넣는 것.(전송)</li>
+  <li><code class="language-plaintext highlighter-rouge">git push -u [origin] [main]</code> : 현재 로컬저장소의 브랜치를 origin 원격저장소의 main브랜치에 푸쉬하는 명령어.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">git push --force</code> : 강제푸쉬. 원격과의 충돌이 일어나면 push는 안되는 것이 원칙이지만, 원격이 잘 못 되어있는 상황이라면<br />
+로컬의 내용을 강제 적용해버리기 위해 강제푸쉬를 사용할 수 있다. 협업간에서는 협의후에 사용해야하는 명령어이다.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">git pull</code> : 원격에 있는 것들을 로컬로 당겨오는것(가져오는것).</li>
+</ul>
+
+<h5 id="tip--원격저장소와-로컬저장소의-충돌-발생-해결방법">Tip : 원격저장소와 로컬저장소의 충돌 발생 해결방법</h5>
+
+<ul>
+  <li>만약 원격저장소의 text.txt파일내용과 나의 로컬 저장소의 text.txt파일내용이 동시에 바뀌어있어서 충돌이 있는 상태라면 push가 되지않는다.</li>
+  <li>이런 충돌이 발생했을 때에는 먼저 원격에서 pull를 해서 로컬에서 충돌을 해결한 후 push를 해 주어야 한다.</li>
+  <li>이 때 pull을 하려면 아래 명령어가 필요하다</li>
+  <li><code class="language-plaintext highlighter-rouge">git pull --no-rebase</code> : merge 방식으로 pull을 하는 방식이다.
+로컬저장소와 원격저장소가 서로 분기되어 충돌 해결 후 merge되는 방식이다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4041ddc7-2234-43f1-a548-d95b4211dc64" alt="image" /></li>
+  <li><code class="language-plaintext highlighter-rouge">git pull --rebase</code> : rebase 방식으로 pull을 하는 방식이다.
+원격저장소를 우선적으로 채택한 후, 그 원격저장소 뒤에 나의 로컬저장소 분기를 rebase 형태로 붙여버리는 방식이다.<br />
+<code class="language-plaintext highlighter-rouge">git rebase</code>를 협업상황에서 사용하지 말라고 한적이 있는데, 그건 이미 공유된 상황인 branch를 rebase로 붙이지 말란 말이였고,
+pull을 할때의 rebase는 협업상황에서도 사용해도 된다고 함.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/d576ac1e-27a4-4480-ab2c-a2480d11fffe" alt="image" /></li>
+  <li>충돌이 해결되었다면 <code class="language-plaintext highlighter-rouge">git push</code>를 하여 푸쉬한다.</li>
+</ul>
+
+<h4 id="로컬의-서브-브랜치를-만들어서-원격저장소에-push하는방법">로컬의 서브 브랜치를 만들어서 원격저장소에 push하는방법</h4>
+
+<p>로컬에서 develop 브랜치를 만든 후, 원격저장소에 <code class="language-plaintext highlighter-rouge">git push</code>를 하면 오류메세지가 뜬다.
+원격저장소에는 develop 브랜치가 없는데, 로컬의 develop브랜치를 원격의 어느 브랜치에 push해야할 지 모르겠다는 메세지이다.
+이 때 사용하는 push명령어는 <code class="language-plaintext highlighter-rouge">git push -u [origin] [develop]</code>이다.</p>
+
+<h4 id="원격의-서브-브랜치를-로컬저장소에-가져오는-방법">원격의 서브 브랜치를 로컬저장소에 가져오는 방법</h4>
+
+<p>로컬에는 main 브랜치밖에 없고, 원격저장소에는 develop 브랜치가 생겼는데 로컬에 그 develop 브랜치를 가져오고 싶을 때 다음과 같이 사용한다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">git fetch</code> : 해당 명령어를 사용하면 원격저장소의 변경내용을 로컬로 불러와서 내용이 갱신되게 된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">git switch -t [origin/develop]</code> : origin/develop 브랜치로 변경하겠다는 뜻인데 이와 동시에 로컬의 develop 브랜치도 생기게 된다.
+-t 옵셥이 붙으면 로컬의 develop브랜치와 원격의 develop 브랜치를 계속 서로 연결하겠다는 뜻이다.</li>
+</ul>
+
+<h4 id="원격-브랜치-삭제">원격 브랜치 삭제</h4>
+
+<p><code class="language-plaintext highlighter-rouge">git push [origin] --delete [원격브랜치명]</code> : 원격 브랜치를 삭제한다.</p>
 
                 </div>
             </div>
