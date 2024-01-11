@@ -256,3 +256,11 @@ a:hover.a-hide {
   color: rgb(199, 199, 199);
   cursor: text;
 }
+
+h2 {
+  background:lightgray
+}
+
+h3 {
+  background:rgb(243, 212, 156)
+}
