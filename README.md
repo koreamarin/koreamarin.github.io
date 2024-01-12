@@ -19,7 +19,7 @@ Jeklly 블로그 프레임워크를 사용한 개인 블로그.
    gem install bundler jekyll
    ```
 
-5. `bundle install` 명령어를 CLI에 빌력한다.
+5. `bundle install` 명령어를 CLI에 입력한다.
 
 6. CLI에 아래 명령어를 입력하면 로컬서버가 실행된다.
 
