@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Git 커밋컨벤션 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/6f790953-75c4-46d1-840d-f4c73b1fd442">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="blog" class="nav-item " href="/blog/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+    <div class="container">
+        <div class="heading has-text-centered">
+            <p class="title is-2">Git 커밋컨벤션</p>
+            <p class="subtitle is-6"><span class="tag is-white"><small>January 11, 2024</small></span></p>
+        </div>
+        <br>
+        <div class="columns is-multiline">
+
+            <div class="column is-half is-offset-one-quarter">
+                <div class="content">
+                    <p>프로젝트 참여자들이 일관된 형식의 커밋메세지를 작성하기 위한 규칙을 커밋컨벤션이라 하며,<br />
+프로젝트 관리와 협업에 있어서 커밋메세지를 통일하기위해 커밋컨벤션을 사용하고는 한다.
+인터넷에 있는 여러 블로그들을 참고하여 공통적으로 사용하는 커밋컨벤션을 정리해 보았다.</p>
+
+<h2 id="커밋컨벤션을-사용하는-이유">커밋컨벤션을 사용하는 이유</h2>
+
+<ul>
+  <li>협업시의 커밋메세지를 획일화하여 팀원간 가독성을 키우기 위해</li>
+  <li>가독성을 높여 유지/보수성을 높이기 위해</li>
+</ul>
+
+<h2 id="commit-메시지-구조">Commit 메시지 구조</h2>
+
+<ul>
+  <li>커밋메세지 구조는 머리말, 본문, 꼬리말 세가지 파트로 나뉘어 있고, 각 파트는 빈줄을 두어 구한다.</li>
+  <li>머리말은 type과 subject로 이루어져있다.<br />
+<img src="https://github.com/koreamarin/koreamarin.github.io/assets/110477854/f62985d5-089d-4a4e-9d34-61a15329c5f1" alt="image" /></li>
+  <li>Type : 어떠한 의로도 커밋했는지를 명시하는 곳이다.</li>
+  <li>Subject : 변경사항에 대한 짧은 요약을 기술하는 곳이다.</li>
+  <li>body : 긴 설명이 필요한 경우에만 내용을 작성하는 곳이다. (생략 가능)</li>
+  <li>footer : issue tracker ID를 명시하고 싶은 경우에 작성한느 곳이다. (생략 가능)</li>
+</ul>
+
+<h2 id="header">Header</h2>
+
+<ul>
+  <li>헤더는 태그 : 제목의 형태이다. 콜론 (:) 뒤에는 space가 들어간다. 예시) type: subject</li>
+</ul>
+
+<h3 id="type의-특징-및-작성법">Type의 특징 및 작성법</h3>
+
+<ul>
+  <li>어떠한 의로도 커밋했는지를 명시하는 곳</li>
+  <li>Type의 종류중에서 선택하여 작성한다.</li>
+</ul>
+
+<h3 id="type의-종류">Type의 종류</h3>
+
+<ul>
+  <li>Feat : 새로운 기능 추가한 경우</li>
+  <li>Fix : 버그를 고친경우</li>
+  <li>!HOTFIX : 급하게 치명적인 버그를 고쳐야하는 경우</li>
+  <li>Docs : 문서를 수정한 경우</li>
+  <li>Style : 코드 포맷 변경, 세미콜론 누락, 코드 변경이 없는 경우</li>
+  <li>Refactor : 프로덕션 코드 리펙토링</li>
+  <li>Test : 테스트 코드 추가, 리펙토링 코드관련 추가</li>
+  <li>Chore : 빌드 테스트 업데이트, 패키지 매니저를 설정하는 경우</li>
+  <li>Design : CSS 등 사용자가 UI디자인을 변경했을 때</li>
+  <li>Rename : 파일명(or 폴더명)을 수정한 경우</li>
+  <li>Remove : 파일을 삭제하는 작업만 수행한 경우</li>
+  <li>Comment : 필요한 주석 추가 및 변경</li>
+  <li>!BREAKING CHANGE : 커다란 API 변경의 경우</li>
+</ul>
+
+<h3 id="subject의-특징-및-작성법">Subject의 특징 및 작성법</h3>
+
+<ul>
+  <li>제목은 최대 50글자가 넘지 않도록 하고 마침표 등의 특수기호는 사용하지 않는다.</li>
+  <li>영문으로 표기하는 경우 동사(원형)를 가장 앞에 두고 첫 글자는 대문자로 표기한다. (과거시제 사용X)</li>
+  <li>완전한 서술형 문장이 아니라 간결하고 요점적인 서술로 작성한다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fixed =&gt; Fix
+Added =&gt; Add
+Modified =&gt; Modify
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="body">Body</h2>
+
+<ul>
+  <li>본문은 한 줄 당 72자 내로 작성한다.</li>
+  <li>본문 내용은 양에 구애받지 않고 최대한 상세히 작성한다.</li>
+  <li>본문 내용은 어떻게 변경했는지보다 <strong>무엇을 변경했는지</strong> 또는 <strong>왜 변경했는지</strong>를 설명한다.</li>
+</ul>
+
+<hr />
+
+<h2 id="footer">Footer</h2>
+
+<h3 id="footer의-특징-및-작성법">Footer의 특징 및 작성법</h3>
+
+<ul>
+  <li>꼬리말은 Optional이다. 꼭 안써도 된다.</li>
+  <li>이슈 트래커 ID를 명시하고싶은 경우에 작성한다.</li>
+  <li>“이슈 트래커 유형 : #이슈 트래커 번호” 형식으로 작성한다</li>
+  <li>이슈 트래커 유형은 종류가 정해져 있으니 오른쪽 참고.</li>
+  <li>이슈 번호는 지라의 이슈 트래커 번호를 말한다.</li>
+  <li>여러 개의 이슈 번호를 적을 때는 쉼표( , )로 구분한다.</li>
+  <li>ex)
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fixes: #45
+Relted to: #34, #23
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="이슈-트래커-유형의-종류">이슈 트래커 유형의 종류</h3>
+
+<ul>
+  <li>Fixex : 이슈 수정중 (아직 해결되지 않은 경우)</li>
+  <li>Resolves : 이슈를 해결했을 때 사용</li>
+  <li>Ref : 참고할 이슈가 있을 때 사용</li>
+  <li>Related to : 해당 커밋에 관련된 이슈번호(아직 해결되지 않은경우)</li>
+</ul>
+
+<hr />
+
+<h2 id="commit-message-예시">Commit Message 예시</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feat: "Add login API"        // 타입: 제목
+
+로그인 API 개발               // 본문
+
+Resolves: #123              // 꼬리말 =&gt; 이슈 123을 해결했으며,
+Ref: #456                                 이슈 456 를 참고해야하며,
+Related to: #48, #45         현재 커밋에서 아직 이슈 48 과 45 가 해결되지 않았다.
+</code></pre></div></div>
+
+<h1 id="참고한-블로그">참고한 블로그</h1>
+
+<p><a href="https://velog.io/@msung99/Git-Commit-Message-Convension">[Git] Commit Message Convension (협업을 위한 git 커밋컨벤션)</a></p>
+
+<p><a href="https://overcome-the-limits.tistory.com/entry/협업-협업을-위한-기본적인-git-커밋컨벤션-설정하기">[협업] 협업을 위한 git 커밋컨벤션 설정하기</a></p>
+
+                </div>
+            </div>
+        </div>
+        
+        <div id='disqus' style="padding :41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//develop/2024/01/11/%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Git 커밋컨벤션'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+        
+    </div>
+</section>
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
