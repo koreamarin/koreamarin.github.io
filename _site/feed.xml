@@ -26,20 +26,6 @@
     
     
     
-      <item>
-        <title>Git 커밋컨벤션</title>
-            
-            
-                <description>&lt;p&gt;프로젝트 참여자들이 일관된 형식의 커밋메세지를 작성하기 위한 규칙을 커밋컨벤션이라 하며,&lt;br /&gt;
-프로젝트 관리와 협업에 있어서 커밋메세지를 통일하기위해 커밋컨벤션을 사용하고는 한다.
-인터넷에 있는 여러 블로그들을 참고하여 공통적으로 사용하는 커밋컨벤션을 정리해 보았다.&lt;/p&gt;
-</description>
-            
-            <pubDate>Thu, 11 Jan 2024 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/develop/2024/01/11/%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98/</link>
-            <guid isPermaLink="true">http://localhost:4000/develop/2024/01/11/%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98/</guid>
-        </item>
-      
     
   </channel>
 </rss>
