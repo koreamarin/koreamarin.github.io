@@ -15,7 +15,7 @@ branch 관리 방법으로 자주쓰이는 2가지 방법이 있는데 GitFlow�
 
 ## GitFlow
 
-![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/76e6f2b4-e766-4745-a759-20fa2284d4f6)
+![image](/image/GitFlow&GitHubFlow1.png)
 
 ### 설명 : gitFlow는 5개의 주요브랜치를 사용한다.
 
@@ -27,18 +27,18 @@ branch 관리 방법으로 자주쓰이는 2가지 방법이 있는데 GitFlow�
 
 ## GitHubFlow
 
-![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/56ce5674-7edf-4a30-a89c-bb41bce60853)
+![image](/image/GitFlow&GitHubFlow2.png)
 
 ### 설명 : GitHubFlow는 2개의 주요브랜치를 사용한다.
 
 - <span class='highlight-orange'>main(master)</span> : 서비스을 직접 배포하는 역할을 하는 브랜치
-- <span class='highlight-orange'>feature(기능)</span> :  각 기능 별 개발 브랜치, 브랜치명은 “feature/{name}”형식으로 만듦
+- <span class='highlight-orange'>feature</span> :  각 기능 별 개발 브랜치, 브랜치명은 “feature/{name}”형식으로 만듦
 
 ## 네이밍 규칙
 
 (1) main branch, develop branch
 
-- master와 develop 브랜치는 본래 이름 그대로 사용하는 경우가 일반적이다.
+- main과 develop 브랜치는 본래 이름 그대로 사용하는 경우가 일반적이다.
 
 (2) feature branch
 
