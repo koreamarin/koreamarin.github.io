@@ -36,54 +36,54 @@ VirtualBox라는 프로그램을 설치하여 Windows OS에 가상머신을 만�
 ## 3. VirtualBox에 Ubuntu가 설치된 가상머신 생성하기
 
 - 새로만들기를 누른다.  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/14ae9e02-edb2-4927-be6c-06288886e528)
+  ![image](/image/Windows에 Linux설치하기10.jpg)
 - 이름에 ubuntu를 입력한다. 이름에 ubuntu를 입력하면 종류와 버전이 자동으로 설정된다.
 - ISO이미지 선택바에서 기타를 눌러서 다운받았던 ubuntu 이미지를 선택한다.
 - 무인설치 건너뛰기를 하면 무인설치가 되는데, 이 포스트에서는 무인 설치를 하지 않을 것이므로 무인설치 건너뛰기를 체크한다.
 - 다음 버튼을 누른다.  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/b29e1e03-ed53-4d17-83da-0b33b00e8f8c)
+  ![image](/image/Windows에 Linux설치하기11.jpg)
 - 가상머신의 성능을 조절할 수 있는 창이 나타나게 되는데, 이 포스팅에서는 메모리를 4096MB으로 설정하여 진행한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/aab57097-c39e-4dae-bff0-d859da36b062)
+  ![image](/image/Windows에 Linux설치하기12.jpg)
 - 가상 하드 디스크 설정하기. 25GB에서 건드리지 않고 다음을 누른다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/7b89a21b-8e56-4dcb-84b1-bad3fdffc485)
+  ![image](/image/Windows에 Linux설치하기13.jpg)
 - 완료 버튼을 누른다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/de4c3491-a26f-4106-a1bf-5f9b1d7c377a)
+  ![image](/image/Windows에 Linux설치하기14.jpg)
 - 가상머신이 생성되었다!!
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/8ab738ca-f670-4d7a-a025-a017ab9e95f8)
+  ![image](/image/Windows에 Linux설치하기15.jpg)
 - 가상머신 실행을 위해 시작 버튼을 살펴보자.
 - 일반 시작은 GUI 모드로 시작하는 것이고, 헤드리스 시작은 CLI로 실행하는 것이다.
 - 이 포스팅에서는 일단 우분투 설치를 위해 일반 시작을 클릭한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ddc6042f-b6ed-4c29-a023-0f8ba540cb4e)
+  ![image](/image/Windows에 Linux설치하기16.jpg)
 - 가상머신 화면이 뜨면 Try or install ubuntu를 선택하여 우분투를 설치한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9ca62823-5c73-43c7-ac67-dc6d82a0bd08)
+  ![image](/image/Windows에 Linux설치하기17.jpg)
 - ubuntu가 실행되면 설치 세팅화면이 나오는데 웬만하면 영어가 좋다. 한글로 하고싶으면 해도 되는데, 추 후 인코딩문제 책임안진다.
 - 언어 선택 후 install ubuntu를 클릭한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/35a66a29-533e-4e5a-8366-3c4c9205c51b)
+  ![image](/image/Windows에 Linux설치하기18.jpg)
 - 키보드 레이아웃 선택 후 continue를 클릭한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e97dfe13-0e65-45bb-9ce2-8b9c309d79a6)
+  ![image](/image/Windows에 Linux설치하기19.jpg)
 - 노말 설치는 웹 브라우저, 오피스, 소프트웨어, 게임, 미디어 플레이어를 설치하는데 필요없으니 최소설치(Minimal installation)을 선택한다.
 - 버전 업데이트는 필요없으므로 Download updates while installing Ubuntu를 체크 해제한다.
 - Continue를 누른다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/3c981d2d-fa05-4c4c-9d00-5b60b4ef2933)
+  ![image](/image/Windows에 Linux설치하기20.jpg)
 - 디스크를 지우고 ubuntu설치(Erase disk and install Ubuntu)를 선택하고 지금설치(Install Now)를 선택한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ad62276a-f990-479f-a08b-4ab9a8a06004)
+  ![image](/image/Windows에 Linux설치하기21.jpg)
 - Continue를 눌러 계속 설치를 한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/51ef7193-155e-4e90-abb3-e6c54d018aa0)
+  ![image](/image/Windows에 Linux설치하기22.jpg)
 - 지역이 아마 Seoul로 잡혀있을 것이다. Seoul로 설정한 후 계속한다.  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1b79897c-a3d2-4b53-8808-28226ac1a2e2)
+  ![image](/image/Windows에 Linux설치하기23.jpg)
 - 이름과 패스워드를 입력한다. 이름을 입력하면 컴퓨터 이름과 닉네임은 자동으로 입력된다.
 - 자동로그인과 로그인할때마다 패스워드 입력하는 라디오 버튼 중에서 알아서 선택한다. 이 포스트에서는 비밀번호 입력 필수를 선택한다.  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/bac60f77-3458-4725-ab83-6a391383cc5d)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/5995fda2-085d-4f1d-a03a-c928a604e7ed)
+  ![image](/image/Windows에 Linux설치하기24.jpg)
 - 설치가 시작되니 기다린다!!
+  ![image](/image/Windows에 Linux설치하기25.jpg)
 
 ## 4. 네트워크 방식 알아보기
 
 - 우분투가 설치되면 일단 인터넷은 된다. 하지만 네트워크 방식에 대해서 알아보자.
 - VirtualBox에서 설정에 들어간다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9df5b14d-404b-4668-9faf-ccd890c290b9)
+  ![image](/image/Windows에 Linux설치하기26.jpg)
 - 설정 창이 열리면 네트워크 탭에 들어가서 "다음에 연결됨"을 열어본다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/73102d21-1924-4c0a-9884-0ecab7b4d5ec)
+  ![image](/image/Windows에 Linux설치하기27.jpg)
 
 ### 용어
 
