@@ -14,37 +14,36 @@ type: done # done, writing, hide
 
 ### Windows에 설치하기
 
-- [https://git-scm.com/](https://git-scm.com/)에 들어가서 Download for Windows 버튼 클릭
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e0862629-2d75-418a-bb78-8b44bf23cf43)
-- 사용자 컴퓨터에 맞춰 Git Setup 파일 다운
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/2d332644-783b-4bd8-a17b-cc4c4135cbc3)
+- [https://git-scm.com/](https://git-scm.com/)에 들어가서 Download for Windows 버튼 클릭  
+  ![image](/image/git & github 설치 및 사용방법1.png)
+- 사용자 컴퓨터에 맞춰 Git Setup 파일 다운  
+  ![image](/image/git & github 설치 및 사용방법2.png)
 - 따라 설치하기  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/43c8199b-11e0-4937-a1bd-3506151426ec)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1922b514-1d8e-409c-9c94-035bf21fcad7)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4acf7d44-877e-4096-a49d-b5dd5615667d)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/a8bf8221-529c-4303-9145-b037c8871b65)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/cdd3dbd5-d8db-4927-bde2-1423f70eeb85)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/1189b143-5488-4d9f-b944-112f04b99c35)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/0debf4ea-a409-4dff-908a-930f7792534c)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/19047b05-67e8-4f80-97d3-44f372efd904)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e528daa5-beea-45df-8b3b-9115da0e6b50)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/d68bfbbc-8a7b-4eac-a546-f1dea3b3c470)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9cc6e3ae-4e8a-4416-b5c9-c6a9a6c56021)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/22e5f0b7-9b47-413a-aac9-e4b5043fed9f)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/c8670e7c-73d8-481e-9e60-52c12788066c)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/a1fd48d9-4740-4aeb-b7f0-11cb50d994d9)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ddff4e85-1d45-4cb4-b357-f7087c09677d)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/ef1ca482-7f97-4727-a147-6800f2a1d934)
+  ![image](/image/git & github 설치 및 사용방법3.png)
+  ![image](/image/git & github 설치 및 사용방법4.png)
+  ![image](/image/git & github 설치 및 사용방법5.png)
+  ![image](/image/git & github 설치 및 사용방법6.png)
+  ![image](/image/git & github 설치 및 사용방법7.png)
+  ![image](/image/git & github 설치 및 사용방법8.png)
+  ![image](/image/git & github 설치 및 사용방법9.png)
+  ![image](/image/git & github 설치 및 사용방법10.png)
+  ![image](/image/git & github 설치 및 사용방법11.png)
+  ![image](/image/git & github 설치 및 사용방법12.png)
+  ![image](/image/git & github 설치 및 사용방법13.png)
+  ![image](/image/git & github 설치 및 사용방법14.png)
+  ![image](/image/git & github 설치 및 사용방법15.png)
+  ![image](/image/git & github 설치 및 사용방법16.png)
+  ![image](/image/git & github 설치 및 사용방법17.png)
+  ![image](/image/git & github 설치 및 사용방법18.png)
 
-- 커멘트창에 `git --version` 입력하여 버전이 확인되면 설치 완료
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/e1b819af-5b6c-4166-bb28-41780899d736)
+- 커멘트창에 `git --version` 입력하여 버전이 확인되면 설치 완료  
+  ![image](/image/git & github 설치 및 사용방법19.png)
 
 ### Linux에 설치하기
 
 - `sudo apt update` 입력
 - `sudo apt install git` 입력
 - 커멘트창에 `git --version` 입력하여 버전이 확인되면 설치 완료
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/f6fff008-80fb-4127-8c2c-18c2841a7e5c)
 
 # Git 구성하기
 
@@ -140,7 +139,7 @@ type: done # done, writing, hide
 
 - `git merge develop` : develop 브랜치를 main으로 합치고싶을 때 main 브랜치로 스위칭한 상태로  
    해당 명령어를 입력하면 develop브랜치를 main브랜치로 합침. 협업할 때 많이 사용됨.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/9ef39f07-d51d-4fdd-9faa-a7aace10bd73)
+  ![image](/image/git & github 설치 및 사용방법20.png)
 
 - `git rebase main` : 현재 있는 브랜치를 main브랜치 뒤에 붙여버릴 떄 사용. (main 브랜치 아니여도 사용가능하며 main은 예시임)  
   예를 들어 develop 브랜치를 main브랜치에 뒤에 붙이고 싶을떄 develop 브랜치로 이동 후 해당명령어 뒤에 붙이고싶은 브랜치를 입력.  
@@ -148,8 +147,8 @@ type: done # done, writing, hide
   협업에서는 잘 쓰이지 않고, 만약 썼을 경우 깃이 꼬일 수 있으므로 혼자 Flow를 고칠때 사용하는 편이 좋음.  
   merge와는 현재 브랜치와 명령어에 들어가는 브랜치명이 반대로 쓰이므로 주의하기!!  
   브랜치가 main 뒤에 통째로 붙어버리고 브랜치가 삭제되지는 않음.  
-  main 뒤에 붙이고 나서 main과 붙힌 브랜치를 merge해주어 main을 최신화시켜주고 붙혔던 브랜치는 필요가 없어졌으므로 주로 삭제시킴.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/73147ae8-4990-4cf1-9613-5d606eb6a8c1)
+  main 뒤에 붙이고 나서 main과 붙힌 브랜치를 merge해주어 main을 최신화시켜주고 붙혔던 브랜치는 필요가 없어졌으므로 주로 삭제시킴.  
+  ![image](/image/git & github 설치 및 사용방법21.png)
 
 #### Branch 충돌 해결하기
 
