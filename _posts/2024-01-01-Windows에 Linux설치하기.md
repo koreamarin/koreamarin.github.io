@@ -17,19 +17,21 @@ VirtualBox라는 프로그램을 설치하여 Windows OS에 가상머신을 만�
 
 - VirtualBox는 가상머신을 만들어 가상머신 내에 리눅스를 설치할 수 있도록 해주므로 VirtualBox를 설치해야한다.
 - [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)에 접속하여 VirtualBox를 설치한다.  
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/c3c25d1a-6787-484f-9f1f-e407813eec2c)
+  ![image](/image/Windows에 Linux설치하기01.png)
 - 아래 이미지의 빨간 박스가 있는 버튼을 눌러 설치한다.  
-   ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4b8d9bc8-b498-4e61-8846-e703f7c1d9f1)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/8027f4d2-27fa-49da-aa15-de935957aab3)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/0eeca65d-6f3e-4c8d-94c5-fd8ff50b90b3)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/4c35c8b8-6fe1-4556-95e8-f4d521150fbb)
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/72a17abc-2926-4f1c-a7dd-cef9936342b4)
+  ![image](/image/Windows에 Linux설치하기02.png)
+  ![image](/image/Windows에 Linux설치하기03.png)
+  ![image](/image/Windows에 Linux설치하기04.png)
+  ![image](/image/Windows에 Linux설치하기05.png)
+  ![image](/image/Windows에 Linux설치하기06.png)
+  ![image](/image/Windows에 Linux설치하기07.png)
+  ![image](/image/Windows에 Linux설치하기08.png)
 
 ## 2. Ubuntu 이미지 다운받기
 
 - 우분투를 설치할 이미지파일을 아래 설명을 따라 다운받는다.
-- [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) 링크를 타고 이동하여 우분투를 설치한다.
-  ![image](https://github.com/koreamarin/koreamarin.github.io/assets/110477854/f09aaac3-8090-49dc-89ac-c1e76fd1676a)
+- [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) 링크를 타고 이동하여 우분투를 설치한다.  
+  ![image](/image/Windows에 Linux설치하기09.png)
 
 ## 3. VirtualBox에 Ubuntu가 설치된 가상머신 생성하기
 
