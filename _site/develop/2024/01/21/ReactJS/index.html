@@ -69,31 +69,49 @@
     <div class="container">
         <div class="heading has-text-centered">
             <p class="title is-2">ReactJS</p>
-            <p class="subtitle is-6"><span class="tag is-white"><small>January 28, 2024</small></span></p>
+            <p class="subtitle is-6"><span class="tag is-white"><small>January 21, 2024</small></span></p>
         </div>
         <br>
         <div class="columns is-multiline">
 
             <div class="column is-half is-offset-one-quarter">
                 <div class="content">
-                    <p>이 게시물은 귀하의 디렉토리에서 찾을 수 있습니다 <code class="language-plaintext highlighter-rouge">_posts</code> 계속해서 편집하고 사이트를 다시 구축하여 변경 사항을 확인하세요. 다양한 방법으로 사이트를 다시 구축할 수 있지만 가장 일반적인 방법은 <code class="language-plaintext highlighter-rouge">jekyll serve</code>웹 서버를 시작하고 파일이 업데이트될 때 사이트를 자동으로 다시 생성하는 를 실행하는 것입니다.</p>
+                    <p>React에서 중요한건 component, prop, State이다.</p>
 
-<p>Jekyll에서는 블로그 게시물 파일 이름을 다음 형식에 따라 지정해야 합니다:</p>
+<p>React 프로젝트 만들기 : cmd에 원하는 디렉토리에서 <code class="language-plaintext highlighter-rouge">npx create-react-app .</code> 입력<br />
+<br />
+리엑트 개발환경 열기 : <code class="language-plaintext highlighter-rouge">npm start</code> -&gt; 개발환경으로 웹을 서비스하기 시작함.<br />
+<br />
+빌드하기 : <code class="language-plaintext highlighter-rouge">npm run build</code> -&gt; 프로젝트를 하나의 static한 파일로 빌드시켜 build폴더를 생성하여 그 안에 빌드 결과 파일을 넣어놓음.<br />
+<br />
+빌드한 파일 서비스 시작 : <code class="language-plaintext highlighter-rouge">npx serve -s build</code> -&gt; build는 폴더명을 의미. -s는 사용자가 어떠한 경로로 들어오든 간에 index.html로 들어가게끔 해주는 옵션
+<br /></p>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<p>컴포넌트를 만들때 컴포넌트명의 맨 앞글자는 반드시 대문자이어야 한다.<br />
+컴포넌트의 속성은 Prop이라고 부른다. 컴포넌트에 argument를 넣어주는 것이다.<br />
+동적으로 만들어주는 태그들은 각자 key라는 속성을 가지고 있어야 하며, key들은 고유(유니크)해야한다.<br />
+Prop에는 text를 넣을수도 있고, 변수를 넣을수도 있으며, 함수를 넣을 수도 있다.<br />
+따라서 컴포넌트 내부의 이벤트가 어떤 기능을 할 것인지를 Prop로 부여해줄 수 있는 것이다.</p>
 
-<p>여기서 <code class="language-plaintext highlighter-rouge">YEAR</code>는 4자리 숫자이고 <code class="language-plaintext highlighter-rouge">MONTH</code>는 <code class="language-plaintext highlighter-rouge">DAY</code>둘 다 2자리 숫자이며 는 <code class="language-plaintext highlighter-rouge">MARKUP</code>파일에 사용된 형식을 나타내는 파일 확장자입니다. 그런 다음 필요한 머리말을 포함하세요. 이 게시물의 소스를 살펴보고 작동 방식에 대한 아이디어를 얻으세요.</p>
+<p>State를 사용하여야 변수값이 변동될때마다 렌더링이 다시 된다. State를 사용하지 않은 변수의 변수값을 바꾸면 내부적으로만 변수값이 바뀌어있고,<br />
+바뀐 값이 렌더링되어 나타나지는 않는다.</p>
 
-<p>Jekyll은 또한 코드 조각에 대한 강력한 지원을 제공합니다:</p>
+<p>State를 사용하기 위해서는 <code class="language-plaintext highlighter-rouge">import {useState} from 'react';</code>를 사용하여 선언하여야 한다.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<p>useState로 선언한 변수에는 0번 인덱스에는 변수값이, 1번 인덱스에는 해당 변수를 바꾸기 위한 함수가 들어있다.<br />
+아래는 그 예시이고, 예시를 단축하여 사용한다.</p>
 
-<p>Jekyll을 최대한 활용하는 방법에 대한 자세한 내용은 <a href="https://jekyllrb.com/docs/home">Jekyll 문서</a>를 확인하세요 . 모든 버그/기능 요청은 <a href="https://github.com/jekyll/jekyll">Jekyll의 GitHub repo</a>에 제출하세요 . 궁금한 점이 있으시면 <a href="https://talk.jekyllrb.com/">Jekyll Talk</a> 에서 질문하실 수 있습니다 .</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const _mode = useState("ㅎㅇ")
+const mode = _mode[0];
+const setMode = _mode[1];
+</code></pre></div></div>
 
+<p>이 코드를</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const [mode, setMode] = useState("ㅎㅇ")
+</code></pre></div></div>
+
+<p>로 바꿀 수 있다.</p>
 
                 </div>
             </div>
@@ -106,7 +124,7 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    this.page.url = "https://koreamarin.github.io//develop/2024/01/28/ReactJS/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.url = "https://koreamarin.github.io//develop/2024/01/21/ReactJS/";  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = 'ReactJS'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
