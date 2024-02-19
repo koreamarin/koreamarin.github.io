@@ -7,8 +7,8 @@
     },
     {
       "name": "Blog",
-      "id": "blog",
-      "link": "/blog/"
+      "id": "category",
+      "link": "/category/"
     }
   ]
 }

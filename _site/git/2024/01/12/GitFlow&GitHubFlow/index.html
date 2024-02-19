@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> GitFlow & GitHubFlow |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">GitFlow & GitHubFlow</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>January 12, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>gitFlow는 git branch 관리 방법이다.</p>
+
+<p>branch 관리 방법으로 자주쓰이는 2가지 방법이 있는데 GitFlow와 GitHubFlow이다.
+이 두가지 방법에 대해 알아보는 글을 작성하겠다.</p>
+
+<h2 id="gitflow">GitFlow</h2>
+
+<p><img src="/image/GitFlow&amp;GitHubFlow1.png" alt="image" /></p>
+
+<h3 id="설명--gitflow는-5개의-주요브랜치를-사용한다">설명 : gitFlow는 5개의 주요브랜치를 사용한다.</h3>
+
+<ul>
+  <li><span class="highlight-orange">main(master)</span> : 메인 브렌치이다. 상용서버로 사용하며 CI/CD환경으로 설정해두어 서비스하는데에 사용한다.</li>
+  <li><span class="highlight-orange">develop</span> : 다음 출시 버전을 개발하는 용도의 브랜치이다. 개발을 위해 상용용 브랜치인 main브랜치와 isolation을 하기 위해 사용하는 브랜치이다. develop 브랜치에서 바로 수정을 진행하진 않으며, feature 브랜치로 분기하여 feature 브랜치에서 개발을 하고, 개발된 내역을 develop 브랜치에 merge하는 형식으로 개발이 진행된다. 그리고 통합 개발이 완료되면 release브랜치에 merge시켜서 QA(Quality Assuranc, 품질검사)를</li>
+  <li><span class="highlight-orange">feature</span> : 단위 기능 개발용 브랜치이다. develop 브랜치에서 분기하여 feature 브랜치에서 단위 기능들을 개발하곤 한다. feature브랜치의 이름은 <code class="language-plaintext highlighter-rouge">feature/{개발하는단위기능}</code> 형식으로 이름을 짓는다. 단위기능개발 완료 시 develop 브랜치에 merge한다.</li>
+  <li><span class="highlight-orange">release</span> : develop에서 main 브랜치로 통합하기 전 QA(품질검사)를 진행하는 용도의 브랜치이다. develop에서 개발을 완료하면 release 브런치에 merge하여 release 브런치에서 QA를 진행한다. 그 후, 이상이 없으면 release 브런치에서 main 브런치로 marge 한다.</li>
+  <li><span class="highlight-orange">hotfixes</span> : main에서 큰 오류가 발생됐을 때, 빨리 수정하기 위한 브랜치로 사용된다. 원래 개발방식은 develop브랜치로 분기하고 feature로 분기하여 수정을 하고 release에서 QA를 거쳐 main에 통합하는 과정인데, 상용 서비스를 진행하는 main브랜치에서 심각한 오류가 발생했을 때에는 이러한 과정을 거치기에는 오류 개선과정이 너무 느리므로 빠르게 오류수정을 진행하기 위해서 hotfix브런치에서 바로 고치고 main으로 통합하는 방식으로 오류수정을 진행한다.</li>
+</ul>
+
+<h2 id="githubflow">GitHubFlow</h2>
+
+<p><img src="/image/GitFlow&amp;GitHubFlow2.png" alt="image" /></p>
+
+<h3 id="설명--githubflow는-2개의-주요브랜치를-사용한다">설명 : GitHubFlow는 2개의 주요브랜치를 사용한다.</h3>
+
+<ul>
+  <li><span class="highlight-orange">main(master)</span> : 서비스을 직접 배포하는 역할을 하는 브랜치</li>
+  <li><span class="highlight-orange">feature</span> :  각 기능 별 개발 브랜치, 브랜치명은 “feature/{name}”형식으로 만듦</li>
+</ul>
+
+<h2 id="네이밍-규칙">네이밍 규칙</h2>
+
+<p>(1) main branch, develop branch</p>
+
+<ul>
+  <li>main과 develop 브랜치는 본래 이름 그대로 사용하는 경우가 일반적이다.</li>
+</ul>
+
+<p>(2) feature branch</p>
+
+<ul>
+  <li>보통 “feature/기능 요약” 형식으로 사용한다. ex) feature/login</li>
+  <li>feature/{issue-number}-{feature-name} 이슈추적을 사용한다면 이와 같은 형식을 따른다.</li>
+</ul>
+
+<p>(3) release branch</p>
+
+<ul>
+  <li>“release-버전명” 형식을 주로 사용한다. ex) release-0.0.1</li>
+</ul>
+
+<p>(4) hotfix branch</p>
+
+<ul>
+  <li>“hotfix-이슈 버전” 형식을 주로 사용한다. ex) hotfix-1.2.1</li>
+</ul>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//git/2024/01/12/GitFlow&GitHubFlow/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'GitFlow & GitHubFlow'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

@@ -227,6 +227,8 @@ footer > .footer_wrap,
   .experience-name {
     float: none;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 

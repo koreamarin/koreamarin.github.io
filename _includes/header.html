@@ -1,20 +1,10 @@
-<section class="hero is-primary is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <header class="site-category">
-        <ul>
-          {% assign pages_list = site.pages %} {% for node in pages_list %} {% if node.title != null
-          %} {% if node.layout == "category" %}
-          <li>
-            <a
-              class="category-link {% if page.url == node.url %} active{% endif %}"
-              href="{{ node.url }}"
-              >{{ node.title }}</a
-            >
-          </li>
-          {% endif %} {% endif %} {% endfor %}
-        </ul>
-      </header>
-    </div>
-  </div>
-</section>
+<div class="container has-text-centered">
+  <header>
+    <a id="ALL" class="tag tag-mint big-tag" href="/category">ALL</a>
+    {% assign pages_list = site.pages %} {% for node in pages_list %} {% if node.title != null %} {%
+    if node.layout == "category" %}
+    <a id="{{node.title}}" class="tag tag-mint big-tag" href="{{ node.url }}">{{ node.title }}</a>
+    {% endif %} {% endif %} {% endfor %}
+  </header>
+  <div id="selected-category"></div>
+</div>

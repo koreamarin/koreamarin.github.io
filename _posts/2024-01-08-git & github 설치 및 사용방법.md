@@ -3,7 +3,7 @@ layout: post
 title: git & github 설치 및 사용방법
 description: git & github 설치 및 사용방법에 대해 알아보는 글
 date: 2024-01-08 00:00:00 +0900
-categories: DevOps # Develop, Life, DevOps, Conference
+categories: Git # Develop, Life, DevOps, Conference
 comments: true
 type: done # done, writing, hide
 ---

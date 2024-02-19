@@ -24,7 +24,7 @@ Jeklly 블로그 프레임워크를 사용한 개인 블로그.
 6. CLI에 아래 명령어를 입력하면 로컬서버가 실행된다.
 
    ```
-   $ bundle exec jekyll serve
+   bundle exec jekyll serve
    ```
 
 7. `localhost:4000` 으로 접속하여 로컬서버로 접속한다.

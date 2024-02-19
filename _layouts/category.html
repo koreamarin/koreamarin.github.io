@@ -1,24 +1,52 @@
 ---
-layout: default
+layout: blog
 ---
 
-{% include header.html %}
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column is-half is-offset-one-quarter">
-        <ul class="posts-list">
-          {% assign category = page.category | default: page.title %} {% for post in
-          site.categories[category] %}
-          <li>
-            <h3>
-              <a href="{{ site.baseurl }}{{ post.url }}"> {{ post.title }} </a>
-              <small>{{ post.date | date_to_string }}</small>
-            </h3>
-          </li>
-          {% endfor %}
-        </ul>
+{% assign category = page.category | default: page.title %} {% for post in site.categories[category]
+%} {% if post.type == "done"%}
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <a href="{{ post.url | relative_url }}">
+          <p>{{post.categories}}</p>
+          <p class="title is-4" style="margin-bottom: 10px">
+            {{post.title}}
+            <span class="tag is-white is-pulled-right"
+              ><small>{{ post.date | date: '%B %d, %Y'}}</small></span
+            >
+          </p>
+          <p class="post-description">{{post.description}}</p>
+          <div class="post-content">{{post.excerpt | truncatewords: 20, '...'}}</div>
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </article>
+</div>
+{% endif %} {% if post.type == "writing"%}
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p class="tag-fill-orange tag" style="margin-left: 0px">Comming Soon</p>
+        <p style="color: #00d1b2">{{post.categories}}</p>
+        <p class="title is-4" style="margin-bottom: 10px">
+          {{post.title}}
+          <span class="tag is-white is-pulled-right"
+            ><small>{{ post.date | date: '%B %d, %Y'}}</small></span
+          >
+        </p>
+        <div class="post-description">{{post.description}}</div>
+        <div class="post-content">
+          작성중인 글이예요. 조금만 기다려주세요<a
+            href="{{ post.url | relative_url }}"
+            class="post-content a-hide"
+            style="cursor: text"
+            >!!</a
+          >
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+{% endif %} {% endfor %}
