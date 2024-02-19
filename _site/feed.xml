@@ -40,9 +40,7 @@
         <title>ReactJS</title>
             
             
-                <description>&lt;p&gt;react 참고자료 : &lt;a href=&quot;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass&quot;&gt;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass&lt;/a&gt;&lt;br /&gt;
-redux 참고자료 : &lt;a href=&quot;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/07.react-redux&quot;&gt;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/07.react-redux&lt;/a&gt;&lt;br /&gt;
-redux-toolkit 참고자료 : &lt;a href=&quot;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/08.react-redux-toolkit&quot;&gt;https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/08.react-redux-toolkit&lt;/a&gt;&lt;/p&gt;
+                <description>&lt;p&gt;노마드코더, 리엑트 공식문서 등을 참고하여 공부한 후 정리한 포스터 입니다.&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>

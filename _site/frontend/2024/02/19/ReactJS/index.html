@@ -76,7 +76,9 @@
     <br />
     <div class="columns is-multiline">
       <div class="column is-half is-offset-one-quarter">
-        <div class="content"><p>react 참고자료 : <a href="https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass">https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass</a><br />
+        <div class="content"><p>노마드코더, 리엑트 공식문서 등을 참고하여 공부한 후 정리한 포스터 입니다.</p>
+
+<p>react 참고자료 : <a href="https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass">https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/06.react-masterclass</a><br />
 redux 참고자료 : <a href="https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/07.react-redux">https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/07.react-redux</a><br />
 redux-toolkit 참고자료 : <a href="https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/08.react-redux-toolkit">https://github.com/koreamarin/01.Study/tree/main/06.nomad_coding/08.react-redux-toolkit</a></p>
 
@@ -155,19 +157,19 @@ function Hello() {
 }
 </code></p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    ```jsx
-                    function Hello() {
-                    	function byFn() {
-                    		console.log("bye :(");
-                    	}
-                    	function hiFn() {
-                    		console.log("created :)");
-                    		return byFn
-                    	}
-                    	useEffect(hiFn, []);
-                    	return &lt;h1&gt;Hello&gt;&lt;/h1&gt;
-                    }
-                    ```
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                        ```jsx
+                        function Hello() {
+                        	function byFn() {
+                        		console.log("bye :(");
+                        	}
+                        	function hiFn() {
+                        		console.log("created :)");
+                        		return byFn
+                        	}
+                        	useEffect(hiFn, []);
+                        	return &lt;h1&gt;Hello&gt;&lt;/h1&gt;
+                        }
+                        ```
 </code></pre></div>    </div>
   </li>
 </ul>
