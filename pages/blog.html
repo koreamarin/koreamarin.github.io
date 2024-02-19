@@ -4,38 +4,50 @@ title: Blog
 permalink: /blog/
 ---
 
-{% for post in site.posts %}
-    {% if post.type == "done"%}
-    <div class="box">
-        <article class="media">
-            <div class="media-content">
-                <div class="content">
-                    <a href="{{ post.url | relative_url }}">
-                        <p>{{post.categories}}</p>
-                        <p class="title is-4" style="margin-bottom: 10px;">{{post.title}} <span class="tag is-white is-pulled-right"><small>{{ post.date | date: '%B %d, %Y'}}</small></span></p>
-                        <p class="post-description">{{post.description}}</p>
-                        <div class="post-content">{{post.excerpt | truncatewords: 20, '...'}}</div>
-                    </a>
-                </div>
-            </div>
-        </article>
+{% for post in site.posts %} {% if post.type == "done"%}
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <a href="{{ post.url | relative_url }}">
+          <p>{{post.categories}}</p>
+          <p class="title is-4" style="margin-bottom: 10px">
+            {{post.title}}
+            <span class="tag is-white is-pulled-right"
+              ><small>{{ post.date | date: '%B %d, %Y'}}</small></span
+            >
+          </p>
+          <p class="post-description">{{post.description}}</p>
+          <div class="post-content">{{post.excerpt | truncatewords: 20, '...'}}</div>
+        </a>
+      </div>
     </div>
-    {% endif %}
-    {% if post.type == "writing"%}
-    <div class="box">
-        <article class="media">
-            <div class="media-content">
-                <div class="content">
-                        <p class="tag-fill-orange tag" style="margin-left :0px">Comming Soon</p>
-                        <p style="color:#00d1b2">{{post.categories}}</p>
-                        <p class="title is-4" style="margin-bottom: 10px;">{{post.title}} <span class="tag is-white is-pulled-right"><small>{{ post.date | date: '%B %d, %Y'}}</small></span></p>
-                        <div class="post-description">{{post.description}}</div>
-                        <div class="post-content">작성중인 글이예요. 조금만 기다려주세요<a href="{{ post.url | relative_url }}" class="post-content a-hide" style="cursor: text;">!!</a></div>
-                </div>
-            </div>
-        </article>
-
+  </article>
+</div>
+{% endif %} {% if post.type == "writing"%}
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p class="tag-fill-orange tag" style="margin-left: 0px">Comming Soon</p>
+        <p style="color: #00d1b2">{{post.categories}}</p>
+        <p class="title is-4" style="margin-bottom: 10px">
+          {{post.title}}
+          <span class="tag is-white is-pulled-right"
+            ><small>{{ post.date | date: '%B %d, %Y'}}</small></span
+          >
+        </p>
+        <div class="post-description">{{post.description}}</div>
+        <div class="post-content">
+          작성중인 글이예요. 조금만 기다려주세요<a
+            href="{{ post.url | relative_url }}"
+            class="post-content a-hide"
+            style="cursor: text"
+            >!!</a
+          >
+        </div>
+      </div>
     </div>
-    {% endif %}
-{% endfor %}
-
+  </article>
+</div>
+{% endif %} {% endfor %}
