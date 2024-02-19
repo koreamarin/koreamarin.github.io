@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> TypeScript 정리 문서 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">TypeScript 정리 문서</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>February 19, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>TypeScript를 공부한 내용을 정리한 글 입니다.</p>
+
+<p>참고 사이트 1: <a href="https://www.opentutorials.org/course/5080">https://www.opentutorials.org/course/5080</a></p>
+
+<p>참고 사이트 2: <a href="https://nomadcoders.co/typescript-for-beginners">https://nomadcoders.co/typescript-for-beginners</a></p>
+
+<ul>
+  <li>타입스크립트는 자바스크립트에서 일어나는 버그들을 보완한 언어이다.</li>
+  <li>타입스크립트는 자바스크립트가 잡아내지 못하는 오류들을 상당 부분 잡아주어 개발에 도움을 준다.</li>
+  <li>타입스크립트를 컴파일하면 오류가 없는 자바스크립트 코드가 나온다.</li>
+  <li>타입스크립트를 컴파일하면 어셈블리언어나 2진코드가 나오지 않고, 자바스크립트가 나오는 이유는 타입스크립트는 애초에 자바스크립트의 안정성과 디버깅 성능 보완하기 위해 만들어졌고, 브라우저가 자바스크립트 코드밖에 읽을 수 없기 때문에 오류가 없는 자바스크립트 코드를 주는 것이다.</li>
+</ul>
+
+<hr />
+
+<h1 id="데이터-타입">데이터 타입</h1>
+
+<h3 id="기본-데이터-타입"><strong>기본 데이터 타입</strong></h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">number</code>: 숫자 타입으로, 정수와 실수를 포함합니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">string</code>: 문자열 타입입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">boolean</code>: 참(true)과 거짓(false)을 나타내는 불리언 타입입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">null</code>: 값이 없음을 나타내는 타입입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">undefined</code>: 값이 할당되지 않은 변수의 기본값인 타입입니다.</li>
+</ul>
+
+<h3 id="객체-타입"><strong>객체 타입</strong></h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">object</code>: 객체를 나타내는 타입입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">array</code>: 동일한 타입의 요소를 가진 배열을 나타내는 타입입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">tuple</code>: 각 요소가 다른 타입을 가질 수 있는 배열을 나타내는 타입입니다. (TS 전용)</li>
+</ul>
+
+<h3 id="특수-타입"><strong>특수 타입</strong></h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">any</code>: 어떠한 타입이든 할당될 수 있는 타입입니다. (TS 전용)</li>
+  <li><code class="language-plaintext highlighter-rouge">unknown</code>: 타입을 미리 알 수 없는 경우에 사용되는 타입입니다. 이 타입은 안전한 타입 검사를 위해 사용됩니다. (TS 전용)</li>
+  <li><code class="language-plaintext highlighter-rouge">never</code>: 절대 발생하지 않는 값의 타입을 나타냅니다. 예를 들어, 함수가 항상 예외를 발생시키거나 무한 루프를 실행할 때 이 타입을 사용할 수 있습니다. (TS 전용)
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">hello</span><span class="p">():</span> <span class="nx">never</span> <span class="p">{</span>
+  <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">xxx</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">void</code> : 함수가 아무것도 반환하지 않을때 쓰는 타입.
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">hello</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="변수">변수</h1>
+
+<ul>
+  <li>
+    <p>타입스크립트는 변수에 대한 타입을 지정해 줄 수 있어 오류해결에 도움을 줄 수 있다.
+꼭 타입을 지정해줄 필요는 없으며, 타입을 지정해주지 않아도 알아서 타입을 추정한다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">ㅎㅇ</span><span class="dl">"</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="p">:</span> <span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="c1">// array</span>
+<span class="kd">let</span> <span class="nx">A</span> <span class="p">:</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">B</span> <span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">ㅎㅇ</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ㅂㅇ</span><span class="dl">"</span><span class="p">]</span>
+<span class="kd">let</span> <span class="nx">C</span> <span class="p">:</span> <span class="nx">boolean</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">]</span>
+<span class="s2">```
+
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>해쉬맵(딕셔너리 비슷한거)</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// alias 쓴거</span>
+<span class="kd">type</span> <span class="nx">Words</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">let</span> <span class="nx">dict</span><span class="p">:</span> <span class="nx">Words</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">potato</span><span class="p">:</span> <span class="dl">"</span><span class="s2">food</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// alias 안쓴거</span>
+<span class="kd">let</span> <span class="nx">dict2</span><span class="p">:</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">potato</span><span class="p">:</span> <span class="dl">"</span><span class="s2">food</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="객체타입">객체타입</h1>
+
+<ul>
+  <li>오브젝트를 생성하여 내부에 변수의 타입을 지정해 줄 때는 아래와 같이 작성하여 타입을 지정한다.
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">player</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+  <li>오브젝트 내부에 변수의 타입만 지정해주고 값을 지정해주지 않을 때에는 변수명 뒤에
+물음표(?)를 붙여준다. 해당 변수를 지정해주거나 지정해주지 않아도 되는 옵션형태가 되는 것이다.
+<code class="language-plaintext highlighter-rouge">tsx
+const player : {
+  name : string,
+  age? : number
+} = {
+  name : "nico"
+}
+</code></li>
+  <li>
+    <p>만약 타입구조가 똑같은 오브젝트를 만들때에는 아래와 같이 객체 타입을 따로 작성하여 타구조가 똑같은 오브젝트를 여러번 만들 수 있다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 비효율적인 작성 방식</span>
+
+<span class="kd">const</span> <span class="nx">playerNico</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">playerLynn</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Lynn</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 효율적인 작성 방식 (객체 타입을 따로 지정) - Type aliases라고 한다.</span>
+
+<span class="kd">type</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// 객체 타입을 선언할 떄에는 맨 앞글자가 대문자이어야함.</span>
+  <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// 변수의 타입이 Player 타입이다.</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">lynn</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Lynn</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="함수-사용법">함수 사용법</h1>
+
+<h3 id="1-매개변수와-반환-값의-데이터-타입-지정">1. 매개변수와 반환 값의 데이터 타입 지정</h3>
+
+<ul>
+  <li>매개변수의 타입과 반환값의 타입을 지정할 때 사용하는 방식.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="2-선택적-매개변수-사용하기"><strong>2. 선택적 매개변수 사용하기</strong></h3>
+
+<ul>
+  <li>매개변수를 선택적으로 받을 수 있게 만들고 싶을 떄에는 매개변수 뒤에 ‘?’를 사용한다.</li>
+  <li>아래 코드는 매개변수를 name 한개만 써도 되는 것이다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="nx">greeting</span><span class="p">?:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">greeting</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="nx">greeting</span><span class="p">}</span><span class="s2">, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">greet</span><span class="p">(</span><span class="dl">"</span><span class="s2">gd</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="3-allow-함수">3. Allow 함수</h3>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PlayerMaker</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="call-signatures">Call Signatures</h1>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">number</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="overloading">Overloading</h3>
+
+<ul>
+  <li>Call Signatures가 여러개일 때 타입과 인자, 리턴 타입이 다를때의 경우에 따라 함수를 다르게 사용할 수 있다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">(</span><span class="na">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">state</span><span class="p">:</span> <span class="nx">object</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">Push</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">(</span><span class="na">path</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">config</span><span class="p">:</span> <span class="nx">Config</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">push</span><span class="p">:</span> <span class="nx">Push</span> <span class="o">=</span> <span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="k">typeof</span> <span class="nx">config</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">config</span><span class="p">.</span><span class="nx">state</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">(</span><span class="na">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="p">(</span><span class="na">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">add</span><span class="p">:</span> <span class="nx">Add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">?)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="타입의-사용법">타입의 사용법</h1>
+
+<h2 id="type-aliases"><strong>Type Aliases</strong></h2>
+
+<ul>
+  <li>타입에 별칭을 붙여 사용할 수도 있다. 구조가 복잡한 변수의 경우 커스텀된 변수지정도 가능하다.</li>
+</ul>
+
+<h3 id="1-원시-데이터-타입의-별칭"><strong>1. 원시 데이터 타입의 별칭</strong></h3>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Age</span> <span class="o">=</span> <span class="kr">number</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">myAge</span><span class="p">:</span> <span class="nx">Age</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="2-array와-tuple-객체-함수에-적용한-사례"><strong>2. Array와 Tuple, 객체, 함수에 적용한 사례</strong></h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Array</span>
+<span class="kd">type</span> <span class="nx">Names</span> <span class="o">=</span> <span class="kr">string</span><span class="p">[];</span>
+<span class="kd">const</span> <span class="nx">myFriends</span><span class="p">:</span> <span class="nx">Names</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Alice</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Bob</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Charlie</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="c1">// Tuple</span>
+<span class="kd">type</span> <span class="nx">Coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="kr">number</span><span class="p">,</span> <span class="kr">number</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">myLocation</span><span class="p">:</span> <span class="nx">Coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">];</span>
+
+<span class="c1">// 객체</span>
+<span class="kd">type</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John Doe</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">28</span> <span class="p">};</span>
+
+<span class="c1">// 함수</span>
+<span class="kd">type</span> <span class="nx">GreetingFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">string</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">greet</span><span class="p">:</span> <span class="nx">GreetingFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">!`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="3-좀-더-복잡한-형태-굳이-이렇게까지-복잡하게-사용하진-않는다"><strong>3. 좀 더 복잡한 형태 (굳이 이렇게까지 복잡하게 사용하진 않는다)</strong></h3>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">UserID</span> <span class="o">=</span> <span class="kr">string</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">UserName</span> <span class="o">=</span> <span class="kr">string</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">Age</span> <span class="o">=</span> <span class="kr">number</span><span class="p">;</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="nx">UserID</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="nx">UserName</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="nx">Age</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">user</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">John Doe</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">28</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="타입의-또-다른-사용법">타입의 또 다른 사용법</h2>
+
+<ul>
+  <li>아래와 같이 타입에 변수타입을 지정하지 않고 값을 넣고 사용할 수도 있다.</li>
+  <li>아래와 같은 경우에서는 Team type을 사용하는 변수는 red, blue, yellow밖에 사용하지 못한다.
+Health type을 사용하는 변수는 1,5,10으로만 값을 가질 수 있다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Team</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">yellow</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">Health</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">type</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nickname</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">team</span><span class="p">:</span> <span class="nx">Team</span><span class="p">;</span>
+  <span class="nl">health</span><span class="p">:</span> <span class="nx">Health</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nickname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">team</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">health</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="readonly">ReadOnly</h2>
+
+<ul>
+  <li>readOnly속성을 부여하면 그 변수는 읽기만 가능하고, 값을 바꾸려고 할 때 Typescript가 막아준다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="k">readonly</span> <span class="na">name</span><span class="p">:</span><span class="kr">string</span><span class="p">,</span>
+	<span class="nx">age</span><span class="p">?:</span><span class="kr">number</span>
+<span class="p">}</span>
+
+<span class="o">---------</span>
+
+<span class="kd">const</span> <span class="nx">numbers</span><span class="p">:</span> <span class="k">readonly</span> <span class="kr">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="polymorphism다형성">Polymorphism(다형성)</h2>
+
+<p>제네릭은 React.js에서 많이 사용된다고 한다.</p>
+
+<ul>
+  <li>
+    <p>Generics : 매개변수와 리턴타입에 선언하면 알아서 타입찾아줌.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">SuperPrint</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="na">arr</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]):</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">superPrint</span><span class="p">:</span> <span class="nx">SuperPrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">]);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>매개변수가 여러개라면 아래와 같이 제네릭을 여러개 쓰면 된다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">SuperPrint</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">M</span><span class="o">&gt;</span><span class="p">(</span><span class="na">arr</span><span class="p">:</span> <span class="nx">T</span><span class="p">[],</span> <span class="na">b</span><span class="p">:</span> <span class="nx">M</span><span class="p">):</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">superPrint</span><span class="p">:</span> <span class="nx">SuperPrint</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="dl">"</span><span class="s2">X</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">]);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>alias를 쓰지않고 그냥 함수로만으로도 쓸 수 있다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">superPrint</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="nx">T</span><span class="p">[]):</span> <span class="nx">T</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nf">superPrint</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">]);</span>
+<span class="nf">superPrint</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hello1</span><span class="dl">"</span><span class="p">]);</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="classes객체지향-코드-작성">Classes(객체지향 코드 작성)</h1>
+
+<h2 id="기본적인-작성-방법-및-추상클래스abstract">기본적인 작성 방법 및 추상클래스(abstract)</h2>
+
+<p>아래 코드는 추상클래스와 상속받은 모습, 인스턴스 생성방법등을 보여주고 있다.</p>
+
+<ul>
+  <li>public : 어디에서나 호출 가능</li>
+  <li>private : 선언한 클래스 내부 이외에서는 호출 불가.</li>
+  <li>
+    <p>protected : 선언한 클래스와 그 클래스를 상속받은 클래스에서만 사용 가능.</p>
+  </li>
+  <li>
+    <p>클래스 작성 예</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="c1">// 추상클래스.</span>
+  <span class="nf">constructor</span><span class="p">(</span>
+    <span class="c1">// 추상메서드 선언 시 필요한 매개변수 구조 선언</span>
+    <span class="k">private</span> <span class="nx">firstName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="k">protected</span> <span class="nx">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+    <span class="k">public</span> <span class="nx">nickname</span><span class="p">:</span> <span class="kr">string</span>
+  <span class="p">)</span> <span class="p">{}</span>
+
+  <span class="c1">// 추상메서드. 추상메서드는 상속받은 클래스에서 반드시 구현해야함.</span>
+  <span class="kd">abstract</span> <span class="nf">getNickName</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+
+  <span class="nf">getFullName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 메서드는 private로 외부에서 호출불가.</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">${this.firstName} ${this.lastName}</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="c1">// User 추상클래스를 상속받은 클래스.</span>
+  <span class="nf">getNickName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 추상메서드는 반드시 구현해야하므로 구현함.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">nico</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Player</span><span class="p">(</span><span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">las</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">니꼬</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 클래스 생성.</span>
+
+<span class="nx">nico</span><span class="p">.</span><span class="nf">getFullName</span><span class="p">();</span> <span class="c1">// 메서드가 public이므로 접근 가능.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>다른 예</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Words</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">class</span> <span class="nc">Dict</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="nx">words</span><span class="p">:</span> <span class="nx">Words</span><span class="p">;</span>
+  <span class="nf">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">words</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="p">}</span>
+  <span class="nf">add</span><span class="p">(</span><span class="nx">word</span><span class="p">:</span> <span class="nx">Word</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 클래스를 타입처럼 사용할 수 있음. word는 Word클래스의 인스턴스가 됨.</span>
+    <span class="k">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">.</span><span class="nx">term</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">.</span><span class="nx">term</span><span class="p">]</span> <span class="o">=</span> <span class="nx">word</span><span class="p">.</span><span class="nx">def</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nf">def</span><span class="p">(</span><span class="nx">term</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">term</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Word</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">term</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">public</span> <span class="nx">def</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">kimchi</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Word</span><span class="p">(</span><span class="dl">"</span><span class="s2">kimchi</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">한국의 음식</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">dict</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Dict</span><span class="p">();</span>
+
+<span class="nx">dict</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="nx">kimchi</span><span class="p">);</span>
+<span class="nx">dict</span><span class="p">.</span><span class="nf">def</span><span class="p">(</span><span class="dl">"</span><span class="s2">kimchi</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>추상 클래스와 추상클라스를 상속받아 사용하는 클래스의 다른 예</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">firstName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">protected</span> <span class="nx">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kd">abstract</span> <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="kd">abstract</span> <span class="nf">fullName</span><span class="p">():</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="nf">fullName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">. My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nf">fullName</span><span class="p">()}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="interface-인터페이스">Interface (인터페이스)</h2>
+
+<h3 id="interface와-type의-차이점에-대해-알아보기">interface와 type의 차이점에 대해 알아보기</h3>
+
+<p>인터페이스는 객체의 형태를 정해주는 것이다. 타입도 변수들의 타입을 정해주는 역할을 하는데 인터페이스와 타입이 뭐가 다른지 알아보자.</p>
+
+<p>아래의 Player type을 인터페이스 형태로 바꿀 수 있다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Team</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">yellow</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">Health</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">type</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// type을 사용하여 객체의 형태를 지정하는 코드</span>
+  <span class="na">nickname</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">team</span><span class="p">:</span> <span class="nx">Team</span><span class="p">;</span>
+  <span class="nl">health</span><span class="p">:</span> <span class="nx">Health</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nickname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">team</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">health</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Team</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">yellow</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">type</span> <span class="nx">Health</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">Player</span> <span class="p">{</span>
+  <span class="c1">// 인터페이스를 사용하여 객체의 형태를 지정하는 코드</span>
+  <span class="nl">nickname</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">team</span><span class="p">:</span> <span class="nx">Team</span><span class="p">;</span>
+  <span class="nl">health</span><span class="p">:</span> <span class="nx">Health</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">nickname</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">team</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">health</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>인터페이스는 오브젝트의 모양을 특정해주기 위한 용도로 사용된다.</p>
+
+<p>React.js에서 많이 사용된다고 한다.</p>
+
+<p>타입을 지정해주기 위한 용도로는 type 형태가 할 수 있는 것이 더 많으며,</p>
+
+<p>인터페이스는 오로지 오브젝트의 모양을 특정해누는 역할로만 사용되는 것이다.</p>
+
+<p>인터페이스는 아래와 같은 것들은 못 하는 것이다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Team</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">yellow</span><span class="dl">"</span>
+<span class="kd">type</span> <span class="nx">Health</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">10</span>
+<span class="kd">type</span> <span class="nx">name</span> <span class="o">=</span> <span class="kr">string</span>
+
+<span class="c1">// 타입을 인터페이스로 바꿈. 근데 인터페이스는 위에것들 못함</span>
+
+<span class="kr">interface</span> <span class="nx">Team</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">blue</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">yellow</span><span class="dl">"</span> <span class="p">}</span>   <span class="c1">// 인터페이스는 이런거 못함</span>
+<span class="kr">interface</span> <span class="nx">Health</span> <span class="p">{</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">10</span> <span class="p">}</span>                <span class="c1">// 인터페이스는 이런거 못함</span>
+<span class="kr">interface</span> <span class="nx">name</span> <span class="p">{</span> <span class="kr">string</span> <span class="p">}</span>                      <span class="c1">// 인터페이스는 이런거 못함</span>
+</code></pre></div></div>
+
+<p>인터페이스 to type 의 형태중에서 아래 코드도 참고하길 바란다. 이런식으로도 바꾸기가 가능하다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 인터페이스를 상속받는 인터페이스를 상속받는 객체</span>
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Player</span> <span class="kd">extends</span> <span class="nx">User</span> <span class="p">{}</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">// 아래와 같이 타입으로 바꾸기도 가능</span>
+<span class="c1">// 타입값을 받아 타입을 앤드연산자로 합쳐서 사용하는 타입을 사용하는 객체</span>
+<span class="kd">type</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">Player</span> <span class="o">=</span> <span class="nx">User</span> <span class="o">&amp;</span> <span class="p">{};</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">Player</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>인터페이스는 여러개의 같은 이름을 가진 인터페이스가 있을 때 타입스크립트가 하나로 합쳐주므로 상속받는 객체는 인터페이스에 사용되는 형태를 모두 만족해야 한다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">health</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">nico</span><span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">lastName</span><span class="p">:</span> <span class="dl">"</span><span class="s2">rara</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">health</span><span class="p">:</span> <span class="dl">"</span><span class="s2">good</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="결론--객체의-형태를-다룰때에는-타입이나-인터페이스-둘-다-사용-가능하나-객체의-형태를-다를때에는-인터페이스를-사용하는게-더-깔끔해-보인다고-한다">결론 : 객체의 형태를 다룰때에는 타입이나 인터페이스 둘 다 사용 가능하나, 객체의 형태를 다를때에는 인터페이스를 사용하는게 더 깔끔해 보인다고 한다!</h3>
+
+<h3 id="인터페이스-사용방법">인터페이스 사용방법</h3>
+
+<p>아래 코드는 추상클래스를 인터페이스로 바꾸는 방법을 예를들어서 인터페이스 사용방법을 설명한다.
+인터페이스를 상속받을때에는 extends가 아니라 implements를 사용한다.</p>
+
+<ul>
+  <li>
+    <p>추상메서드에서는 변수를 protedted 또는 private로 사용할 수 있는데, 인터페이스에서는 public으로밖에 사용하지 못한다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 추상클래스</span>
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="k">protected</span> <span class="nx">firstName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">protected</span> <span class="nx">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="kd">abstract</span> <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="kd">abstract</span> <span class="nf">fullName</span><span class="p">():</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Player</span> <span class="kd">extends</span> <span class="nc">User</span> <span class="p">{</span>
+  <span class="nf">fullName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">. My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nf">fullName</span><span class="p">()}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+```tsx
+interface User {
+    firstName:string,
+    lastName : string,
+    sayHi(name:string):string,
+    fullName():string
+}
+
+class Player implements User {
+    constructor(
+        public firstName:string,
+        public lastName:string
+    ){}
+    fullName(){
+        return `${this.firstName} ${this.lastName}`
+    }
+
+    sayHi(name:string) {
+        return `Hello ${name}. My name is ${this.fullName()}`
+    }
+
+}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>인터페이스 2개 이상을 동시에 상속받을 때</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+  <span class="nl">firstName</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nf">fullName</span><span class="p">():</span> <span class="kr">string</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">Human</span> <span class="p">{</span>
+  <span class="nl">health</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Player</span> <span class="k">implements</span> <span class="nx">User</span><span class="p">,</span> <span class="nx">Human</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="k">public</span> <span class="nx">firstName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">public</span> <span class="nx">lastName</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="k">public</span> <span class="nx">health</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{}</span>
+  <span class="nf">fullName</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">`Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">. My name is </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nf">fullName</span><span class="p">()}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>이미 앞서 한번 본 형태이지만 다시 한번 언급한다.
+인터페이스는 클래스가 상속받는 형식으로도 사용할 수 있고, 객체변수의 type을 지정하는형태로도 사용 가능하다.</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">User</span> <span class="p">{</span>
+<span class="nl">firstName</span><span class="p">:</span><span class="kr">string</span><span class="p">,</span>
+<span class="nx">lastName</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="nf">sayHi</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span><span class="kr">string</span><span class="p">):</span><span class="kr">string</span><span class="p">,</span>
+<span class="nf">fullName</span><span class="p">():</span><span class="kr">string</span>
+<span class="p">}</span>
+<span class="kr">interface</span> <span class="nx">Human</span> <span class="p">{</span>
+<span class="nl">health</span><span class="p">:</span><span class="kr">number</span>
+<span class="p">}</span>
+
+    <span class="c1">// 함수의 인자 타입을 User 인터페이스로 지정.</span>
+    <span class="c1">// 반환 타입도 User 인터페이스로 지정.</span>
+    <span class="kd">function</span> <span class="nf">makeUser</span><span class="p">(</span><span class="nx">user</span><span class="p">:</span><span class="nx">User</span><span class="p">)</span> <span class="p">:</span> <span class="nx">User</span><span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>    <span class="c1">// 반환타입이 User 인터페이스 형태가 되게끔 반환.</span>
+            <span class="na">firstName</span><span class="p">:</span><span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">lastName</span><span class="p">:</span><span class="dl">"</span><span class="s2">las</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">fullName</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span>
+            <span class="na">sayHi</span><span class="p">:</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 함수의 인자 타입이 User 인터페이스이므로, 형태에 맞게 작성</span>
+    <span class="nf">makeUser</span><span class="p">({</span>
+        <span class="na">firstName</span><span class="p">:</span><span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">lastName</span><span class="p">:</span><span class="dl">"</span><span class="s2">las</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">fullName</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">sayHi</span><span class="p">:</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span>
+    <span class="p">})</span>
+
+    <span class="c1">// 객체형태의 변수에 User 인터페이스를 타입으로 지정</span>
+    <span class="kd">const</span> <span class="nx">asdf</span> <span class="p">:</span> <span class="nx">User</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">firstName</span><span class="p">:</span><span class="dl">"</span><span class="s2">nico</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">lastName</span><span class="p">:</span><span class="dl">"</span><span class="s2">las</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">fullName</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">sayHi</span><span class="p">:</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span>
+    <span class="p">}</span>
+    <span class="s2">```
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="polymorphism-generic-class-interface를-모두-합친-형태">Polymorphism, Generic, Class, Interface를 모두 합친 형태</h1>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">SStorage</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="p">[</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">LocalStorage</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="k">private</span> <span class="na">storage</span><span class="p">:</span> <span class="nx">SStorage</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nf">set</span><span class="p">(</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nf">remove</span><span class="p">(</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nf">get</span><span class="p">(</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nf">clear</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">stringsStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LocalStorage</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="nx">stringsStorage</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">key</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">stringsStorage</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">how are you</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">booleansStorage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LocalStorage</span><span class="o">&lt;</span><span class="nx">boolean</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="nx">booleansStorage</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">xxx</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">booleansStorage</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h1 id="nodejs에서-typescript">node.js에서 Typescript</h1>
+
+<h2 id="nodejs에서-typescript-시작하기">node.js에서 Typescript 시작하기</h2>
+
+<ol>
+  <li>cmd에 <code class="language-plaintext highlighter-rouge">npm init -y</code>을 입력하면 node.js프로젝트가 시작되며 package.json 파일이 생성됨.
+    <ul>
+      <li>package.json (아래와 같이 입력하기, 버전은 2번을 거친 후 알아서)
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typescript-practice"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node build/index.js"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.3.3"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">"build": "tsc"</code> : <code class="language-plaintext highlighter-rouge">npm run build</code> 명령어를 사용하면 컴파일러 <code class="language-plaintext highlighter-rouge">tsc</code>를 실행하여 ts코드를 js코드로 변환함</li>
+          <li><code class="language-plaintext highlighter-rouge">"start": "node build/index.js"</code> : npm start 명령어를 사용하면 build 폴더의 index.js 파일을 시작함.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">npm i -D typescript</code>를 입력하여 타입스크립트를 설치.</li>
+  <li><code class="language-plaintext highlighter-rouge">touch tsconfig.json</code>를 입력하여 아래 파일을 생성함.
+    <ul>
+      <li>tsconfig.json
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"include"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src"</span><span class="p">],</span><span class="w">      </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">src</span><span class="w"> </span><span class="err">폴더에</span><span class="w"> </span><span class="err">빌드할</span><span class="w"> </span><span class="err">파일들이</span><span class="w"> </span><span class="err">있다는</span><span class="w"> </span><span class="err">것을</span><span class="w"> </span><span class="err">알려줌.</span><span class="w">
+    </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">옵셜.</span><span class="w"> </span><span class="err">어떻게</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인가를</span><span class="w"> </span><span class="err">설정함</span><span class="w">
+        </span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">   </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일된</span><span class="w"> </span><span class="err">파일을</span><span class="w"> </span><span class="err">어디에</span><span class="w"> </span><span class="err">저장할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+        </span><span class="nl">"esModuleInterop"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES6"</span><span class="p">,</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">어떤</span><span class="w"> </span><span class="err">버전으로</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정</span><span class="w">
+        </span><span class="nl">"lib"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ES6"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dom"</span><span class="p">],</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일러가</span><span class="w"> </span><span class="err">어떤</span><span class="w"> </span><span class="err">버전을</span><span class="w"> </span><span class="err">읽을</span><span class="w"> </span><span class="err">수</span><span class="w"> </span><span class="err">있게할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+				</span><span class="nl">"strict"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">더욱</span><span class="w"> </span><span class="err">타입스크립트가</span><span class="w"> </span><span class="err">오류를</span><span class="w"> </span><span class="err">잘</span><span class="w"> </span><span class="err">잡아줌.</span><span class="w"> </span><span class="err">성가시기도</span><span class="w"> </span><span class="err">함.</span><span class="w">
+			  </span><span class="nl">"allowJs"</span><span class="p">:</span><span class="kc">true</span><span class="w">   </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일러가</span><span class="w"> </span><span class="err">JS코드를</span><span class="w"> </span><span class="err">읽게</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">npm run build</code> 를 하면 src폴더 안에 있는 .ts파일이 build폴더안에 .js파일로 변환된다.</li>
+</ol>
+
+<h2 id="declaration-files-js-라이브러리를-ts에서-사용하는-방법">Declaration Files (JS 라이브러리를 TS에서 사용하는 방법)</h2>
+
+<p>타입스크립트에서 자바스크립트의 라이브러리를 사용하기 위해서는
+자바스크립트 라이브러리 안에 있는 함수들의 인자 타입과 return 타입이 무엇인지 정의해야한다.
+이것을 정의한 파일이 <code class="language-plaintext highlighter-rouge">.d.ts</code> 파일이다.
+많은 자바스크립트 라이브러리는 이미 정의되어있으며, 사용자가 직접만든 자바라이브러리 파일을 타입스크립트에서 사용하기 위해서는 직접 <code class="language-plaintext highlighter-rouge">.d.ts</code> 파일을 만들어 사용해야한다.</p>
+
+<p>아래와 같은 구조가 필요하다.</p>
+
+<ul>
+  <li>
+    <p>index.ts (자바스크립트 라이브러리를 사용하려는 ts파일)</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">init</span><span class="p">,</span> <span class="nx">exit</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">myPackage</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="nf">init</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">true</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="nf">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>myPackage.js (사용자 정의 자바스크립트 라이브러리)</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nf">init</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nf">exit</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">code</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>myPackage.d.ts (자바스크립트 라이브러리의 타입을 정의한 파일)</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Config</span> <span class="p">{</span>
+    <span class="nl">url</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">declare</span> <span class="nx">module</span> <span class="dl">"</span><span class="s2">myPackage</span><span class="dl">"</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">init</span><span class="p">(</span><span class="nx">config</span><span class="p">:</span> <span class="nx">Config</span><span class="p">):</span> <span class="nx">boolean</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nf">exit</span><span class="p">(</span><span class="nx">code</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="jsdoc">JSDoc</h2>
+
+<ul>
+  <li>JSDoc을 사용하면 자바스크립트파일에 타입을 지정하여 타입스크립트가 오류 문법은 없는지 확인해준다. 또한 JSDoc이 명시된 자바스크립트파일은 타입이 지정되어 있기에 타입스크립트가 Declaration File없이 사용할 수 있다.</li>
+  <li>주석을 사용하여 타입을 지정해주기 때문에 브라우저에서도 잘 돌아가는 코드이며, node.js 상에서는 타입스크립트의 보호를 받는 코드가 된다.</li>
+  <li><strong>핵심은 세가지이다. <code class="language-plaintext highlighter-rouge">allowJs":true</code> 와 <code class="language-plaintext highlighter-rouge">// @ts-check</code> 와 <code class="language-plaintext highlighter-rouge">함수 위 코멘트</code> 이다.</strong></li>
+</ul>
+
+<ol>
+  <li>
+    <p>tsconfig.json 파일에 <code class="language-plaintext highlighter-rouge">"allowJs":true</code> 를 추가한다. 타입스크립트에서 자바스크립트를 읽겠다는 뜻이다.</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"include"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"src"</span><span class="p">],</span><span class="w">      </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">src</span><span class="w"> </span><span class="err">폴더에</span><span class="w"> </span><span class="err">빌드할</span><span class="w"> </span><span class="err">파일들이</span><span class="w"> </span><span class="err">있다는</span><span class="w"> </span><span class="err">것을</span><span class="w"> </span><span class="err">알려줌.</span><span class="w">
+    </span><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">옵셜.</span><span class="w"> </span><span class="err">어떻게</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인가를</span><span class="w"> </span><span class="err">설정함</span><span class="w">
+        </span><span class="nl">"outDir"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">   </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일된</span><span class="w"> </span><span class="err">파일을</span><span class="w"> </span><span class="err">어디에</span><span class="w"> </span><span class="err">저장할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+        </span><span class="nl">"esModuleInterop"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ES6"</span><span class="p">,</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">어떤</span><span class="w"> </span><span class="err">버전으로</span><span class="w"> </span><span class="err">컴파일</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정</span><span class="w">
+        </span><span class="nl">"lib"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ES6"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dom"</span><span class="p">],</span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일러가</span><span class="w"> </span><span class="err">어떤</span><span class="w"> </span><span class="err">버전을</span><span class="w"> </span><span class="err">읽을</span><span class="w"> </span><span class="err">수</span><span class="w"> </span><span class="err">있게할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+				</span><span class="nl">"strict"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">더욱</span><span class="w"> </span><span class="err">타입스크립트가</span><span class="w"> </span><span class="err">오류를</span><span class="w"> </span><span class="err">잘</span><span class="w"> </span><span class="err">잡아줌.</span><span class="w"> </span><span class="err">성가시기도</span><span class="w"> </span><span class="err">함.</span><span class="w">
+			  </span><span class="nl">"allowJs"</span><span class="p">:</span><span class="kc">true</span><span class="w">   </span><span class="err">=&gt;</span><span class="w"> </span><span class="err">컴파일러가</span><span class="w"> </span><span class="err">JS코드를</span><span class="w"> </span><span class="err">읽게</span><span class="w"> </span><span class="err">할</span><span class="w"> </span><span class="err">것인지</span><span class="w"> </span><span class="err">설정.</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>index.ts 파일을 “myPackage”가 아닌 “./myPackage”로 수정한다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">init</span><span class="p">,</span> <span class="nx">exit</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./myPackage</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>myPackge.js파일을 수정한다.</p>
+
+    <ol>
+      <li>
+        <p>myPackage.js 수정 전</p>
+
+        <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">function</span> <span class="nf">init</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kd">function</span> <span class="nf">exit</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">code</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>        </div>
+      </li>
+      <li>
+        <p>myPackage.js 수정 후 (JSDoc 사용)</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// @ts-check
+
+/**
+ * Initializes the project
+ * @param {object} config
+ * @param {boolean} config.debug
+ * @param {string} config.url
+ * @returns {void}
+ */
+export function init(config) {
+    return;
+}
+
+/**
+ * Exits the program
+ * @param {number} code
+ * @returns {number}
+ */
+
+export function exit(code) {
+    return code + 1;
+}
+</code></pre></div>        </div>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">// @ts-check</code>는 자바스크립트 파일을 타입스크립트가 확인을 한다는 뜻이다. 자바스크립트 파일에 잘못된 문법은 없는지 타입스크립트가 확인해준다.</li>
+          <li>각 함수 위에 있는 주석은 함수에 대한 설명과 인자에 대한 type 지정, return type 지정을 의미한다. 이러한 문법을 <strong>JSDoc</strong>이라고 한다</li>
+          <li>주석 맨 위의 <code class="language-plaintext highlighter-rouge">Initializes the project</code> 부분은 함수에 대한 설명이다.</li>
+          <li><code class="language-plaintext highlighter-rouge">@param {object} cinfig</code> 와 같이 <code class="language-plaintext highlighter-rouge">@param</code> 뒤에 들어가는 것들은 파라메타의 타입과 파라메타명을 의미한다.</li>
+          <li><code class="language-plaintext highlighter-rouge">@return {void}</code> 와 같이 <code class="language-plaintext highlighter-rouge">@return</code> 뒤에 들어가는 것은 해당 함수의 return 타입을 의미한다.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ol>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'TypeScript 정리 문서'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

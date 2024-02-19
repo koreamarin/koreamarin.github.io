@@ -5,39 +5,51 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Mon, 19 Feb 2024 00:00:00 +0900</lastBuildDate>
 	
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      <item>
+        <title>TypeScript 정리 문서</title>
+            
+            
+                <description>&lt;p&gt;TypeScript를 공부한 내용을 정리한 글 입니다.&lt;/p&gt;
+</description>
+            
+            <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
+            <link>http://localhost:4000/frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/</link>
+            <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/</guid>
+        </item>
+      
     
     
       <item>
-        <title>GitFlow &amp; GitHubFlow</title>
+        <title>React 폴더 구조</title>
             
             
-                <description>&lt;p&gt;gitFlow는 git branch 관리 방법이다.&lt;/p&gt;
+                <description>&lt;p&gt;React 사용 시 일반적으로 사용되는 React 폴더 구조에 대해 소개하는 글.&lt;/p&gt;
 </description>
             
-            <pubDate>Fri, 12 Jan 2024 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/git/2024/01/12/GitFlow&GitHubFlow/</link>
-            <guid isPermaLink="true">http://localhost:4000/git/2024/01/12/GitFlow&GitHubFlow/</guid>
+            <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
+            <link>http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</link>
+            <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</guid>
         </item>
       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
   </channel>
 </rss>

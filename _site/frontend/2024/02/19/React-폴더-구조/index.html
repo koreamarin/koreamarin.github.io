@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> React 폴더 구조 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">React 폴더 구조</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>February 19, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>React 사용 시 일반적으로 사용되는 React 폴더 구조에 대해 소개하는 글.</p>
+
+<h2 id="cra의-초기-폴더구조">CRA의 초기 폴더구조</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>my-app
+├── node_modules
+├── public
+├── src
+├── .gitignore
+├── package.json
+└── README.md
+</code></pre></div></div>
+
+<ul>
+  <li><strong>node_modules</strong>
+현재 프로젝트에 포함된 라이브러리들이 설치되어 있는 폴더로 보통 깃과 같은 저장소에 올릴 때는 이 폴더를 함께 올리지 않습니다.</li>
+  <li><strong>public</strong>
+index.html과 같은 정적 파일이 포함되는 곳으로 컴파일이 필요 없는 파일들이 위치하는 폴더입니다.</li>
+  <li><strong>src</strong>
+리액트 내부에서 작성하는 거의 모든 파일들이 이 폴더 내부에서 작성되며 이 폴더에 있는 파일들은 명령어에 따라 JS로 컴파일이 진행됩니다.</li>
+  <li><strong>.gitignore</strong>
+깃에 포함하고 싶지 않은 파일의 이름 혹은 폴더등을 입력하는 파일입니다.</li>
+  <li><strong>package.json</strong>
+프로젝트에 관련된 기본적인 내용(프로젝트의 이름, 버전 등)과 라이브러리들의 목록이 포함되어 있습니다.
+라이브러리가 설치된 node_modules 대신에 이 package.json을 깃에 포함하여 올리게 되며 후에 누군가가 프로젝트를 클론할 때 이 package.json에 적혀있는 라이브러리의 목록을 기준으로 npm에서 설치하게 됩니다.</li>
+  <li><strong>README.md</strong>
+보통 깃과 같은 저장소에 올릴 때 프로젝트에 대한 설명을 작성하는곳으로 해당 저장소에 진입하면 가장 먼저 띄워집니다.</li>
+</ul>
+
+<h2 id="src-내부-폴더구조">src 내부 폴더구조</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>└─ src
+ ├─ components
+ ├─ assets
+ ├─ hooks (= hoc)
+ ├─ pages
+ ├─ constants
+ ├─ config
+ ├─ styles
+ ├─ services (= api)
+ ├─ utils
+ |   ├─ modules
+ |	 └─ store
+ ├─ contexts
+ ├─ redux - (modules)
+ ├─ App.js
+ └─ index.js
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <h4 id="redux"><strong>redux</strong></h4>
+
+    <ul>
+      <li>
+        <p><strong>modules</strong><br />
+modules 폴더 안에는 createSlice() 함수로 만든 Slice 변수를 반환하는 파일들을 보관합니다.
+modlues 폴더 안에는 index.ts파일이 필수적으로 있으며, index.ts는 Slice변수들을 combineReducers()함수로 하나의 reducer로 합쳐 store에 제공하는 역할을 합니다.</p>
+      </li>
+      <li>
+        <p><strong>store</strong><br />
+ store를 생성하여 store를 반환하는 store.tsx파일이 들어가는 폴더입니다.
+<br /><br /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <h4 id="components"><strong>components</strong></h4>
+    <p>재사용 가능한 컴포넌트들이 위치하는 폴더입니다.
+컴포넌트는 매우 많아질 수 있기 때문에 이 폴더 내부에서 하위폴더로 추가로 분류하는 경우가 많습니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="assets"><strong>assets</strong></h4>
+    <p>이미지 혹은 폰트와 같은 파일들이 저장되는 폴더입니다.
+이미지와 같은 파일들을 public에 직접 넣는 경우도 있는데 <strong>둘의 차이는 컴파일시에 필요한지 여부</strong>입니다.
+파비콘과 같이 <code class="language-plaintext highlighter-rouge">index.html</code>내부에서 직접 사용하여 컴파일 단계에서 필요하지 않은 파일들은 public에
+반면, 컴포넌트 내부에서 사용하는 이미지 파일인 경우 이 assets 폴더에 위치시켜야 합니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="hooks--hoc"><strong>hooks (= hoc)</strong></h4>
+    <p>커스텀 훅이 위치하는 폴더입니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="pages"><strong>pages</strong></h4>
+    <p>react router등을 이용하여 라우팅을 적용할 때 페이지 컴포넌트를 이 폴더에 위치시킵니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="constants"><strong>constants</strong></h4>
+    <p>공통적으로 사용되는 상수들을 정의한 파일들이 위치하는 폴더입니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="config"><strong>config</strong></h4>
+    <p>config 파일이 많지 않은 경우 보통 최상위에 위치시켜놓지만 여러개의 config 파일이 있을 경우 폴더로 분리하기도 합니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="styles"><strong>styles</strong></h4>
+    <p>css 파일들이 포함되는 폴더입니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="services--api"><strong>services (= api)</strong></h4>
+    <p>보통 api관련 로직의 모듈 파일이 위치하며 auth와 같이 인증과 관련된 파일이 포함되기도 합니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="utils"><strong>utils</strong></h4>
+    <p>정규표현식 패턴이나 공통함수 등 공통으로 사용하는 유틸 파일들이 위치하는 폴더입니다.
+<br /><br /></p>
+  </li>
+  <li>
+    <h4 id="contexts"><strong>contexts</strong></h4>
+    <p>contextAPI를 사용할 때 관련 파일들이 위치하는곳으로 상태관리를 위해 contextAPI 대신 redux를 사용 할 경우 폴더 이름을 <code class="language-plaintext highlighter-rouge">store</code>로 사용하기도 합니다.
+<br /><br /></p>
+  </li>
+</ul>
+
+<h3 id="용도에-맞게-폴더별로-적절히-분리된-모습">용도에 맞게 폴더별로 적절히 분리된 모습</h3>
+
+<p><img src="/image/React 폴더 구조.png" alt="image" /></p>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'React 폴더 구조'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
