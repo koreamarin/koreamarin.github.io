@@ -9,8 +9,8 @@
   ],
 
   "skills": {
-    "platforms": ["SpringBoot", "Vue.js", "Django", "MyBatis"],
-    "language": ["Java", "JavaScript", "Python", "MySQL"],
+    "platforms": ["SpringBoot", "Vue.js", "React.js", "Django", "MyBatis"],
+    "language": ["Java", "JavaScript", "TypeScript", "Python", "MySQL"],
     "Etc": ["NClude"]
   }
 }

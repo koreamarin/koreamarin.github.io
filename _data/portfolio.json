@@ -9,9 +9,26 @@
       "item_description": "각 지역의 사진명소 정보를 제공 및 공유하는 서비스",
       "my_role": ["DB 및 BackEnd 전반 설계", "아이디, 비밀번호 찾기 Front 구현"],
       "skills": {
-        "platforms": ["SpringBoot", "Vue.js", "Django", "MyBatis"],
-        "language": ["Java", "JavaScript", "Python", "MySQL"],
+        "platforms": ["SpringBoot", "Vue.js", "MyBatis"],
+        "language": ["Java", "JavaScript", "MySQL"],
         "Etc": ["NClude"]
+      }
+    },
+    {
+      "type": "Web application",
+      "name": "수어쉬워",
+      "link": "https://github.com/koreamarin/easy-sign-language",
+      "image": "https://koreamarin.github.io/image/easy-sign-language.gif",
+      "date_added": "2024.01.03 - 2024.02.16",
+      "item_description": "유아동기 청각장애인을 위한 포즈인식 기반의 수화교육 서비스",
+      "my_role": [
+        "수어 교육페이지 전반 설계",
+        "교육페이지 컴포넌트 개발 및 AI 모델 통합 및 Three.js 모델 통합"
+      ],
+      "skills": {
+        "platforms": ["React.js", "Node.js"],
+        "language": ["TypeScript"],
+        "Etc": ["Three.js", "Tensorflow.js", "MideaPipe", "Redux"]
       }
     }
   ]
