@@ -12,7 +12,8 @@
         "platforms": ["SpringBoot", "Vue.js", "MyBatis"],
         "language": ["Java", "JavaScript", "MySQL"],
         "Etc": ["NClude"]
-      }
+      },
+      "retrospective_essay_link": ""
     },
     {
       "type": "Web application",
@@ -29,7 +30,8 @@
         "platforms": ["React.js", "Node.js"],
         "language": ["TypeScript"],
         "Etc": ["Three.js", "Tensorflow.js", "MideaPipe", "Redux"]
-      }
+      },
+      "retrospective_essay_link": ""
     }
   ]
 }

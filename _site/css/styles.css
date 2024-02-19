@@ -1,5 +1,5 @@
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 footer {
@@ -33,25 +33,26 @@ body {
 .is-rounded {
   border-radius: 3%;
 }
-.column.is-half, .column.is-half-tablet {
-    -webkit-box-flex: 0;
-    -ms-flex: none;
-    flex: none;
-    width: 100%;
+.column.is-half,
+.column.is-half-tablet {
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 100%;
 }
 
 .hero.is-primary {
-  background-color: #FF8C69;
+  background-color: #ff8c69;
   color: white;
 }
 
 footer {
-  font-family: "Source Sans Pro",sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   padding: 26px 0 26px 0;
   background-color: #f6f9fc;
   color: #8898aa;
-  border-top: 1px solid #D8E0E7;
-  border-bottom: 1px solid #D8E0E7;
+  border-top: 1px solid #d8e0e7;
+  border-bottom: 1px solid #d8e0e7;
   display: block;
 }
 
@@ -60,7 +61,11 @@ footer .footer_wrap {
   position: relative;
 }
 
-main, footer>.footer_wrap, .nav-container, .nav>.container, .content{
+main,
+footer > .footer_wrap,
+.nav-container,
+.nav > .container,
+.content {
   margin: 0 auto;
   width: 95%;
 }
@@ -72,7 +77,7 @@ footer .footer_wrap .information .myname {
 }
 
 footer .footer_wrap .information {
-    display: inline-block;
+  display: inline-block;
 }
 
 footer .footer_wrap .copyright {
@@ -90,7 +95,9 @@ footer .footer_wrap .copyright span {
   font-size: 14px;
 }
 
-main, footer>.footer_wrap, .nav-container {
+main,
+footer > .footer_wrap,
+.nav-container {
   max-width: 1000px;
 }
 
@@ -116,37 +123,37 @@ main, footer>.footer_wrap, .nav-container {
 }
 
 .nickname {
-  color :#ff9469;
+  color: #ff9469;
   font-size: 12px;
 }
 
 .orange {
-  color :#ff9469;
+  color: #ff9469;
 }
 
 .tag {
   background-color: white;
-  margin : 3px 0px;
+  margin: 3px 0px;
 }
 
 .tag-orange {
   border: 1px solid #ff9469;
-  color :#ff9469;
+  color: #ff9469;
 }
 
 .tag-fill-orange {
-  background-color:#ff9469;
-  color : #fff;
+  background-color: #ff9469;
+  color: #fff;
 }
 
 .tag-mint {
   border: 1px solid #00d1b2;
-  color :#00d1b2;
+  color: #00d1b2;
 }
 
 .tag-fill-mint {
-  background-color:#00d1b2;
-  color : #fff;
+  background-color: #00d1b2;
+  color: #fff;
 }
 
 .experience-name {
@@ -165,13 +172,13 @@ main, footer>.footer_wrap, .nav-container {
 
 .date {
   font-size: 15px;
-  color:gray
+  color: gray;
 }
 
 .big-tag {
-    padding : 15px;
-    margin : 4px;
-    font-size: 13px;
+  padding: 15px;
+  margin: 4px;
+  font-size: 13px;
 }
 
 .tag-set {
@@ -198,36 +205,38 @@ main, footer>.footer_wrap, .nav-container {
   display: block;
 }
 
-@media screen and (min-width: 769px), print{
-  .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
-      margin-left: 10%;
+@media screen and (min-width: 769px), print {
+  .column.is-offset-one-quarter,
+  .column.is-offset-one-quarter-tablet {
+    margin-left: 10%;
   }
-  .column.is-half, .column.is-half-tablet {
+  .column.is-half,
+  .column.is-half-tablet {
     -webkit-box-flex: 0;
     -ms-flex: none;
     flex: none;
     width: 100%;
   }
-  .column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
+  .column.is-offset-one-quarter,
+  .column.is-offset-one-quarter-tablet {
     margin-left: 0%;
   }
-  
 }
 
-@media screen and (max-width: 550px), print{
+@media screen and (max-width: 550px), print {
   .experience-name {
     float: none;
     width: 100%;
   }
 }
 
-@media screen and (max-width: 710px), print{
+@media screen and (max-width: 710px), print {
   .card-description {
     padding: 1.5rem 0 0 0rem;
   }
 }
 
-.item-type{
+.item-type {
   font-size: 13px;
   padding-bottom: 10px;
 }
@@ -238,7 +247,7 @@ main, footer>.footer_wrap, .nav-container {
 }
 
 .post-description {
-  color:gray;
+  color: gray;
   font-size: 15px;
   margin-bottom: 10px;
 }
@@ -249,7 +258,7 @@ main, footer>.footer_wrap, .nav-container {
 
 .post-content {
   font-size: 13px;
-  color : rgb(199, 199, 199);
+  color: rgb(199, 199, 199);
 }
 
 a:hover.a-hide {
@@ -258,13 +267,18 @@ a:hover.a-hide {
 }
 
 h2 {
-  background:lightgray
+  background: lightgray;
 }
 
 h3 {
-  background:rgb(243, 212, 156)
+  background: rgb(243, 212, 156);
 }
 
 .highlight-orange {
-  background-color: #FF8C69;
+  background-color: #ff8c69;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
 }

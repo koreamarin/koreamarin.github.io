@@ -5,57 +5,65 @@ permalink: /project/
 ---
 
 <div class="cards">
-    {% for item in site.data.portfolio.items %}
-        <div class="">
-            <div class="card-image">
-                <figure class="portfolio-figure">
-                    {% if item.link !="" %}
-                    <a style="font-size: 1.25rem;" href="{{item.link}}" target="_blank"><img class="portfolio-img" src="{{item.image}}" alt="Image"></a>
-                    {% else %}
-                    <img class="portfolio-img" src="{{item.image}}" alt="Image">
-                    {% endif %}
-                </figure>
-            </div>
-            <div class="card-description">
-                <div class="item-type orange">
-                    {{item.type}}
-                </div>
-                <div class="media">
-                    <div class="media-content">
-                        {% if item.link !="" %}
-                        <a style="font-size: 23px;" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
-                        {% else %}
-                        <div style="font-size: 23px;">{{item.name}}</div>
-                        {% endif %}
-                        <div style='margin-top: 10px;'>{{item.item_description}}</div>
-                        <p style="margin: 7px 0px;"class="date">{{item.date_added}}</p>
-                    </div>
-                </div>
-                <div>
-                    {% for role in item.my_role %}
-                    <div style="margin: 2px 0px; font-size: 14px;">- {{ role }}</div>
-                    {% endfor %}
-                </div>
-                <div style="margin:10px 0px;">
-                    <div class='tag-set'>
-                        {% for platform in item.skills.platforms %}
-                        <span class="tag tag-fill-orange">{{platform}}</span>
-                        {% endfor %}
-                    </div>
-                    <div class='tag-set'>
-                        {% for lan in item.skills.language %}
-                        <span class="tag tag tag-mint">{{lan}}</span>
-                        {% endfor %}
-                    </div>
-                    <div class='tag-set'>
-                        {% for item in item.skills.Etc %}
-                        <span class="tag tag-orange">{{item}}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
+  {% for item in site.data.portfolio.items %}
+  <div class="">
+    <div class="card-image">
+      <figure class="portfolio-figure">
+        {% if item.link !="" %}
+        <a style="font-size: 1.25rem" href="{{item.link}}" target="_blank"
+          ><img class="portfolio-img" src="{{item.image}}" alt="Image"
+        /></a>
+        {% else %}
+        <img class="portfolio-img" src="{{item.image}}" alt="Image" />
+        {% endif %}
+      </figure>
+    </div>
+    <div class="card-description">
+      <div class="item-type orange">{{item.type}}</div>
+      <div class="media">
+        <div class="media-content">
+          <div class="project-title">
+            {% if item.link !="" %}
+            <a style="font-size: 23px" href="{{item.link}}" target="_blank">{{item.name}} 🔗</a>
+            {% else %}
+            <div style="font-size: 23px">{{item.name}}</div>
+            {% endif %} {% if item.retrospective_essay_link !="" %}
+            <a
+              href="{{item.retrospective_essay_link}}"
+              target="_blank"
+              class="button is-primary is-outlined"
+              >회고글</a
+            >
+            {% endif %}
+          </div>
+          <div style="margin-top: 10px">{{item.item_description}}</div>
+          <p style="margin: 7px 0px" class="date">{{item.date_added}}</p>
         </div>
-        <hr>
-    {% endfor %}
-
+      </div>
+      <div>
+        {% for role in item.my_role %}
+        <div style="margin: 2px 0px; font-size: 14px">- {{ role }}</div>
+        {% endfor %}
+      </div>
+      <div style="margin: 10px 0px">
+        <div class="tag-set">
+          {% for platform in item.skills.platforms %}
+          <span class="tag tag-fill-orange">{{platform}}</span>
+          {% endfor %}
+        </div>
+        <div class="tag-set">
+          {% for lan in item.skills.language %}
+          <span class="tag tag tag-mint">{{lan}}</span>
+          {% endfor %}
+        </div>
+        <div class="tag-set">
+          {% for item in item.skills.Etc %}
+          <span class="tag tag-orange">{{item}}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  {% endfor %}
 </div>
