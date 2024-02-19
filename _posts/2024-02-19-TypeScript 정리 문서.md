@@ -158,6 +158,8 @@ const player : {
   };
   ```
 
+---
+
 # 함수 사용법
 
 ### 1. 매개변수와 반환 값의 데이터 타입 지정
@@ -192,6 +194,8 @@ greet("gd");
 ```tsx
 const PlayerMaker = (name: string): number => 1;
 ```
+
+---
 
 # Call Signatures
 
@@ -252,6 +256,8 @@ add(1, 2);
 add(1, 2, 3);
 ```
 
+---
+
 # 타입의 사용법
 
 ## **Type Aliases**
@@ -265,7 +271,7 @@ type Age = number;
 const myAge: Age = 30;
 ```
 
-## **2. Array와 Tuple, 객체, 함수에 적용한 사례**
+### **2. Array와 Tuple, 객체, 함수에 적용한 사례**
 
 ```tsx
 // Array
@@ -392,6 +398,8 @@ const numbers: readonly number[] = [1];
   superPrint([1, 2, true, false]);
   superPrint([1, 2, true, false, "hello1"]);
   ```
+
+---
 
 # Classes(객체지향 코드 작성)
 
@@ -729,6 +737,8 @@ const nico: User = {
       ```
   ````
 
+---
+
 # Polymorphism, Generic, Class, Interface를 모두 합친 형태
 
 ```tsx
@@ -760,6 +770,8 @@ const booleansStorage = new LocalStorage<boolean>();
 booleansStorage.get("xxx");
 booleansStorage.set("hello", true);
 ```
+
+---
 
 # node.js에서 Typescript
 
@@ -864,11 +876,11 @@ booleansStorage.set("hello", true);
        "compilerOptions": {     => 컴파일 옵셜. 어떻게 컴파일 할 것인가를 설정함
            "outDir": "build",   => 컴파일된 파일을 어디에 저장할 것인지 설정.
            "esModuleInterop":true,
-   				"target": "ES6",     => 어떤 버전으로 컴파일 할 것인지 설정
+           "target": "ES6",     => 어떤 버전으로 컴파일 할 것인지 설정
            "lib": ["ES6", "dom"],=> 컴파일러가 어떤 버전을 읽을 수 있게할 것인지 설정.
-   				"strict": true     => 더욱 타입스크립트가 오류를 잘 잡아줌. 성가시기도 함.
-   			  "allowJs":true   => 컴파일러가 JS코드를 읽게 할 것인지 설정.
-   		}
+           "strict": true     => 더욱 타입스크립트가 오류를 잘 잡아줌. 성가시기도 함.
+           "allowJs":true   => 컴파일러가 JS코드를 읽게 할 것인지 설정.
+   	}
    }
    ```
 
