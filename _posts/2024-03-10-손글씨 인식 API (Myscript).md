@@ -5,7 +5,7 @@ description: 손글씨 인식 API (Myscript)에 대한 소개
 date: 2024-03-10 00:00:00 +0900
 categories: AI # Develop, Life, DevOps, Conference, BackEnd, AI, Etc
 comments: true
-type: writing # done, writing, hide
+type: done # done, writing, hide
 ---
 
 한줄설명 : Myscript라는 회사에서 제공하는 API이며, handwriting text를 text로 변환시켜주는 API이다.
@@ -29,6 +29,6 @@ type: writing # done, writing, hide
   - https://developer.myscript.com/getting-started 사이트에서 Myscript Cloud Server에 접근하기위한 인증키를 발급받는다.
   - [Myscript API Document](https://developer.myscript.com/docs/interactive-ink/2.3/overview/about/)와 예시 코드가 있지만 너무 잘 작동이 안되어서, 내게 필요한 element만 남긴 예시코드를 만들었다.
   - 내가 만든 예시코드 : [https://github.com/koreamarin/Myscript_handwritingTotextAPI.git](https://github.com/koreamarin/Myscript_handwritingTotextAPI.git)
-  - 예시코드를 다운받고 index.html에 발급받은 Key를 입력한다. 됨
+  - 예시코드를 다운받고 index.html에 발급받은 Key를 입력한다.
   - Live server를 통해 실행시키고, 브라우저에 손글씨를 입력하면 잘 작동한다. 내가 만든 예시코드에서는 영어만되며, 실제로는 다른 언어로 설정이 가능하다.
   - 다른 색상, 노트 라인 등의 커스텀이 가능하다. API문서를 참고하기 바란다.
