@@ -4,13 +4,13 @@
       "name": "삼성 청년 소프트웨어 아카데미",
       "position": "Learner",
       "date": "2023.07.05-Present",
-      "skills": ["SpringBoot", "Vue.js", "React.js"]
+      "skills": ["SpringBoot", "React.js", "Vue.js"]
     }
   ],
 
   "skills": {
-    "platforms": ["SpringBoot", "Vue.js", "React.js", "Django", "MyBatis"],
+    "platforms": ["SpringBoot", "React.js", "JPA", "MyBatis", "Vue.js", "Django"],
     "language": ["Java", "JavaScript", "TypeScript", "Python", "MySQL"],
-    "Etc": ["NClude"]
+    "Etc": ["AWS EC2", "Jenkins", "Docker", "NginX", "Jira"]
   }
 }
