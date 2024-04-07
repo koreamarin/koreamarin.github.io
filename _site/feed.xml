@@ -5,8 +5,22 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0900</lastBuildDate>
 	
+    
+      <item>
+        <title>리눅스에 SprintBoot, React 배포하기</title>
+            
+            
+                <description>&lt;p&gt;진짜 쉽다…겁먹지 말자&lt;/p&gt;
+</description>
+            
+            <pubDate>Thu, 11 Apr 2024 00:00:00 +0900</pubDate>
+            <link>http://localhost:4000/devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/</link>
+            <guid isPermaLink="true">http://localhost:4000/devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/</guid>
+        </item>
+      
+    
     
       <item>
         <title>DNS 설정 방법 (Name Server, 가비아)</title>
@@ -142,8 +156,6 @@ Jenkins과 Docker이미지를 사용하였다.
             <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/ReactJS/</guid>
         </item>
       
-    
-    
     
   </channel>
 </rss>

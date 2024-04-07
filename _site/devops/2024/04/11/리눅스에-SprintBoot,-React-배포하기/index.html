@@ -70,30 +70,29 @@
     <div class="heading has-text-centered">
       <p class="title is-2">리눅스에 SprintBoot, React 배포하기</p>
       <p class="subtitle is-6">
-        <span class="tag is-white"><small>January 07, 2024</small></span>
+        <span class="tag is-white"><small>April 11, 2024</small></span>
       </p>
     </div>
     <br />
     <div class="columns is-multiline">
       <div class="column is-half is-offset-one-quarter">
-        <div class="content"><p>이 게시물은 귀하의 디렉토리에서 찾을 수 있습니다 <code class="language-plaintext highlighter-rouge">_posts</code> 계속해서 편집하고 사이트를 다시 구축하여 변경 사항을 확인하세요. 다양한 방법으로 사이트를 다시 구축할 수 있지만 가장 일반적인 방법은 <code class="language-plaintext highlighter-rouge">jekyll serve</code>웹 서버를 시작하고 파일이 업데이트될 때 사이트를 자동으로 다시 생성하는 를 실행하는 것입니다.</p>
+        <div class="content"><p>진짜 쉽다…겁먹지 말자</p>
 
-<p>Jekyll에서는 블로그 게시물 파일 이름을 다음 형식에 따라 지정해야 합니다:</p>
+<h1 id="스프링부트-배포방법">스프링부트 배포방법</h1>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<p>스프링부트에 <code class="language-plaintext highlighter-rouge">./gradlew clean build</code>라고 입력하면 build/libs에 jar 파일이 생성된다.
+이 jar파일을 리눅스에서 실행시키면 배포가 되는거다.</p>
 
-<p>여기서 <code class="language-plaintext highlighter-rouge">YEAR</code>는 4자리 숫자이고 <code class="language-plaintext highlighter-rouge">MONTH</code>는 <code class="language-plaintext highlighter-rouge">DAY</code>둘 다 2자리 숫자이며 는 <code class="language-plaintext highlighter-rouge">MARKUP</code>파일에 사용된 형식을 나타내는 파일 확장자입니다. 그런 다음 필요한 머리말을 포함하세요. 이 게시물의 소스를 살펴보고 작동 방식에 대한 아이디어를 얻으세요.</p>
+<p>jar파일을 리눅스의 아무 폴더에나 옮긴 후에 <code class="language-plaintext highlighter-rouge">java -jar 빌드파일명.jar</code> 라고 입력하면 실행이 된다. SpringBoot로 작성한 파일 배포 완료다.<br />
+물론 jvm이 설치되어 있어야한다.</p>
 
-<p>Jekyll은 또한 코드 조각에 대한 강력한 지원을 제공합니다:</p>
+<h1 id="리엑트-배포방법">리엑트 배포방법</h1>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<p>리엑트를 작성 후 <code class="language-plaintext highlighter-rouge">npm run build</code>를 하면 build 폴더가 생기고, 그 안에 index.html와 그 외 정적파일들이 생길거다.
+이 build폴더가 통째로 필요하다.
+이 build폴더를 리눅스로 옮긴 후 nginx으로 index.html을 호스팅해주면 끝이다.</p>
 
-<p>Jekyll을 최대한 활용하는 방법에 대한 자세한 내용은 <a href="https://jekyllrb.com/docs/home">Jekyll 문서</a>를 확인하세요 . 모든 버그/기능 요청은 <a href="https://github.com/jekyll/jekyll">Jekyll의 GitHub repo</a>에 제출하세요 . 궁금한 점이 있으시면 <a href="https://talk.jekyllrb.com/">Jekyll Talk</a> 에서 질문하실 수 있습니다 .</p>
-
+<h1 id="참-쉽죠">참 쉽죠?</h1>
 </div>
       </div>
     </div>
@@ -105,7 +104,7 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    this.page.url = "https://koreamarin.github.io//devops/2024/01/07/AWS%EC%97%90-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.url = "https://koreamarin.github.io//devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/";  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = '리눅스에 SprintBoot, React 배포하기'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
