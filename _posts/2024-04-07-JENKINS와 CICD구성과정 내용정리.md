@@ -50,7 +50,7 @@ JenKins를 리눅스에 설치하는 방법은 2가지가 있다.
 
 이 방법을 이용하면 설치가 쉽다. 이 단원에서는 Docker의 Jenkins 이미지를 활용한 설치방법을 다루고 있으며, Docker를 이용한 Jenkins 설치와 Port 설정, 미러사이트 변경 내용을 다루고 있다.
 
-먼저 Docker를 설치해야하는 Docker 설치 방법은 이 포스팅을 참고 바란다. [DOCKER란? 도커 총 정리 및 실습하기](/devops/2024/04/06/Docker/)
+먼저 Docker를 설치해야하는 Docker 설치 방법은 이 포스팅을 참고 바란다. [DOCKER란? 도커 총 정리 및 실습하기](/devops/2024/04/05/Docker/)
 
 ## jenkins 설치과정 [아래 순서대로 따라치면 설치됨]
 
