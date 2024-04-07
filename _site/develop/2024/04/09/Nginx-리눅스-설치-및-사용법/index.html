@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Nginx 리눅스 설치 및 사용법 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">Nginx 리눅스 설치 및 사용법</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>April 09, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>Nginx는 index.html과 같은 정적파일을 호스팅하는 웹서버의 역할을 한다.<br />
+또한, 리버스 프록시라는 클라이언트와 웹 서버 간의 중개자 역할을 하는, 클라이언트로부터의 요청을 대신 받아 웹 서버에 전달하고, 웹 서버의 응답을 클라이언트에게 전달하는 역할을 하기도 한다.
+그 외에도 장애대응, 로드밸런싱, 캐시처리, Keep Alive, Sub Domain처리 등의 기능들을 제공하기도 하여 무중단배포나 속도개선등의 역할을 하기도 한다.</p>
+
+<h2 id="nginx-설치-방법-컨테이너-설치-아님-리눅스-서버-설치">Nginx 설치 방법 [컨테이너 설치 아님. 리눅스 서버 설치]</h2>
+
+<p><code class="language-plaintext highlighter-rouge">sudo apt install nginx</code> 입력하여 nginx 설치</p>
+
+<h2 id="nginx-파일-구조-설명">Nginx 파일 구조 설명</h2>
+
+<p>위와 같이 nginx를 설치하면 <code class="language-plaintext highlighter-rouge">/etc/nginx/nginx.conf</code> 경로에 해당 파일이 생긴다.<br />
+또한, <code class="language-plaintext highlighter-rouge">/etc/nginx/sites-enabled/default</code> 경로에도 해당 파일이 생기고, <code class="language-plaintext highlighter-rouge">/etc/nginx/sites-avaliable/default</code> 경로에도 해당 파일이 생긴다.</p>
+
+<p>여기서 알아두어야 할 것들이 있다.<br />
+nginx.conf 파일의 코드를 보면 site-enabled에 있는 파일들을 전부 읽어들이고 있다.<br />
+nginx에 적용하고 싶은 내용을 site-enabled에 작성하는 것이다.<br />
+site-avaliable 폴더도 nginx에 적용하고 싶은 파일을 작성하는 곳이다. 하지만 site-enabled폴더와는 다른점이 있다.
+site-avaliable 폴더는 nginx에 적용하고 싶은 파일을 작성만하고 적용되지는 않는다.<br />
+site-avaliable에서 작성한 파일을 심볼릭 링크라는 것을 사용하여 site-enabled에서 site-avaliable안의 파일들을 사용할 수 있다.<br />
+심볼릭 링크는 윈도우의 바로가기와 비슷한 기능으로 원본파일에 바로 접근할 수 있는 효과를 낸다.<br />
+심볼릭 링크는 아래와 같이 작성되므로 참고하기 바람.</p>
+
+<ul>
+  <li>심볼릭 링크 생성 방법
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com</code> : site-avaliable의 example.com 파일을 site-enabled의 example.com파일로 심볼링 링크함.</li>
+    </ul>
+  </li>
+  <li>심볼릭 링크 삭제 방법
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">cd /etc/nginx/sites-enabled</code> : 폴더 이동</li>
+      <li><code class="language-plaintext highlighter-rouge">sudo rm example.com</code> : 심볼릭 링크 파일 삭제.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>이와 같이 심볼릭 링크하여 sites-enabled에 심볼링 링크 파일이 생기면 nginx.conf 파일이 이를 읽어들여 파일에 작성된 내용을 실행하게 된다.</p>
+
+<h2 id="nginx-코드">Nginx 코드</h2>
+
+<p>경험 해본게 리버스 프록시와 정적파일 호스팅 뿐이므로 그 부분 코드만 작성함.</p>
+
+<h3 id="nginxconf">nginx.conf</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        types_hash_max_size 2048;
+        # server_tokens off;
+
+        # server_names_hash_bucket_size 64;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ##
+        # SSL Settings
+        ##
+
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+        ssl_prefer_server_ciphers on;
+
+        ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ##
+        # Gzip Settings
+        ##
+
+        gzip on;
+
+        # gzip_vary on;
+        # gzip_proxied any;
+        # gzip_comp_level 6;
+        # gzip_buffers 16 8k;
+        # gzip_http_version 1.1;
+        # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+        ##
+        # Virtual Host Configs
+        ##
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+}
+</code></pre></div></div>
+
+<h3 id="etcnginxsites-enableddefault--etcnginxsites-avaliabledefault">/etc/nginx/sites-enabled/default == /etc/nginx/sites-avaliable/default</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># https://끼리끼리.shop를 https://j10c????.ssass.io로 전환
+#server {
+#        server_name j10c????.ssass.io; # managed by Certbot
+
+#        location / {
+#                return 301 https://끼리끼리.shop$request_uri;
+#        } # managed by Certbot
+
+#        listen [::]:443 ssl ipv6only=on; # managed by Certbot
+#        listen 443 ssl; # managed by Certbot
+#        ssl_certificate /etc/letsencrypt/live/j10c????.ssass.io/fullchain.pem;
+#        ssl_certificate_key /etc/letsencrypt/live/j10c????.ssass.io/privkey.pem;
+#        include /etc/letsencrypt/options-ssl-nginx.conf;
+#        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+#}
+
+
+# https://j10c????.ssass.io을 프록시해주는 설정
+server {
+        server_name 끼리끼리.shop;
+
+        location /api {
+                proxy_pass http://localhost:8080;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location / {
+                proxy_pass http://localhost:3000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        listen [::]:443 ssl ipv6only=on; # managed by Certbot
+        listen 443 ssl; # managed by Certbot
+        ssl_certificate /etc/letsencrypt/live/끼리끼리.shop/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/끼리끼리.shop/privkey.pem;
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+
+# http://j10c????.ssass.io를 https://끼리끼리.shop로 전환
+server {
+        if ($host = 끼리끼리.shop) {
+                return 301 https://$host$request_uri;
+        } # managed by Certbot
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name 끼리끼리.shop;
+        return 404; # managed by Certbot
+}
+
+# https://끼리끼리.shop를 https://j10c????.ssass.io로 전환
+#server {
+#        server_name j10c????.ssass.io; # managed by Certbot
+
+#        location / {
+#                return 301 https://끼리끼리.shop$request_uri;
+#        } # managed by Certbot
+
+#        listen [::]:443 ssl ipv6only=on; # managed by Certbot
+#        listen 443 ssl; # managed by Certbot
+#        ssl_certificate /etc/letsencrypt/live/j10c????.ssass.io/fullchain.pem;
+#        ssl_certificate_key /etc/letsencrypt/live/j10c????.ssass.io/privkey.pem;
+#        include /etc/letsencrypt/options-ssl-nginx.conf;
+#        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+#}
+
+
+
+
+# http://끼리끼리.shop를 https://끼리끼리.shop으로 전환
+#server {
+#       if ($host = 끼리끼리.shop) {
+#               return 301 https://$host$request_uri;
+#       } # managed by Certbot
+
+#       listen 80 ;
+#       listen [::]:80 ;
+#       server_name 끼리끼리.shop;
+#       return 404; # managed by Certbot
+#}
+</code></pre></div></div>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//develop/2024/04/09/Nginx-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Nginx 리눅스 설치 및 사용법'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

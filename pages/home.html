@@ -1,63 +1,60 @@
 ---
 layout: home
-title: 
+title:
 permalink: index.html
 ---
 
 <div class="columns is-multiline">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="content">
+      <div class="nickname">@{{site.github.username}}</div>
+      <div class="name">류지원</div>
 
-    <div class="column is-half is-offset-one-quarter">
-        <div class="content">
+      <br /><br />
 
-            <div class='nickname'>@{{site.github.username}}</div>
-            <div class='name'>류지원</div>
-
-            <br><br>
-
-            <div>
-                <div class='orange' style='font-size: 20px;'>📖 Experience 📖</div>
-                {% for item in site.data.home.experience %}
-                <hr>
-                <div class='experience-name'>{{ item.name }}</div>
-                <div class='experience-info'>
-                    <div class='experience-position'>{{ item.position }}</div>
-                    <div class='date'>{{ item.date }}</div>
-                    <div style='margin-top: 15px;'>
-                        {% for skill in item.skills %}
-                        <span class='tag big-tag tag-mint'>
-                            {{ skill }}
-                        </span>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-                <hr>
-            </div>
-
-            <br>
-
-            <div>
-                <div class='orange' style='margin-bottom: 17px; font-size: 20px;'>💪 Skill 🦾</div>
-                <div>
-                    <div class='tag-set'>
-                        {% for platform in site.data.home.skills.platforms %}
-                        <span class='tag big-tag tag-fill-orange'>{{ platform }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class='tag-set'>
-                        {% for lan in site.data.home.skills.language %}
-                        <span class='tag big-tag is-primary'>{{ lan }}</span>
-                        {% endfor %}
-                    </div>
-                    <div class='tag-set'>
-                        {% for item in site.data.home.skills.Etc %}
-                        <span class='tag big-tag tag-orange'>{{ item }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <br><br>
+      <div>
+        <div class="orange" style="font-size: 20px">📖 Experience 📖</div>
+        {% for item in site.data.home.experience %}
+        <hr />
+        <div class="experience-name">{{ item.name }}</div>
+        <div class="experience-info">
+          <div class="experience-position">{{ item.position }}</div>
+          <div class="date">{{ item.date }}</div>
+          <div style="margin-top: 15px">
+            {% for skill in item.skills %}
+            <span class="tag big-tag tag-mint"> {{ skill }} </span>
+            {% endfor %}
+          </div>
         </div>
+        {% endfor %}
+        <hr />
+      </div>
+
+      <br />
+
+      <div>
+        <div class="orange" style="margin-bottom: 17px; font-size: 20px">💪 Skill 🦾</div>
+        <div>
+          <div class="tag-set">
+            {% for platform in site.data.home.skills.platforms %}
+            <span class="tag big-tag tag-fill-orange">{{ platform }}</span>
+            {% endfor %}
+          </div>
+          <br />
+          <div class="tag-set">
+            {% for lan in site.data.home.skills.language %}
+            <span class="tag big-tag is-primary">{{ lan }}</span>
+            {% endfor %}
+          </div>
+          <br />
+          <div class="tag-set">
+            {% for item in site.data.home.skills.Etc %}
+            <span class="tag big-tag tag-orange">{{ item }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <br /><br />
     </div>
-    
+  </div>
 </div>

@@ -5,8 +5,24 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Mon, 08 Apr 2024 00:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Tue, 09 Apr 2024 00:00:00 +0900</lastBuildDate>
 	
+    
+      <item>
+        <title>Nginx 리눅스 설치 및 사용법</title>
+            
+            
+                <description>&lt;p&gt;Nginx는 index.html과 같은 정적파일을 호스팅하는 웹서버의 역할을 한다.&lt;br /&gt;
+또한, 리버스 프록시라는 클라이언트와 웹 서버 간의 중개자 역할을 하는, 클라이언트로부터의 요청을 대신 받아 웹 서버에 전달하고, 웹 서버의 응답을 클라이언트에게 전달하는 역할을 하기도 한다.
+그 외에도 장애대응, 로드밸런싱, 캐시처리, Keep Alive, Sub Domain처리 등의 기능들을 제공하기도 하여 무중단배포나 속도개선등의 역할을 하기도 한다.&lt;/p&gt;
+</description>
+            
+            <pubDate>Tue, 09 Apr 2024 00:00:00 +0900</pubDate>
+            <link>http://localhost:4000/develop/2024/04/09/Nginx-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95/</link>
+            <guid isPermaLink="true">http://localhost:4000/develop/2024/04/09/Nginx-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95/</guid>
+        </item>
+      
+    
     
       <item>
         <title>Docker를 이용한 Redis, MariaDB 설치</title>
@@ -113,20 +129,6 @@ Jenkins과 Docker이미지를 사용하였다.
     
     
     
-    
-    
-      <item>
-        <title>GitFlow &amp; GitHubFlow</title>
-            
-            
-                <description>&lt;p&gt;gitFlow는 git branch 관리 방법이다.&lt;/p&gt;
-</description>
-            
-            <pubDate>Fri, 12 Jan 2024 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/git/2024/01/12/GitFlow&GitHubFlow/</link>
-            <guid isPermaLink="true">http://localhost:4000/git/2024/01/12/GitFlow&GitHubFlow/</guid>
-        </item>
-      
     
   </channel>
 </rss>
