@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> 젠킨스란?? JENKINS 총 정리 및 실습하기 |  Jiwon's Blog</title>
+    <title> JENKINS와 CICD구성과정 내용정리 [Jenkins, Docker, 서버구성] |  Jiwon's Blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,15 +68,53 @@
         <section class="section">
   <div class="container">
     <div class="heading has-text-centered">
-      <p class="title is-2">젠킨스란?? JENKINS 총 정리 및 실습하기</p>
+      <p class="title is-2">JENKINS와 CICD구성과정 내용정리 [Jenkins, Docker, 서버구성]</p>
       <p class="subtitle is-6">
-        <span class="tag is-white"><small>January 13, 2024</small></span>
+        <span class="tag is-white"><small>April 07, 2024</small></span>
       </p>
     </div>
     <br />
     <div class="columns is-multiline">
       <div class="column is-half is-offset-one-quarter">
-        <div class="content"><p>작성중</p>
+        <div class="content"><p>특화프로젝트에서 CI/CD 시스템을 구성하는 임무를 맡게되었다.<br />
+그 과정에서 BackEnd와 FrontEnd의 서버구성도를 설계하게 되었으며,<br />
+Jenkins과 Docker이미지를 사용하였다.
+처음 하는 CI/CD라서 어려웠고, 어디서 오류가 난지도 잘 나오지 않아 참 헷갈렸었다.<br />
+테스트와 무중단배포도 구성하고 싶었는데, 시간상 목표치를 전부는 이루지 못하고 CI/CD정도만 구성하였다는 아쉬운 점도 남아있다.<br />
+하지만 첫 시작으로 나쁘지 않은 정도였으며, 다음에 더 발전된 지속 통합,배포 환경을 만들기 위해 이번 프로젝트 CI/CD내용을 포스터로 남긴다.</p>
+
+<h1 id="jenkins란">Jenkins란?</h1>
+
+<p>소프트웨어 개발 시 지속적으로 통합 서비스를 제공하는 툴이다.
+개발자들이 하나의 프로그램을 협업하는 방식으로 개발을 할 때, 각 개발자가 커밋을 하면 젠킨스는 코드를 지속적으로 build하고 배포하여준다.<br />
+테스트코드 작성 시 개발자들이 올린 코드에 오류는 없는지 테스트도 자동으로 제공할 수 있으며,<br />
+빌드를 하고 나온 배포파일을 배포까지 해줄 수 있다.</p>
+
+<p>그러나 Jenkins를 설치했으니 테스트, 빌드, 배포까지 그냥 뚝딱 되는것은 아니고, PipeLine이라는 것을 작성해야한다.
+PipeLine에 어떤 코드를 가져오고, 어떤 테스트를 거치고, 어떻게 빌드할 것이며, 어떤 서버에 배포할 것인지 작성해주어야 한다.</p>
+
+<h1 id="jenkins-빌드-배포-과정">Jenkins 빌드 배포 과정</h1>
+
+<p>나의 프로젝트에서는 테스트과정을 제외하였다.
+그리고 빌드파일을 만들어서 docker로 이미지화 하여 각 커밋된 코드들마다 이미지로 남겼다.
+왜 이런 방식을 사용했냐하면, 각 코드들마다 docker로 이미지화 하여 dockerHub에 커밋해두면 각 빌드파일들이 dockerHub에 남게된다.
+내가 진행했던 CI/CD과정에서는 테스트과정이 없었기 때문에 잘못된 코드가 빌드될 수 있다.
+잘못된 코드가 빌드되어서 배포되었을 때, dockerHub에 푸쉬되어있던 이전 버전의 코드를 가져와서 내가 직접 재배포시킬 수 있기 때문에<br />
+코드들을 빌드한 후 docker로 이미지화 시키는 과정을 수행하게 되었다.</p>
+
+<h2 id="이미지삽입-예정">[이미지삽입 예정]</h2>
+
+<h1 id="서버구성">서버구성</h1>
+
+<h2 id="이미지삽입-예정-1">[이미지삽입 예정]</h2>
+
+<h1 id="1-docker-설치">1. Docker 설치</h1>
+
+<p>젠킨스는 Java11로 만들어졌기 때문에 서버에 Java11을 설치하고 젠킨스를 설치하는 복잡한 과정을 거쳐야 한다.<br />
+보다 더 쉽게 설치하려면 Jenkins이미지 파일을 DockerHub에서 가져와 실행시키는 방법이 있다.
+이 방식이 더 편리하여 주로 이 방법을 사용하므로 나는 후자의 방법을 사용하였다.</p>
+
+<p>설치 방법은 이 포스팅을 참고 바란다. <a href="/devops/2024/04/06/Docker/">DOCKER란? 도커 총 정리 및 실습하기</a></p>
 </div>
       </div>
     </div>
@@ -88,8 +126,8 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    this.page.url = "https://koreamarin.github.io//devops/2024/01/13/JENKINS/";  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = '젠킨스란?? JENKINS 총 정리 및 실습하기'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = "https://koreamarin.github.io//devops/2024/04/07/JENKINS%EC%99%80-CICD%EA%B5%AC%EC%84%B1%EA%B3%BC%EC%A0%95-%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'JENKINS와 CICD구성과정 내용정리 [Jenkins, Docker, 서버구성]'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
