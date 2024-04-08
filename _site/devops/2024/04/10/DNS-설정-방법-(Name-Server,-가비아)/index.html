@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> FrontEnd |  Jiwon's Blog</title>
+    <title> DNS 설정 방법 (Name Server, 가비아) |  Jiwon's Blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,97 +65,51 @@
 
 </nav>
     <div class='content'>
-        <div class="container has-text-centered">
-  <header style="margin-top: 30px">
-    <a id="ALL" class="tag tag-mint big-tag" href="/category">ALL</a>
-         
-    <a id="AI" class="tag tag-mint big-tag" href="/category/AI/">AI</a>
-        
-    <a id="BackEnd" class="tag tag-mint big-tag" href="/category/BackEnd/">BackEnd</a>
-        
-    <a id="DevOps" class="tag tag-mint big-tag" href="/category/DevOps/">DevOps</a>
-        
-    <a id="Etc" class="tag tag-mint big-tag" href="/category/Etc/">Etc</a>
-        
-    <a id="FrontEnd" class="tag tag-mint big-tag" href="/category/FrontEnd/">FrontEnd</a>
-        
-    <a id="Git" class="tag tag-mint big-tag" href="/category/Git/">Git</a>
-        
-    <a id="Life" class="tag tag-mint big-tag" href="/category/Life/">Life</a>
-                    
-  </header>
-  <div id="selected-category"></div>
-</div>
-
-<section class="section">
+        <section class="section">
   <div class="container">
-    <div class="columns">
-      <div class="column is-half is-offset-one-quarter">  
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <a href="/frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/">
-          <p>FrontEnd</p>
-          <p class="title is-4" style="margin-bottom: 10px">
-            TypeScript 정리 문서
-            <span class="tag is-white is-pulled-right"
-              ><small>February 19, 2024</small></span
-            >
-          </p>
-          <p class="post-description">TypeScript를 공부한 내용을 정리한 문서</p>
-          <div class="post-content"><p>TypeScript를 공부한 내용을 정리한 글 입니다.</p>
+    <div class="heading has-text-centered">
+      <p class="title is-2">DNS 설정 방법 (Name Server, 가비아)</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>April 10, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>가비아 정말 쉽다…<br />
+나는 가장 싼 500원짜리 도메인을 구입하였고, 아래 이미지에서 보는 설정 이외에 해준 것이 없다.<br />
+서브도메인 등 다른 것들 적용하려면 설정이 더 필요하겠지만, 나는 메인도메인 하나만 설정하였다.<br />
+서브도메인도 별거 없다..여기서는 설명안할거지만 겁먹지말자.</p>
+
+<p><img src="/image/가비아DNS설정.jpg" alt="image" /></p>
+
+<p>EC2의 IP를 적어 놓기만 하면 끝난다.<br />
+Name Server에 적용되는데까지 시간은 약 1시간 걸린것 같다.<br />
+이렇게 오래걸리는 이유는 전세계에 있는 NameServer에 순차적으로 도메인네임이 업데이트가 적용되기 때문이다.<br />
+약 1시간 뒤쯤부터 도메인으로 서버 접속이 가능하기 시작했다.</p>
 </div>
-        </a>
       </div>
     </div>
-  </article>
-</div>
-   
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <a href="/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/">
-          <p>FrontEnd</p>
-          <p class="title is-4" style="margin-bottom: 10px">
-            React 폴더 구조
-            <span class="tag is-white is-pulled-right"
-              ><small>February 19, 2024</small></span
-            >
-          </p>
-          <p class="post-description">React 폴더 구조에 관한 문서</p>
-          <div class="post-content"><p>React 사용 시 일반적으로 사용되는 React 폴더 구조에 대해 소개하는 글.</p>
-</div>
-        </a>
-      </div>
-    </div>
-  </article>
-</div>
-   
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <a href="/frontend/2024/02/19/ReactJS/">
-          <p>FrontEnd</p>
-          <p class="title is-4" style="margin-bottom: 10px">
-            ReactJS
-            <span class="tag is-white is-pulled-right"
-              ><small>February 19, 2024</small></span
-            >
-          </p>
-          <p class="post-description">ReactJS를 공부하고 난 후 정리한 포스터</p>
-          <div class="post-content"><p>노마드코더, 리엑트 공식문서 등을 참고하여 공부한 후 정리한 포스터 입니다.</p>
-</div>
-        </a>
-      </div>
-    </div>
-  </article>
-</div>
-  
-</div>
-    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//devops/2024/04/10/DNS-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-(Name-Server,-%EA%B0%80%EB%B9%84%EC%95%84)/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'DNS 설정 방법 (Name Server, 가비아)'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
   </div>
 </section>
 
