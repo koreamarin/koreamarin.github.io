@@ -13,7 +13,7 @@
         "language": ["Java", "JavaScript", "MySQL"],
         "Etc": ["NClude"]
       },
-      "retrospective_essay_link": "/retrospect/2023/11/23/관통프로젝트회고/"
+      "retrospective_essay_link": "/retrospect/2023/11/24/관통프로젝트회고/"
     },
     {
       "type": "Web application",
@@ -31,7 +31,7 @@
         "language": ["TypeScript"],
         "Etc": ["Three.js", "Tensorflow.js", "MideaPipe", "Redux"]
       },
-      "retrospective_essay_link": ""
+      "retrospective_essay_link": "/retrospect/2024/02/17/공통프로젝트회고/"
     },
     {
       "type": "Web application",
@@ -50,7 +50,7 @@
         "language": ["JavaScript", "Java"],
         "Etc": ["Jenkins", "Docker", "Nginx"]
       },
-      "retrospective_essay_link": ""
+      "retrospective_essay_link": "/retrospect/2024/04/05/특화프로젝트회고/"
     }
   ]
 }
