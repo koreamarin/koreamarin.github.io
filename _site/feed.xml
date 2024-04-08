@@ -5,10 +5,8 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Fri, 12 Apr 2024 00:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Thu, 11 Apr 2024 00:00:00 +0900</lastBuildDate>
 	
-    
-    
     
       <item>
         <title>리눅스에 SprintBoot, React 배포하기</title>
@@ -142,6 +140,20 @@ Jenkins과 Docker이미지를 사용하였다.
             <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
             <link>http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</link>
             <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</guid>
+        </item>
+      
+    
+    
+      <item>
+        <title>ReactJS</title>
+            
+            
+                <description>&lt;p&gt;노마드코더, 리엑트 공식문서 등을 참고하여 공부한 후 정리한 포스터 입니다.&lt;/p&gt;
+</description>
+            
+            <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
+            <link>http://localhost:4000/frontend/2024/02/19/ReactJS/</link>
+            <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/ReactJS/</guid>
         </item>
       
     
