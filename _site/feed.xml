@@ -23,6 +23,22 @@
     
     
       <item>
+        <title>SQLD 합격후기</title>
+            
+            
+                <description>&lt;p&gt;SQLD는 첫 도전이였고, 한번만에 합격했다. 무조건 따고싶었기에 시간이 많이 없었지만(프로젝트 도중이라서) 합격할 수 있는 수준으로 점수를 끌어올리기 위해서 노력하였다.&lt;/p&gt;
+</description>
+            
+            <pubDate>Wed, 10 Apr 2024 09:00:00 +0900</pubDate>
+            <link>http://localhost:4000/etc/2024/04/10/SQLD%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</link>
+            <guid isPermaLink="true">http://localhost:4000/etc/2024/04/10/SQLD%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</guid>
+        </item>
+      
+    
+    
+    
+    
+      <item>
         <title>DNS 설정 방법 (Name Server, 가비아)</title>
             
             
@@ -114,34 +130,6 @@ Jenkins과 Docker이미지를 사용하였다.
             <pubDate>Sun, 10 Mar 2024 00:00:00 +0900</pubDate>
             <link>http://localhost:4000/ai/2024/03/10/%EC%86%90%EA%B8%80%EC%94%A8-%EC%9D%B8%EC%8B%9D-API-(Myscript)/</link>
             <guid isPermaLink="true">http://localhost:4000/ai/2024/03/10/%EC%86%90%EA%B8%80%EC%94%A8-%EC%9D%B8%EC%8B%9D-API-(Myscript)/</guid>
-        </item>
-      
-    
-    
-      <item>
-        <title>TypeScript 정리 문서</title>
-            
-            
-                <description>&lt;p&gt;TypeScript를 공부한 내용을 정리한 글 입니다.&lt;/p&gt;
-</description>
-            
-            <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/</link>
-            <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/TypeScript-%EC%A0%95%EB%A6%AC-%EB%AC%B8%EC%84%9C/</guid>
-        </item>
-      
-    
-    
-      <item>
-        <title>React 폴더 구조</title>
-            
-            
-                <description>&lt;p&gt;React 사용 시 일반적으로 사용되는 React 폴더 구조에 대해 소개하는 글.&lt;/p&gt;
-</description>
-            
-            <pubDate>Mon, 19 Feb 2024 00:00:00 +0900</pubDate>
-            <link>http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</link>
-            <guid isPermaLink="true">http://localhost:4000/frontend/2024/02/19/React-%ED%8F%B4%EB%8D%94-%EA%B5%AC%EC%A1%B0/</guid>
         </item>
       
     
