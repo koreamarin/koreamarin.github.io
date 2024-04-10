@@ -79,7 +79,9 @@
         <div class="content"><p>시간이 지나면 노력하여 공부했던 SQLD 지식들이 잊혀질걸 안다. 그 노력들이 아까워서 미리 정리해 두겠다.<br />
 완벽하지는 않지만, 공부하며 정리되었던 내용이라도 적어두겠다.</p>
 
-<h1 id="1과목-1장-데이터-모델링의-이해">1과목 1장 데이터 모델링의 이해</h1>
+<hr />
+
+<h1 id="1과목-1장-데이터-모델링의-이해">1과목 1장. 데이터 모델링의 이해</h1>
 
 <h2 id="데이터-모델링-유의점">데이터 모델링 유의점</h2>
 
@@ -88,6 +90,413 @@
 </ul>
 
 <h2 id="데이터-베이스-스키마-3단계-구조">데이터 베이스 스키마 3단계 구조</h2>
+
+<ul>
+  <li>외부스키마
+    <ul>
+      <li>각 사용자 단계의 개인적 DB스키마</li>
+      <li>여러 사용자 관점
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>개념스키마
+    <ul>
+      <li>조직 전체의 통합된 DB스키마</li>
+      <li>설계자 관점
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>내부스키마
+    <ul>
+      <li>물리적으로 데이터가 저장되는 방법을 표현하는 스키마</li>
+      <li>개발자 관점</li>
+      <li>물리적 저장 구조
+<br /><br /></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="erd-작성-순서">ERD 작성 순서</h2>
+
+<ol>
+  <li>엔티티를 그린다</li>
+  <li>엔티티를 적절히 배치</li>
+  <li>엔티티간 관계를 설정</li>
+  <li>관계명을 기술한다.</li>
+  <li>관계의 참여도를 기술한다..</li>
+  <li>관계의 필수여부를 기술한다.</li>
+</ol>
+
+<h2 id="데이터-독립성의-종류">데이터 독립성의 종류</h2>
+
+<ul>
+  <li>논리적 독립성
+    <ul>
+      <li>외부와 개념스키마가 서로 변화에 무관
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>물리적 독립성
+    <ul>
+      <li>개념과 내부스키마가 서로 변화에 무관</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="식별자">식별자</h2>
+
+<ul>
+  <li>엔티티를 대표할 수 있는 속성(PK)</li>
+  <li>하나의 엔티티에는 반드시 하나의 유일한 식별자가 존재함</li>
+  <li>특징 : 유일성, 최소성, 불변성, 존재성</li>
+  <li>종류
+    <ul>
+      <li>대표성 여부에 따른 분류
+        <ul>
+          <li>주 식별자(대표성 만족)</li>
+          <li>보조 식별자(유일성과 최소성만 만족)
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>생성여부에 따른 분류
+        <ul>
+          <li>내부식별자(자연스럽게 존재)</li>
+          <li>외부식별자(다른 엔티티와의 관계를 통해 형성)
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>속성 수에 따른 분류
+        <ul>
+          <li>단일 식별자</li>
+          <li>복합 식별자
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>대체여부, 업무적 의미에 따른 분류
+        <ul>
+          <li>본질 식별자(대체불가)</li>
+          <li>인조 식별자(대체가능)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="엔티티-분류">엔티티 분류</h2>
+
+<ul>
+  <li>유무형에 따른 분류
+    <ul>
+      <li>유형 엔티티
+        <ul>
+          <li>물리적 형태가 있고, 지속적으로 활용되는 엔티티</li>
+          <li>ex) 사원, 물품, 감사
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>개념 엔티티
+        <ul>
+          <li>물리적 형태가 없고, 개념적인 정보</li>
+          <li>ex) 조직, 보험
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>사건 엔티티
+        <ul>
+          <li>업무 수행에 따라 발생하는 엔티티</li>
+          <li>ex) 주문, 청구, 미납
+<br /><br /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>발생시점에 따른 분류
+    <ul>
+      <li>기본 엔티티
+        <ul>
+          <li>독립적으로 생성되는 엔티티, 다른 엔티티의 부모역할</li>
+          <li>ex) 사원, 부서, 고객, 상품, 자재
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>중심 엔티티
+        <ul>
+          <li>기본 엔티티와 행위 엔티티의 중간에 존재하는 엔티티</li>
+          <li>ex) 계약, 사고, 청구, 주문, 매출
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>행위 엔티티
+        <ul>
+          <li>2개 이상의 부모 엔티티로부터 발생</li>
+          <li>ex) 주문목록, 사원 변경 이력</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="1과목-2장-데이터-모델과-sql">1과목 2장. 데이터 모델과 SQL</h1>
+
+<h2 id="정규형">정규형</h2>
+
+<ul>
+  <li>제 1 정규형
+    <ul>
+      <li>속성은 하나의 값을 가져야 한다. 즉, 원자값으로만 구성되어야 한다.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>제 2 정규형
+    <ul>
+      <li>제 1정규형을 만족하면서, 주식별자 속성이 아닌 일반속성들은 주식별자에 완전함수적 종속이어야 함.</li>
+      <li>즉, 다른 속성에 의해 결정되는 속성이 없어야 한다.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>제 3 정규형
+    <ul>
+      <li>제 2정규형을 만족하면서, 이행적 함수 종속성을 제거한 정규형을 말한다.</li>
+      <li>이행적 함수 종속성을 “A-&gt;B와 B-&gt;C이면 A-&gt;C 이다” 라는 개념과 비슷하게 보면된다. 이러한 개념을 속성에서 제거한 정규형이 제 3정규형이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h1 id="2과목-1장-sql-기본">2과목 1장. SQL 기본</h1>
+
+<h2 id="여러-함수들">여러 함수들</h2>
+
+<ul>
+  <li>
+    <p>Replace(column, 바꿀문자열, 바꿀문자열)</p>
+
+    <ul>
+      <li>2번째 인자를 3번째 인자로 바꿔서 출력하는 함수.</li>
+      <li>3번쨰 인자는 생략가능하며, 생략한다면 바꿀문자열은 공백이 된다.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>Case… When… then… Else…. END
+    <ul>
+      <li>case [Column명] when 값1 then 값2 else 값3 END</li>
+      <li>Column의 값이 “값1”이면 “값2”를 반환하고, 어떤 조건도 성립되지 않으면 “값3”을 반환하는 함수.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>DECODE(Column명, 값1, 값2, 값3)
+    <ul>
+      <li>column값이 [값1]이면 [값2]를 반환, 아니면 [값3]을 반환.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>ISNULL(column명, 값1)
+    <ul>
+      <li>column이 Null일 경우 [값1]을 반환</li>
+      <li>SQL Server의 문법
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>IFNULL(column명, 값1)
+    <ul>
+      <li>위와 기능 동일 MySQL 문법
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>NVL(column명, 값1)
+    <ul>
+      <li>위와 기능 동일. Oracle 문법
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>NVL2(column명, 값1, 값2)
+    <ul>
+      <li>column값이 null인경우 [값1]을 출력하고, NULL인 경우 [값2]를 출력한다.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>NULLIF(column명, 값1)
+    <ul>
+      <li>column의 값이 [값1]과 같으면 Null을 반환. 다르면 그대로의 값을 반환.
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>COALESCE(표현식1, 표현식2, 표현식3….)
+    <ul>
+      <li>NULL이 아닌 최초의 표현식을 찾으면 그 값 반환.</li>
+      <li>전부 다 NULL이면 NULL을 반환
+<br /><br /></li>
+    </ul>
+  </li>
+  <li>WHIT TIES(column명)
+    <ul>
+      <li>SELECT TOP(3) WITH TIES(column명) FROM table명</li>
+      <li>가장 큰 값 3개만 출력되는데, 값이 같은 것이 있다면 함께 출력된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="null">NULL</h2>
+
+<ul>
+  <li>오라클에서는 NULL을 가장 큰 값으로 간주한다.</li>
+  <li>SQL Server에서는 NULL을 가장 작은 값으로 간주한다.</li>
+</ul>
+
+<h2 id="공백문자">공백문자</h2>
+
+<ul>
+  <li>아무 문자도 없는 ‘‘는 오라클에서는 Null로 인식된다.</li>
+  <li>그러나 ‘‘는 SQL Server에서는 공백으로 인식된다.</li>
+</ul>
+
+<h2 id="select-문장의-실행순서">SELECT 문장의 실행순서</h2>
+
+<ul>
+  <li>FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; ORDER BY</li>
+</ul>
+
+<h2 id="순수-관계-연산자">순수 관계 연산자</h2>
+
+<ul>
+  <li>순수 관계 연산자에는 4가지가 있다.</li>
+  <li>SELECT, PROJECT, JOIN, DIVIDE</li>
+</ul>
+
+<h2 id="join의-종류">JOIN의 종류</h2>
+
+<ul>
+  <li>INNER JOIN(그냥 JOIN과 같음)<br />
+<img src="/image/INNERJOIN.jpg" alt="image" /></li>
+  <li>NATURAL JOIN<br />
+<img src="/image/NATURALJOIN.jpg" alt="image" /></li>
+  <li>CROSS JOIN<br />
+<img src="/image/CROSSJOIN.jpg" alt="image" /></li>
+  <li>OUTER JOIN
+    <ul>
+      <li>FULL JOIN<br />
+<img src="/image/FULLJOIN.jpg" alt="image" /></li>
+      <li>RIGHT JOIN<br />
+<img src="/image/RIGHTJOIN.jpg" alt="image" /></li>
+      <li>LEFT JOIN<br />
+<img src="/image/LEFTJOIN.jpg" alt="image" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="on조건절">ON조건절</h2>
+
+<ul>
+  <li>JOIN이 있는 SQL에서만 나타나며 WHERE과 똑같은 기능을 함.</li>
+  <li>JOIN에 대한 조건절의 역할을 함.</li>
+  <li>EX) select ? from A JOIN B on A.PK = B.pk
+    <ul>
+      <li>A테이블의 PK와 B테이블의 PK가 같은것만 출력</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="using-조건절">USING 조건절</h2>
+
+<ul>
+  <li>EQUI JOIN용으로 쓰이는 조건절</li>
+  <li>[SELECT ? FROM A JOIN B ON A.PK = B.pk] 와 [SELECT ? FROM A JOIN B USING PK]는 같다!!!!</li>
+</ul>
+
+<hr />
+
+<h1 id="2과목-2장-sql-활용">2과목 2장. SQL 활용</h1>
+
+<h2 id="제약조건-추가-방법">제약조건 추가 방법</h2>
+
+<ul>
+  <li>제약 조건을 추가하는 방법은 2가지가 있다. DDL에서 사용된다
+    <ol>
+      <li>ALTER문으로 기존 테이블에 제약조건을 추가하는 방법
+        <ul>
+          <li>ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 제약조건타입 (열)
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>테이블을 CREATE할 때부터 추가하는 방법
+        <ul>
+          <li>CREATE 하단에 [constraint 제약조건명 제약조건타입 (열)] 추가하기</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="테이블-생성-시-주의사항">테이블 생성 시 주의사항</h2>
+
+<ul>
+  <li>테이블 명은 객체를 의미할 수 있는 적절한 이름을 사용하고, 가능한 단수형을 권고한다.</li>
+  <li>한 테이블 내에서는 컬럼명 중복이 불가하다.</li>
+  <li>컬럼 뒤에 데이터 유형은 꼭 지정되어야 한다.</li>
+</ul>
+
+<h2 id="fk-pk-참조동작">FK-PK 참조동작</h2>
+
+<h5 id="--delete-action">- DELETE ACTION</h5>
+
+<ul>
+  <li>CASCADE : MASTER 삭제 시 CHILD도 같이 삭제</li>
+  <li>SET NULL : MASTER 삭제 시 CHILD 해당 필드 NULL로 설정</li>
+  <li>SET DEFAULT : MASTER 삭제 시 CHILD 해당 필드 default값으로 설정</li>
+  <li>RESTRICT : CHILD테이블에 PK값이 없는 경우만 MASTER 삭제 허용됨.
+<br /><br /></li>
+</ul>
+
+<h5 id="--insert-action">- INSERT ACTION</h5>
+
+<ul>
+  <li>AUTOMATIC : MASTER테이블에 PK가 없을 때, FK에 해당하는 MASTER PK를 생성 후 child 입력</li>
+  <li>SET NULL : MASTER에 PK가 없으면 FK는 NULL로 설정</li>
+  <li>SET DEFAULT : MASTER에 PK가 없으면 지정된 값으로 FK를 설정</li>
+  <li>DEPENDENT : MASTER에 PK가 존재할 떄에만 child 입력 허용</li>
+</ul>
+
+<h2 id="서브쿼리">서브쿼리</h2>
+
+<ul>
+  <li>SELECT * FROM (select ?? from …..)</li>
+  <li>바깥쪽에 있는 것이 메인쿼리이고, 괄호안에 있는 것이 서브쿼리이다.</li>
+</ul>
+
+<h2 id="그룹함수">그룹함수</h2>
+
+<ul>
+  <li>GROUPING SET
+    <ul>
+      <li>GROUP BY GROUPING SET(column1, column2)
+        <ul>
+          <li>column1를 select group by 한 결과와 column2를 select group by한 결과를 UNION ALL(합집합)한 결과와 같음.
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>ROLLUP - GROUP BY ROLLUP(column1, column2) - column1과 column2를 기준으로 Grouping하고, 밑에는 column1, column2 all range의 총합이 나타난다. - 맨 밑에는 모든 range의 총합 인스턴스를 출력해준다. - 설명이 잘 안된다…다른데서 찾아보고 표 보면 딱 이해됨.
+<br /><br /></li>
+      <li>CUBE
+        <ul>
+          <li>ROLLUP보다 업그레이된 느낌. COLUMN2에 대한 총합도 나타내준다.</li>
+          <li>이것도 다른데서 표 찾아보면 이해됨..</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="집합연산자">집합연산자</h2>
+
+<ul>
+  <li>UNION : 합집합</li>
+  <li>INTERSECT : 교집합</li>
+  <li>EXCEPT(오라클 외) : 차집합</li>
+  <li>MINUS(오라클) : 차집합</li>
+</ul>
 </div>
       </div>
     </div>
