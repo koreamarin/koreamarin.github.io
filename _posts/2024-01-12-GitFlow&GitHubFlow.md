@@ -2,7 +2,7 @@
 layout: post
 title: GitFlow & GitHubFlow
 description: GitFlow와 gitHubFlow에 대해 알아보는 글
-date: 2024-01-12 00:00:00 +0900
+date: 2024-01-12 00:00:00 +0000
 categories: Git # Develop, Life, DevOps, Conference
 comments: true
 type: done # done, writing, hide

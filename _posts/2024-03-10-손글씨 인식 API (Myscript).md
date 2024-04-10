@@ -2,7 +2,7 @@
 layout: post
 title: 손글씨 인식 API (Myscript)
 description: 손글씨 인식 API (Myscript)에 대한 소개
-date: 2024-03-10 00:00:00 +0900
+date: 2024-03-10 00:00:00 +0000
 categories: AI # Develop, Life, DevOps, Conference, BackEnd, AI, Etc
 comments: true
 type: done # done, writing, hide

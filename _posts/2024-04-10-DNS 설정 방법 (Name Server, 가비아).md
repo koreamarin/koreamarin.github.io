@@ -2,7 +2,7 @@
 layout: post
 title: DNS 설정 방법 (Name Server, 가비아)
 description: 가비아로 DNS설정하였던 간단한 방법 포스팅.
-date: 2024-04-10 00:00:00 +0900
+date: 2024-04-10 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference, BackEnd, AI, Etc
 comments: true
 type: done # done, writing, hide

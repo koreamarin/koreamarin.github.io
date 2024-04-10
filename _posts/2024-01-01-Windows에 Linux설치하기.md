@@ -2,7 +2,7 @@
 layout: post
 title: Windows에 Linux설치하기
 description: Windows에 가상머신을 만들어 Linux를 설치하고, 네트워크를 설정하기
-date: 2024-01-01 00:00:00 +0900
+date: 2024-01-01 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference
 comments: true
 type: done # done, writing, hide

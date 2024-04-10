@@ -2,7 +2,7 @@
 layout: post
 title: TypeScript 정리 문서
 description: TypeScript를 공부한 내용을 정리한 문서
-date: 2024-02-19 00:00:00 +0900
+date: 2024-02-19 00:00:00 +0000
 categories: FrontEnd
 comments: true
 type: done

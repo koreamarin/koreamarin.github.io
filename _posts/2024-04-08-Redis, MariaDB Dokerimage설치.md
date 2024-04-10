@@ -2,7 +2,7 @@
 layout: post
 title: Docker를 이용한 Redis, MariaDB 설치
 description: Docker를 이용한 Redis, MariaDB 설치를 다룬 내용입니다.
-date: 2024-04-08 00:00:00 +0900
+date: 2024-04-08 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference, BackEnd, AI, Etc
 comments: true
 type: done # done, writing, hide

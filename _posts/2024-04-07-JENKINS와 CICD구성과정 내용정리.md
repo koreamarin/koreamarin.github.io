@@ -2,7 +2,7 @@
 layout: post
 title: JENKINS와 CICD구성과정 내용정리 [Jenkins, Docker, 서버구성]
 description: 특화프로젝트를 진행하며 JENKINS로 CI/CD 환경을 구성했던 과정을 정리한 포스터입니다.
-date: 2024-04-07 00:00:00 +0900
+date: 2024-04-07 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference
 comments: true
 type: done # done, writing, hide
