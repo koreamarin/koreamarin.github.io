@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 리눅스에 SprintBoot, React 배포되는 과정.
+title: 리눅스에 SprintBoot, React 배포되는 과정
 description: 리눅스에 SprintBoot, React 배포하기 설명 포스터
 date: 2024-04-11 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference
