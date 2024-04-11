@@ -355,6 +355,24 @@
   
     
         <url>
+        <loc>http://localhost:4000/algorihtm/2023/04/05/CS50-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EB%A6%AC/</loc>
+        
+            <lastmod>2023-04-05T09:00:00+09:00</lastmod>
+        
+
+        
+            <changefreq>daily</changefreq>
+        
+
+        
+            <priority>0.5</priority>
+        
+
+        </url>
+    
+  
+    
+        <url>
         <loc>http://localhost:4000/backend/2023/03/02/Django-%EA%B8%B0%EB%B3%B8%EC%A0%95%EB%A6%AC/</loc>
         
             <lastmod>2023-03-02T09:00:00+09:00</lastmod>

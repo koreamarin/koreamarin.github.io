@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> CS50  알고리즘 정리 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">CS50  알고리즘 정리</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>April 05, 2023</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>CS50 강의를 듣고 알고리즘을 정리한 내용입니다.</p>
+
+<h3 id="검색-알고리즘">검색 알고리즘</h3>
+
+<h4 id="선형-검색"><strong>선형 검색</strong></h4>
+
+<p>배열의 인덱스를 처음부터 끝까지 하나씩 증가시키면서 방문하여 그 값이 속하는지를 검사합니다.
+아래 의사코드와 같이 나타낼 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For i from 0 to n–1
+    If i'th element is 50
+        Return true
+Return false
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h4 id="이진-검색"><strong>이진 검색</strong></h4>
+
+<p>만약 배열이 정렬되어 있다면, 배열 중간 인덱스부터 시작하여 찾고자 하는 값과 비교하며 그보다 작은(작은 값이 저장되어 있는) 인덱스 또는 큰 (큰 값이 저장되어 있는) 인덱스로 이동을 반복하면 됩니다.
+아래 의사코드와 같이 나타낼 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>If no items
+    Return false
+If middle item is 50
+    Return true
+Else if 50 &lt; middle item
+    Search left half
+Else if 50 &gt; middle item
+    Search right half
+</code></pre></div></div>
+
+<h3 id="알고리즘-표기법">알고리즘 표기법</h3>
+
+<h4 id="big-o와-bigω에-대해서-이해할-수-있게-되는-강의"><strong>Big-O와 Big Ω에 대해서 이해할 수 있게 되는 강의</strong></h4>
+
+<p><img src="https://cs50.harvard.edu/x/2020/notes/3/running_time.png" alt="image" /></p>
+
+<p>위와 같은 그림을 공식으로 표기한 것이 <strong>Big O 표기법</strong>입니다.</p>
+
+<p>여기서 O는 <strong>“on the order of”</strong>의 약자로, 쉽게 생각하면 <strong>“~만큼의 정도로 커지는”</strong> 것이라고 볼 수 있습니다.</p>
+
+<p>O(n) 은 n만큼 커지는 것이므로 n이 늘어날수록 선형적으로 증가하게 됩니다. O(n/2)도 결국 n이 매우 커지면 1/2은 큰 의미가 없어지므로 O(n)이라고 볼 수 있습니다.</p>
+
+<p>주로 아래 목록과 같은 Big O 표기가 실행 시간을 나타내기 위해 많이 사용됩니다.</p>
+
+<ul>
+  <li>O(n^2)</li>
+  <li>O(n log n)</li>
+  <li>O(n) - 선형 검색</li>
+  <li>O(log n) - 이진 검색</li>
+  <li>O(1)</li>
+</ul>
+
+<p><strong>Big O</strong>가 알고리즘 <strong>실행 시간의 상한</strong>을 나타낸 것이라면, 반대로 <strong>Big Ω</strong>는 알고리즘 <strong>실행 시간의 하한</strong>을 나타내는 것입니다.</p>
+
+<p>예를 들어 선형 검색에서는 n개의 항목이 있을때 최대 n번의 검색을 해야 하므로 상한이 O(n)이 되지만 운이 좋다면 한 번만에 검색을 끝낼수도 있으므로 하한은 Ω(1)이 됩니다.</p>
+
+<p>역시 아래 목록과 같은 Big Ω 표기가 많이 사용됩니다.</p>
+
+<ul>
+  <li>Ω(n^2)</li>
+  <li>Ω(n log n)</li>
+  <li>Ω(n) - 배열 안에 존재하는 값의 개수 세기</li>
+  <li>Ω(log n)</li>
+  <li>Ω(1) - 선형 검색, 이진 검색</li>
+</ul>
+
+<h3 id="선형-검색-1">선형 검색</h3>
+
+<h4 id="선형-검색-2"><strong>선형 검색</strong></h4>
+
+<p>찾고자 하는 자료를 검색하는 데 사용되는 다양한 알고리즘이 있습니다. 그 중 하나가 <strong>선형 검색</strong>입니다.<br />
+선형검색은 <strong>원하는 원소가 발견될 때까지 처음부터 마지막 자료까지 차례대로 검색</strong>합니다.<br />
+이렇게 하여 선형 검색은 찾고자 하는 자료를 찾을 때까지 모든 자료를 확인해야 합니다.</p>
+
+<h4 id="효율성-그리고-비효율성"><strong>효율성 그리고 비효율성</strong></h4>
+
+<p><strong>선형 검색 알고리즘</strong>은 <strong>정확하지만 아주 효율적이지 못한 방법</strong>입니다.<br />
+리스트의 길이가 n이라고 했을 때, 최악의 경우 리스트의 모든 원소를 확인해야 하므로 n번만큼 실행됩니다.<br />
+여기서 최악의 상황은 찾고자 하는 자료가 맨 마지막에 있거나 리스트 안에 없는 경우를 말합니다.<br />
+만약 100만 개의 원소가 있는 리스트라고 가정해본다면 효율성이 매우 떨어짐을 느낄 수 있습니다.<br />
+반대로 최선의 상황은 처음 시도했을 때 찾고자 하는 값이 있는 경우입니다.<br />
+평균적으로 선형 검색이 최악의 상황에서 종료되는 것에 가깝다고 가정할 수 있습니다.<br />
+선형 검색은 <strong>자료가 정렬되어 있지 않거나 그 어떤 정보도 없어 하나씩 찾아야 하는 경우에 유용</strong>합니다.<br />
+이러한 경우 무작위로 탐색하는 것보다 순서대로 탐색하는 것이 더 효율적입니다.<br />
+이제 왜 검색 이전에 정렬해줘야 하는지 알 수 있을 것입니다.<br />
+정렬은 시간이 오래 걸리고 공간을 더 차지합니다.<br />
+하지만 이 추가적인 과정을 진행하면 여러분이 여러 번 리스트를 검색해야 하거나 매우 큰 리스트를 검색해야 할 경우 시간을 단축할 수 있을 것입니다.<br />
+주어진 배열에서 특정 값을 찾기 위해서 선형 검색을 사용한다면, 아래와 같은 코드를 작성할 수 있습니다.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// numbers 배열 정의 및 값 입력</span>
+    <span class="kt">int</span> <span class="n">numbers</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">};</span>
+
+    <span class="c1">// 값 50 검색</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">50</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"Found</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Not found</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br />
+배열의 크기만큼 for 루프를 돌면서 배열의 인덱스를 차례대로 방문하며 찾는 값이 있는지를 검사하면 됩니다.<br />
+문자열로 이루어진 배열도 비슷한 방식으로 검색할 수 있습니다.<br />
+만약 전화번호부에서 특정 이름을 찾아 해당하는 전화번호를 출력하는 프로그램을 작성하려면 어떻게 할 수 있을까요?<br />
+아래는 그 예시입니다.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">names</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"EMMA"</span><span class="p">,</span> <span class="s">"RODRIGO"</span><span class="p">,</span> <span class="s">"BRIAN"</span><span class="p">,</span> <span class="s">"DAVID"</span><span class="p">};</span>
+    <span class="n">string</span> <span class="n">numbers</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"617–555–0100"</span><span class="p">,</span> <span class="s">"617–555–0101"</span><span class="p">,</span> <span class="s">"617–555–0102"</span><span class="p">,</span> <span class="s">"617–555–0103"</span><span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s">"EMMA"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"Found %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Not found</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /><br />
+names 배열과 numbers 배열을 따로 정의하고 names 배열에서 검색을 해서 해당하는 인덱스의 numbers 배열 값을 출력하는 것이죠.<br />
+하지만 이 경우에는 names 배열과 numbers 배열이 서로 같은 인덱스를 가져야 한다는 한계가 있습니다.<br />
+<strong>구조체(struct)</strong>를 정의해서 이름과 번호를 묶어주는 것입니다.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span>
+<span class="k">typedef</span> <span class="k">struct</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">person</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">person</span> <span class="n">people</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+
+    <span class="n">people</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="s">"EMMA"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">number</span> <span class="o">=</span> <span class="s">"617–555–0100"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="s">"RODRIGO"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">number</span> <span class="o">=</span> <span class="s">"617–555–0101"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="s">"BRIAN"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">number</span> <span class="o">=</span> <span class="s">"617–555–0102"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="s">"DAVID"</span><span class="p">;</span>
+    <span class="n">people</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">number</span> <span class="o">=</span> <span class="s">"617–555–0103"</span><span class="p">;</span>
+
+    <span class="c1">// EMMA 검색</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">,</span> <span class="s">"EMMA"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"Found %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">people</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">number</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Not found</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>person 이라는 이름의 구조체를 자료형으로 정의하고 person 자료형의 배열을 선언하면 그 안에 포함된 속성값은 ‘<strong>.</strong>’으로 연결해서 접근할 수 있습니다.<br />
+person a; 라는 변수가 있다면, a.name 또는 a.number 이 각각 이름과 전화번호를 저장하는 변수가 되겠죠.<br />
+이렇게 함으로써 더욱 확장성 있는 전화번호부 검색 프로그램을 만들 수 있습니다.</p>
+
+<h3 id="버블-정렬">버블 정렬</h3>
+
+<p>정렬되지 않은 리스트를 탐색하는 것 보다 정렬한 뒤 탐색하는 것이 더 효율적입니다.</p>
+
+<p>정렬 알고리즘 중 하나는 <strong>버블 정렬</strong>입니다.</p>
+
+<p>버블 정렬은 <strong>두 개의 인접한 자료 값을 비교하면서 위치를 교환하는 방식으로 정렬</strong>하는 방법을 말합니다.</p>
+
+<p>버블 정렬은 단 두 개의 요소만 정렬해주는 좁은 범위의 정렬에 집중합니다.</p>
+
+<p>이 접근법은 간단하지만 단 하나의 요소를 정렬하기 위해 너무 많이 교환하는 낭비가 발생할 수도 있습니다.</p>
+
+<p>아래와 같은 8개의 숫자가 임의의 순서로 나열되어 있습니다.</p>
+
+<p>이 숫자들을 <strong>오름차순</strong>으로 정렬하기 위해 바로 옆의 있는 숫자들과 비교하는 방법을 사용해 보겠습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">6 3 8 5 2 7 4 1</code></p>
+
+<p>먼저 가장 앞의 6과 3을 비교해서 순서를 바꿉니다.</p>
+
+<p>교환 전: <code class="language-plaintext highlighter-rouge">6 3 8 5 2 7 4 1</code></p>
+
+<p>교환 후: <code class="language-plaintext highlighter-rouge">3 6 8 5 2 7 4 1</code></p>
+
+<p>다음 쌍인 6과 8을 비교해보면 교환할 필요가 없으므로 그대로 둡니다.</p>
+
+<p>바로 다음에 있는 쌍인 8과 5를 비교해서 순서를 바꿉니다.</p>
+
+<p>교환 전: <code class="language-plaintext highlighter-rouge">3 6 8 5 2 7 4 1</code></p>
+
+<p>교환 후: <code class="language-plaintext highlighter-rouge">3 6 5 8 2 7 4 1</code></p>
+
+<p>이런 식으로 숫자 끝까지 진행하면 아래와 같이 정렬이 됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">3 6 5 2 7 4 1 8</code></p>
+
+<p>하지만 아직 오름차순으로 정렬이 되지 않았기 때문에, 다시 처음부터 동일한 작업을 반복합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 6 5 2 7 4 1 8
+3 6 5 2 7 4 1 8 (교환)
+3 5 6 2 7 4 1 8 (교환)
+3 5 2 6 7 4 1 8
+3 5 2 6 7 4 1 8 (교환)
+3 5 2 6 4 7 1 8 (교환)
+3 5 2 6 4 1 7 8
+</code></pre></div></div>
+
+<p>조금 더 잘 정렬이 되었습니다. 이 과정을 끝까지 반복하면 최종적으로 아래와 같이 오름차순 정렬이 될 것입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 2 4 3 5 6 7 8</code></p>
+
+<p>이러한 정렬 방식을 <strong>‘버블 정렬’</strong>이라고 합니다.</p>
+
+<p>마치 거품이(비교 및 교환이) 터지면서 위로 올라오는 (배열의 옆으로 이동하는) 방식이기 때문입니다.</p>
+
+<p>아래와 같이 의사 코드로 나타낼 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Repeat n–1 times
+    For i from 0 to n–2
+        If i'th and i+1'th elements out of order
+            Swap them
+</code></pre></div></div>
+
+<p>중첩 루프를 돌아야 하고, n개의 값이 주어졌을 때 각 루프는 각각 n-1번, n-2번 반복되므로  (n-1)<em>(n-2) = n^2-3n+2(</em>n<em>−1)∗(</em>n<em>−2)=</em>n<em>2−3</em>n*+2  번의 비교 및 교환이 필요합니다.</p>
+
+<p>여기서 가장 크기가 큰 요소는 n^2 이므로 위와 같은 코드로 작성한 버블 정렬 실행 시간의 상한은 <strong>O(n^2)</strong>이라고 말할 수 있습니다.</p>
+
+<p>정렬이 되어 있는지 여부에 관계 없이 루프를 돌며 비교를 해야 하므로 위와 같은 코드로 작성한 버블 정렬의 실행 시간의 하한도 여전히 <strong>Ω(n^2)</strong>이 됩니다.</p>
+
+<h4 id="버블정렬이-효율적일-때">버블정렬이 효율적일 때</h4>
+
+<ul>
+  <li>입력 크기가 작은 경우</li>
+  <li>정렬이 되어있지 않을 때</li>
+</ul>
+
+<h4 id="버블정렬이-비효율적일-때">버블정렬이 비효율적일 때</h4>
+
+<ul>
+  <li>입력 크기가 큰경우</li>
+  <li>이미 정렬이 되어있을 때</li>
+</ul>
+
+<h3 id="선택-정렬">선택 정렬</h3>
+
+<p>보통 배열이 정렬되어 있으면 정렬되지 않은 배열보다 더 쉽게 탐색할 수 있습니다.</p>
+
+<p>정렬을 위한 알고리즘 중 <strong>선택정렬</strong>을 배열 안의 자료 중 가장 작은 수(혹은 가장 큰 수)를 찾아 첫 번째 위치(혹은 가장 마지막 위치)의 수와 교환해주는 방식의 정렬입니다.</p>
+
+<p><strong>선택 정렬</strong>은 <strong>교환 횟수를 최소화</strong>하는 반면 각 자료를 비교하는 횟수는 증가합니다.</p>
+
+<p>다음과 같은 정렬되지 않은 숫자들을 오름차순 정렬해보도록 하겠습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">6 3 8 5 2 7 4 1</code></p>
+
+<p>먼저 아래 숫자들 중에서 가장 작은 값을 찾습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">6 3 8 5 2 7 4 **1**</code></p>
+
+<p>가장 작은 값인 1은 가장 앞에 있어야 하므로 현재 리스트의 첫 번째 값인 6과 교환합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 3 8 5 2 7 4 6</code></p>
+
+<p>그리고 정렬되어 있는 1은 제외하고, 두 번째 숫자부터 시작해서 또 가장 작은 값을 찾습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 3 8 5 2 7 4 6</code></p>
+
+<p>가장 작은 값인 2는 정렬되지 않는 숫자들 중에서 가장 앞에 있어야 하므로 3과 교환합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 2 8 5 3 7 4 6</code></p>
+
+<p>이 과정을 더 이상 교환이 일어나지 않을때까지 반복하면, 아래와 같이 오름차순 정렬이 완료됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 2 3 4 5 6 7 8</code></p>
+
+<p>이러한 정렬 방법을 <strong>‘선택 정렬’</strong> 이라고 합니다. 의사 코드로 아래와 같이 표현할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For i from 0 to n–1
+    Find smallest item between i'th item and last item
+    Swap smallest item with i'th item
+</code></pre></div></div>
+
+<p>여기서도 <strong>두 번의 루프</strong>를 돌아야 합니다.</p>
+
+<p>바깥 루프에서는 숫자들을 처음부터 순서대로 방문하고, 안쪽 루프에서는 가장 작은 값을 찾아야 합니다.</p>
+
+<p>따라서 소요 시간의 상한은 <strong>O(n^2)</strong>이 됩니다. 하한도 마찬가지로 <strong>Ω(n^2)</strong> 입니다. 버블 정렬과 동일합니다.</p>
+
+<h3 id="정렬-알고리즘의-실행시간">정렬 알고리즘의 실행시간</h3>
+
+<p>여태까지 배운 선형 검색, 이진 검색, 버블 정렬, 선택 정렬의 실행시간은 각각 어떻게 되는지 정리해 보겠습니다.</p>
+
+<h4 id="실행시간의-상한-big-o"><strong>실행시간의 상한 (Big-O)</strong></h4>
+
+<ul>
+  <li>O(n^2): 선택 정렬, 버블 정렬</li>
+  <li>O(n log n)</li>
+  <li>O(n): 선형 검색</li>
+  <li>O(log n): 이진 검색</li>
+  <li>O(1)</li>
+</ul>
+
+<h4 id="실행시간의-하한-big-ω"><strong>실행시간의 하한 (Big-Ω)</strong></h4>
+
+<ul>
+  <li>Ω(n^2): 선택 정렬, 버블 정렬</li>
+  <li>Ω(n log n)</li>
+  <li>Ω(n)</li>
+  <li>Ω(log n)</li>
+  <li>Ω(1): 선형 검색, 이진 검색</li>
+</ul>
+
+<p>여기서 <strong>버블 정렬</strong>을 좀 더 잘 할 수 있는 방법을 알아보겠습니다.</p>
+
+<p>만약 정렬이 모두 되어 있는 숫자 리스트가 주어진다면 어떨까요?</p>
+
+<p>원래 의사 코드는 아래와 같습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Repeat n–1 times
+    For i from 0 to n–2
+        If i'th and i+1'th elements out of order
+            Swap them
+</code></pre></div></div>
+
+<p>여기서 안쪽 루프에서 만약 교환이 하나도 일어나지 않는다면 이미 정렬이 잘 되어 있는 상황일 것입니다.</p>
+
+<p>따라서 바깥쪽 루프를 ‘교환이 일어나지 않을때’까지만 수행하도록 다음과 같이 바꿀 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Repeat until no swaps
+    For i from 0 to n–2
+        If i'th and i+1'th elements out of order
+            Swap them
+</code></pre></div></div>
+
+<p><strong>따라서 최종적으로 버블 정렬의 하한은 Ω(n)이 됩니다.</strong></p>
+
+<p><strong>상황에 따라서는 선택 정렬보다 더 빠른 방법이 되는 것이죠.</strong></p>
+
+<h4 id="실행시간의-하한"><strong>실행시간의 하한</strong></h4>
+
+<ul>
+  <li>Ω(n^2): 선택 정렬</li>
+  <li>Ω(n log n)</li>
+  <li><strong>Ω(n): 버블 정렬</strong></li>
+  <li>Ω(log n)</li>
+  <li>Ω(1): 선형 검색, 이진 검색</li>
+</ul>
+
+<h3 id="재귀">재귀</h3>
+
+<p>함수를 사용할 때 어디에서 호출했나요? main 안에서 프로그램을 작성하면서 필요한 순간에 호출하여 사용합니다.</p>
+
+<p>그런데 main 역시 함수라는걸 기억하시나요? main이라는 함수 안에서 또 다른 함수를 사용한 것입니다.</p>
+
+<p>이 사실을 알게 되었을 때, 우리는 <strong>함수가 본인 스스로를 호출해서 사용할 수 있는지</strong>에 대해 의문을 가질 수 있습니다.</p>
+
+<p>이에 대한 대답은 할 수 있다 이며, 이러한 것을 <strong>재귀(Recursion)</strong>라고 부릅니다.</p>
+
+<p>아래와 같이 피라미드 모양을 출력하기 위해 다음과 같은 코드를 작성할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+##
+###
+####
+</code></pre></div></div>
+
+<p><br /></p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// 사용자로부터 피라미드의 높이를 입력 받아 저장</span>
+<span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">get_int</span><span class="p">(</span><span class="s">"Height: "</span><span class="p">);</span>
+
+    <span class="c1">// 피라미드 그리기</span>
+    <span class="n">draw</span><span class="p">(</span><span class="n">height</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="c1">// 높이가 h인 피라미드 그리기</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"#"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>높이를 입력 받아 중첩 루프를 통해 피라미드를 출력해주는 draw 함수를 정의한 것이죠.</p>
+
+<p>여기서 꼭 중첩 루프를 써야만 할까요? 사실 바깥 쪽 루프는 안 쪽 루프에서 수행하는 내용을 반복하도록 하는 것일 뿐입니다.</p>
+
+<p>따라서 바깥 쪽 루프를 없앤 draw함수를 만들고, 이를 ‘재귀적으로’ 호출하도록 해서 똑같은 작업을 수행할 수 있습니다.</p>
+
+<p>즉, draw 함수 안에서 draw 함수를 호출 하는 것이죠. 아래 코드와 같이 수정할 수 있습니다.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">get_int</span><span class="p">(</span><span class="s">"Height: "</span><span class="p">);</span>
+
+    <span class="n">draw</span><span class="p">(</span><span class="n">height</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// 높이가 0이라면 (그릴 필요가 없다면)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 높이가 h-1인 피라미드 그리기</span>
+    <span class="n">draw</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// 피라미드에서 폭이 h인 한 층 그리기</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"#"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>draw 함수 안에서 draw 함수를 다시 호출 하는 부분을 유의하시기 바랍니다.</p>
+
+<p>h라는 높이를 받았을 때, h-1 높이로 draw 함수를 먼저 호출하고, 그 후에 h 만큼의 #을 출력합니다. 여기서 내부적으로 호출된 draw 함수를 따라가다 보면 <strong>h = 0</strong>인 상황이 오게 됩니다.</p>
+
+<p>따라서 그 때는 아무것도 출력을 하지 않도록 하는 <strong>조건문을 추가</strong>해줘야 합니다.</p>
+
+<p>이렇게 재귀를 사용하면 중첩 루프를 사용하지 않고도 하나의 함수로 동일한 작업을 수행할 수 있습니다.</p>
+
+<h3 id="병합-정렬-빅오가-낮은-정렬방법">병합 정렬 (빅오가 낮은 정렬방법)</h3>
+
+<p>지난 단원에서 다양한 정렬 방법에 대해서 배웠습니다.</p>
+
+<p>하지만 우리가 아직 공부하지 않은 대표적인 정렬 방법이 하나 더 있습니다.</p>
+
+<p>전화번호부의 분할 정복 탐색처럼 데이터를 반으로 나누어간다는 것과 공통점이 있는 방법인 <strong>병합 정렬(합병 정렬)</strong>이 있습니다.</p>
+
+<p>병합 정렬은 <strong>원소가 한 개가 될 때까지 계속해서 반으로 나누다가 다시 합쳐나가며 정렬을 하는 방식입니다.</strong></p>
+
+<p>그리고 이 과정은 재귀적으로 구현되기 때문에 나중에 재귀를 학습하면 더 이해하기 쉽습니다.</p>
+
+<p>마찬가지로 다음 숫자들을 오름차순으로 정렬해 보겠습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">7 4 5 2 6 3 8 1</code></p>
+
+<p>먼저 숫자들을 반으로 나눕니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">7 4 5 2 / 6 3 8 1</code></p>
+
+<p>그리고 나눠진 부분 중 첫번째를 한번 더 반으로 나눠봅니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">7 4 / 5 2 / 6 3 8 1</code></p>
+
+<p>마지막으로 한 번 더 나눠봅니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">7 / 4 / 5 2 / 6 3 8 1</code></p>
+
+<p>이제 숫자가 두 개 밖에 남지 않았으므로 더 이상 나누지 않고, 두 숫자를 다시 <strong>병합</strong>합니다.</p>
+
+<p>단, 이 때 <strong>작은 숫자가 먼저 오도록</strong> 합니다. 4와 7의 순서를 바꿔서 병합하는 것이죠.</p>
+
+<p><code class="language-plaintext highlighter-rouge">4 7 / 5 2 / 6 3 8 1</code></p>
+
+<p>마찬가지로 5 2 부분도 반으로 나눈 후에 작은 숫자가 먼저 오도록 다시 병합할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">4 7 / 2 5 / 6 3 8 1</code></p>
+
+<p>그럼 이제 4 7과 2 5 두 개의 부분들을 병합하겠습니다.</p>
+
+<p>각 부분들의 숫자들을 앞에서 부터 순서대로 읽어들여 비교하여 더 작은 숫자를 병합되는 부분에 가져옵니다.</p>
+
+<p>즉, 4와 2를 먼저 비교해서 2를 가져옵니다. 그 후에 4와 5를 비교해서 4를 가져옵니다.</p>
+
+<p>그리고 7과 5를 비교해서 5를 가져오고, 남은 7을 가져옵니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">2 4 5 7 / 6 3 8 1</code></p>
+
+<p>이제 남은 오른쪽 4개의 숫자들도 위와 동일한 과정을 거칩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">2 4 5 7 / 1 3 6 8</code></p>
+
+<p>마지막으로 각각 정렬된 왼쪽 4개와 오른쪽 4개의 두 부분을 병합합니다.</p>
+
+<p>2와 1을 비교하고, 1을 가져옵니다. 2와 3을 비교하고, 2를 가져옵니다. 4와 3을 비교하고, 3을 가져옵니다.</p>
+
+<p>4와 6을 비교하고… 이 과정을 병합이 끝날때까지 진행하면 아래와 같이 정렬이 완료됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1 2 3 4 5 6 7 8</code></p>
+
+<p>전체 과정을 요약해서 도식화해보면 아래와 같습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">7 / 4 / 5 / 2 / 6 / 3 / 8 / 1</code> → 가장 작은 부분 (숫자 1개)으로 나눠진 결과입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">4   7 / 2   5 / 3   6 / 1   8</code> → 숫자 1개씩을 정렬하여 병합한 결과입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">2   4   5   7 / 1   3   6   8</code> → 숫자 2개씩을 정렬하여 병합한 결과입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">1   2   3   4   5   6   7   8</code> → 마지막으로 숫자 4개씩을 정렬하여 병합한 결과입니다.</p>
+
+<p>이러한 방법을 <strong>‘병합 정렬’</strong> 이라고 합니다.</p>
+
+<p>병합 정렬 실행 시간의 상한은 <strong>O(n log n)</strong> 입니다.</p>
+
+<p>숫자들을 반으로 나누는 데는 O(log n)의 시간이 들고, 각 반으로 나눈 부분들을 다시 정렬해서 병합하는 데 각각 O(n)의 시간이 걸리기 때문입니다.</p>
+
+<p>실행 시간의 하한도 역시 <strong>Ω(n log n)</strong> 입니다. 숫자들이 이미 정렬되었는지 여부에 관계 없이 나누고 병합하는 과정이 필요하기 때문입니다.</p>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//algorihtm/2023/04/05/CS50-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EB%A6%AC/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'CS50  알고리즘 정리'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
