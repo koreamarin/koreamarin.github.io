@@ -18,7 +18,7 @@
     {
       "type": "Web application",
       "name": "수어쉬워",
-      "link": "",
+      "link": "https://github.com/OnlyTeamLeaderIsE/Sueoswiwo",
       "image": "/image/easy-sign-language.gif",
       "date_added": "2024.01.03 - 2024.02.16",
       "item_description": "[SSAFY 공통프로젝트 우수상] 유아동기 청각장애인을 위한 포즈인식 기반의 수화교육 서비스 / <a href='https://www.youtube.com/watch?v=ZkIuFB8XYwQ' target='_blank'>프로젝트 UCC</a>",
@@ -36,7 +36,7 @@
     {
       "type": "Web application",
       "name": "끼리끼리",
-      "link": "",
+      "link": "https://github.com/koreamarin/kkirikkiri",
       "image": "/image/kkirikkiri.gif",
       "date_added": "2024.02.19 - 2024.04.04",
       "item_description": "아이들을 위한 AI 동화책 만들기 서비스 / <a href='https://youtu.be/Jt_GDWPBpAs' target='_blank'>프로젝트 UCC</a>",
