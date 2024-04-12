@@ -76,47 +76,106 @@
     <br />
     <div class="columns is-multiline">
       <div class="column is-half is-offset-one-quarter">
-        <div class="content"><h1 id="1-프로젝트-설명">1. 프로젝트 설명</h1>
+        <div class="content"><h1 id="1-프로젝트-개요">1. 프로젝트 개요</h1>
 
-<p>유아동기 청각장애인을 위한 포즈인식 기반의 수화교육 서비스이다.<br />
-수화언어 지문자(자음, 모음), 단어 등을 학습할 수 있으며, 학습한 단어로 게임을 플레이할 수 있다.<br />
+<p>유아동기 청각장애인을 위한 포즈인식 기반의 수화교육 서비스입니다.<br />
+수화언어 지문자(자음, 모음), 단어 등을 학습할 수 있으며, 학습한 단어로 게임을 플레이할 수 있습니다.<br />
 또한, 재미요소를 추가하기 위해 학습을 통해 얻은 재화로 배경과 프로필 이미지를 구매하여 바꾸거나,<br />
-3D 캐릭터 마스크를 구매하여 나의 모습에 3D 캐릭터 이미지를 씌우는 기능도 구매가 가능하다.<br />
-MidiaPipe로 몸의 관절위치를 추출하여, 관절의 각도를 계산해냈고, 그 각도정보를 LSTM 방식으로 학습시켰다.<br />
+3D 캐릭터 마스크를 구매하여 나의 모습에 3D 캐릭터 이미지를 씌울 수 있습니다.</p>
+
+<p>MidiaPipe로 몸의 관절위치를 추출하여, 관절의 각도를 계산해냈고, 그 각도정보를 LSTM 방식으로 학습시켰다.
 관절의 위치를 학습시키것이 아닌 관절의 각도를 학습시킨 이유는 관절의 위치를 학습시킬 경우에는 카메라에 비친 몸의 위치, 원근법, 카메라를 바라보는 각도 등에 의해 인식률이 저하될 수 있기 때문이다.<br />
 관절의 각도를 학습시키면, 몸의 각도자체가 틀어져있거나, 몸이 멀리있거나와 같은 변수에 의해 인식이 저하될 확률이 줄어든다.</p>
 
-<h1 id="2-기술-스택">2. 기술 스택</h1>
+<h1 id="2-프로젝트-관련-링크">2. 프로젝트 관련 링크</h1>
 
-<p>SpringBoot, Reqct, Typescript, Python, Docker, Jenkins, Nginx, MediaPipe, TensorFlow, TensorFlow.js, Three.JS, Redux</p>
+<p><a href="https://www.notion.so/2-C202-E-f72391e18895467d9907f6a1b62d1366">팀 노션</a> /
+<a href="https://www.youtube.com/watch?v=ZkIuFB8XYwQ">UCC</a> /
+<a href="https://github.com/OnlyTeamLeaderIsE/Sueoswiwo">GitHub링크</a> /
+<a href="https://www.erdcloud.com/d/NgTTzWRAJ9NLWDBd7">ERD</a> /
+<a href="https://www.figma.com/file/OU1Cr8MoLcxyohrJm3fosp/%EC%88%98%EC%96%B4%EC%89%AC%EC%9B%8C?type=design&amp;node-id=0-1&amp;mode=design&amp;t=e4c32OKBNOcmCRqQ-0">Mockup Page</a> /
+<a href="https://speeding-moon-576595.postman.co/workspace/EasySign~ad475e0b-f5ab-42f1-921a-3e5707f28ec7/collection/20922058-988f7ddf-8f50-49c1-84fa-87b198593f5e">PostMan</a></p>
 
-<h1 id="3-나의-역할">3. 나의 역할</h1>
+<h1 id="3-기술-환경">3. 기술 환경</h1>
 
-<p>프론트엔드를 맡았으며, 교육페이지 전반을 담당하였다.<br />
-컴포넌트를 최대한 활용하기 위해서 디자인때부터 어떤 컴포넌트를 만들지 구상하였고, 겹치는 컴포넌트는 거의 100% 재활용 되었다.<br />
-AI측에서 Model을 뽑아주면 즉시 나의 컴포넌트에 삽입하여 사용할 수 있도록 준비해놓은 상태로 만들어 놓았고,<br />
-TensorFlow.js에 의해 Class가 도출되면, 다음 문자로 넘어가여 학습할 수 있도록 페이지를 구성하였다.</p>
+<h4 id="backend">BackEnd</h4>
 
-<h1 id="4-잘한점keep">4. 잘한점(Keep)</h1>
+<p><img src="https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&amp;logo=springboot&amp;logoColor=white" alt="SpringBoot" />
+<img src="https://img.shields.io/badge/spring%20data%20jpa-green?style=for-the-badge&amp;logoColor=white" alt="Spring Data Jpa" />
+<img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&amp;logo=JSON%20web%20tokens" alt="JWT" />
+<img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&amp;logo=Spring%20Security&amp;logoColor=white" alt="Spring Security" />
+<img src="https://img.shields.io/badge/map%20struct-black?style=for-the-badge&amp;logoColor=white" alt="Map Struct" /></p>
+
+<h4 id="database">DataBase</h4>
+
+<p><img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&amp;logo=redis&amp;logoColor=white" alt="Redis" />
+<img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&amp;logo=mysql&amp;logoColor=white" alt="MySQL" /></p>
+
+<h4 id="frontend">FrontEnd</h4>
+
+<p><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&amp;logo=react&amp;logoColor=%2361DAFB" alt="React" /> : SPA로 Document를 작성하기 위해서 React프레임워크를 사용하였습니다.<br />
+<img src="https://img.shields.io/badge/redux-%2320232a.svg?style=for-the-badge&amp;logo=redux&amp;logoColor=white&amp;color=%23610AFB" alt="Redux" /> : Props을 여러번 상속하는 등의 복잡함을 줄이기 위해 상태관리 툴을 사용하였습니다.<br />
+<img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="TypeScript" /> : 타입을 지정해줌으로서 오류가능성을 줄이고, IDE의 오류수정 및 자동완성 등의 기능을 지원받기위해 사용하였습니다.<br />
+<img src="https://img.shields.io/badge/threejs-black?style=for-the-badge&amp;logo=three.js&amp;logoColor=white" alt="Threejs" /></p>
+
+<h4 id="ai">AI</h4>
+
+<p><img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&amp;logo=python&amp;logoColor=ffdd54" alt="Python" />
+<img src="https://img.shields.io/badge/mediapipe-089aaa?style=for-the-badge&amp;logoColor=white" alt="Mediapipe" />
+<img src="https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&amp;logo=TensorFlow&amp;logoColor=white" alt="TensorFlow" />
+<img src="https://img.shields.io/badge/TensorFlow.Js-%23FF6F00.svg?style=for-the-badge&amp;logo=TensorFlow&amp;logoColor=white" alt="TensorFlowJs" /></p>
+
+<h4 id="infra">INFRA</h4>
+
+<p><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&amp;logo=docker&amp;logoColor=white" alt="Docker" />
+<img src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&amp;logo=jenkins&amp;logoColor=white" alt="Jenkins" />
+<img src="https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&amp;logo=nginx&amp;logoColor=white" alt="Nginx" /></p>
+
+<h4 id="tools">Tools</h4>
+
+<p><img src="https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&amp;logo=gitlab&amp;logoColor=white" alt="GitLab" /></p>
+
+<h1 id="4-나의-역할">4. 나의 역할</h1>
+
+<ul>
+  <li>교육페이지 전반 개발</li>
+  <li>목업단계에서 컴포넌트 구상 및 디자인, 페이지 전반 디자인</li>
+  <li>교육페이지 메인 페이지 개발 : 각 교육페이지로 이동할 수 있도록 버튼 구성 및 각 페이지로 라우터 연결</li>
+  <li>강좌 페이지 개발
+    <ul>
+      <li>지화/단어/문장 강좌페이지에서 동영상 학습 및 웹캠을 켜고 직접 학습할 수 있도록 하는 기능 개발</li>
+      <li>화살표 클릭이나, 문자를 클릭하여 학습할 문자 선택 가능</li>
+      <li>따라하기 학습을 하여 맞았을 때와 틀렸을 떄 모달 각각 작성 및 개발</li>
+      <li>따라하기 학습 시 AI가 인식한 정도를 Progress바로 수치화. 100%가 되면 정답처리</li>
+      <li>학습한 정도를 서버로 전송하기 위하여 학습량 API추가.</li>
+      <li>학습할 때마다 일정 포인트를 지급하는 API추가.</li>
+    </ul>
+  </li>
+  <li>연습페이지 개발
+    <ul>
+      <li>지화/단어/문장 연습페이지에서는 강좌 동영상이 없이 바로 제시어를 수화로 표현하는 교육페이지 개발</li>
+    </ul>
+  </li>
+  <li>AI 모델 통합
+    <ul>
+      <li>AI Module이 적용된 Component를 교육페이지에 통합 및 올바른 Class 도출 시 정답처리</li>
+    </ul>
+  </li>
+  <li>소나기게임 컴포넌트 통합</li>
+</ul>
+
+<h1 id="5-잘한점keep">5. 잘한점(Keep)</h1>
 
 <ul>
   <li>
     <p>React와 TypeScript, Router, Redux 등 SPA 프론트엔드 프레임워크 사용이 처음이였는데, 학습단계에서부터 밤을 새며 빠르게 학습하고, 자주 사용하는 최신 코드들을 레퍼런스로 남겨두어 개발 시에 참고하곤했던 습관이 좋은 성과로 이어졌던 것 같다.</p>
   </li>
-  <li>
-    <p>교육페이지를 전부 혼자 개발하였는데, 디자인 때부터 어떤 컴포넌트가 자주 쓰이는지, 어떻게 만들어야 범용적으로 사용할 수 있을지 구상해두었기 때문에, 개발단계에서 페이지가 많음에도 빠르게 진행할 수 있었다.<br />
+  <li>교육페이지를 전부 혼자 개발하였는데, 디자인 때부터 어떤 컴포넌트가 자주 쓰이는지, 어떻게 만들어야 범용적으로 사용할 수 있을지 구상해두었기 때문에, 개발단계에서 페이지가 많음에도 빠르게 진행할 수 있었다.<br />
 컴포넌트 개발에 힘을 써서 완성된 페이지가 없어서 개발이 느려보였을 테지만, 컴포넌트를 최대한 활용하여 마지막에 페이지개발이 아주 빠르게 진행될 수 있었다.<br />
-이로서, 컴포넌트를 나누는 습관이 코드가 깔끔해 보이고, 재사용성을 높여서 개발효율을 올린다는 것을 몸소 느낄 수 있었다.</p>
-  </li>
-</ul>
-
-<h1 id="5-아쉬운점problum">5. 아쉬운점(Problum)</h1>
-
-<ul>
-  <li>로그인페이지와 상점시스템을 개발하던 프론트팀원이 한명 더 있었는데, 그쪽 부분이 많이 개발되지 못하였다.<br />
-React, TypeScript 등 모든 프론트 기술이 처음이였는데 너무 많은 기술들을 쓰려 욕심부린 탓이 있었던 것 같다.<br />
-또한, 개발 시간은 부족하고, 내가 맡은 교육페이지 부분이 메인기능이였기에 다른 페이지는 신경쓰지 못한탓도 있다.<br />
-다음에는 팀원들의 진행도를 더 꼼꼼하게 체크하고, 바쁜와중에도 팀원들의 업무가 진행되고 있는지 잘 확인해야겠다는 교훈을 얻었다.</li>
+이로서, 컴포넌트를 나누는 습관이 코드가 깔끔해 보이고, 재사용성을 높여서 개발효율을 올린다는 것을 몸소 느낄 수 있었다.</li>
+  <li>컴포넌트를 최대한 활용하기 위해서 디자인때부터 어떤 컴포넌트를 만들지 구상하였고, 겹치는 컴포넌트는 거의 100% 재활용 되었다.<br />
+AI측에서 Model을 뽑아주면 즉시 나의 컴포넌트에 삽입하여 사용할 수 있도록 준비해놓은 상태로 만들어 놓았고,<br />
+TensorFlow.js에 의해 Class가 도출되면, 다음 문자로 넘어가여 학습할 수 있도록 페이지를 구성하였다.</li>
 </ul>
 
 <h1 id="6-개선할-점-시도해볼-점try">6. 개선할 점, 시도해볼 점(Try)</h1>
@@ -132,6 +191,12 @@ React, TypeScript 등 모든 프론트 기술이 처음이였는데 너무 많�
   <li>
     <p>이번에는 AI학습을 겉핥기로만 배웠다. AI학습과정과 추론과정을 이해는 하였지만 직접 학습을 시키지 못했다는 것이 아쉽다…<br />
 다음번에는 AI를 직접 학습시키고싶다. 내가 직접 Input레이어를 결정하여, Output에 Class 도출이 잘 된다면 뿌듯할 것 같다ㅎㅎ</p>
+  </li>
+  <li>
+    <p>로그인페이지와 상점시스템을 개발하던 프론트팀원이 한명 더 있었는데, 그쪽 부분이 많이 개발되지 못하였다.<br />
+React, TypeScript 등 모든 프론트 기술이 처음이였는데 너무 많은 기술들을 쓰려 욕심부린 탓이 있었던 것 같다.<br />
+또한, 개발 시간은 부족하고, 내가 맡은 교육페이지 부분이 메인기능이였기에 다른 페이지는 신경쓰지 못한탓도 있다.<br />
+다음에는 팀원들의 진행도를 더 꼼꼼하게 체크하고, 바쁜와중에도 팀원들의 업무가 진행되고 있는지 잘 확인해야겠다는 교훈을 얻었다.</p>
   </li>
 </ul>
 
