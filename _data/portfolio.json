@@ -2,18 +2,22 @@
   "items": [
     {
       "type": "Web application",
-      "name": "Poravel",
-      "link": "https://github.com/koreamarin/Poravel",
-      "image": "https://raw.githubusercontent.com/koreamarin/Poravel/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/main.gif",
-      "date_added": "2023.11.16 - 2023.11.23",
-      "item_description": "각 지역의 사진명소 정보를 제공 및 공유하는 서비스",
-      "my_role": ["DB 및 BackEnd 전반 설계", "아이디, 비밀번호 찾기 Front 구현"],
+      "name": "끼리끼리",
+      "link": "https://github.com/koreamarin/kkirikkiri",
+      "image": "/image/kkirikkiri.gif",
+      "date_added": "2024.02.19 - 2024.04.04",
+      "item_description": "아이들을 위한 AI 동화책 만들기 서비스 / <a href='https://youtu.be/Jt_GDWPBpAs' target='_blank'>프로젝트 UCC</a>",
+      "my_role": [
+        "인프라 설계, 구성 및 Doker와 Jenkins를 이용한 CI/CD 환경 구축",
+        "[SpringBoot] 도서관 도메인 개발",
+        "[React] 필기인식 학습페이지 기능 개발, 그 외 기능적으로 미완성된 페이지 개발"
+      ],
       "skills": {
-        "platforms": ["SpringBoot", "Vue.js", "MyBatis"],
-        "language": ["Java", "JavaScript", "MySQL"],
-        "Etc": ["NClude"]
+        "platforms": ["React.js", "Node.js", "SpringBoot"],
+        "language": ["JavaScript", "Java"],
+        "Etc": ["Jenkins", "Docker", "Nginx"]
       },
-      "retrospective_essay_link": "/retrospect/2023/11/24/관통프로젝트회고/"
+      "retrospective_essay_link": "/retrospect/2024/04/05/특화프로젝트회고/"
     },
     {
       "type": "Web application",
@@ -35,22 +39,18 @@
     },
     {
       "type": "Web application",
-      "name": "끼리끼리",
-      "link": "https://github.com/koreamarin/kkirikkiri",
-      "image": "/image/kkirikkiri.gif",
-      "date_added": "2024.02.19 - 2024.04.04",
-      "item_description": "아이들을 위한 AI 동화책 만들기 서비스 / <a href='https://youtu.be/Jt_GDWPBpAs' target='_blank'>프로젝트 UCC</a>",
-      "my_role": [
-        "인프라 설계, 구성 및 Doker와 Jenkins를 이용한 CI/CD 환경 구축",
-        "[SpringBoot] 도서관 도메인 개발",
-        "[React] 필기인식 학습페이지 기능 개발, 그 외 기능적으로 미완성된 페이지 개발"
-      ],
+      "name": "Poravel",
+      "link": "https://github.com/koreamarin/Poravel",
+      "image": "https://raw.githubusercontent.com/koreamarin/Poravel/main/%EC%8B%A4%ED%96%89%ED%99%94%EB%A9%B4/main.gif",
+      "date_added": "2023.11.16 - 2023.11.23",
+      "item_description": "각 지역의 사진명소 정보를 제공 및 공유하는 서비스",
+      "my_role": ["DB 및 BackEnd 전반 설계", "아이디, 비밀번호 찾기 Front 구현"],
       "skills": {
-        "platforms": ["React.js", "Node.js", "SpringBoot"],
-        "language": ["JavaScript", "Java"],
-        "Etc": ["Jenkins", "Docker", "Nginx"]
+        "platforms": ["SpringBoot", "Vue.js", "MyBatis"],
+        "language": ["Java", "JavaScript", "MySQL"],
+        "Etc": ["NClude"]
       },
-      "retrospective_essay_link": "/retrospect/2024/04/05/특화프로젝트회고/"
+      "retrospective_essay_link": "/retrospect/2023/11/24/관통프로젝트회고/"
     }
   ]
 }
