@@ -1,8 +1,8 @@
 ---
 layout: post
 title: jenkins에 Node.js Flugin 설치법
-description: 리눅스에 SprintBoot, React 배포하기 설명 포스터
-date: 2024-04-11 00:00:00 +0000
+description: 최근 jenkins의 node.js flugin설치 오류를 다른 방법으로 설치하는 방법
+date: 2024-05-22 00:00:00 +0000
 categories: DevOps # Develop, Life, DevOps, Conference
 comments: true
 type: done # done, writing, hide
