@@ -123,7 +123,7 @@ PipeLine에 어떤 코드를 가져오고, 어떤 테스트를 거치고, 어떻
 
 <p>이 방법을 이용하면 설치가 쉽다. 이 단원에서는 Docker의 Jenkins 이미지를 활용한 설치방법을 다루고 있으며, Docker를 이용한 Jenkins 설치와 Port 설정, 미러사이트 변경 내용을 다루고 있다.</p>
 
-<p>먼저 Docker를 설치해야하는 Docker 설치 방법은 이 포스팅을 참고 바란다. <a href="/devops/2024/04/05/Docker/">DOCKER란? 도커 총 정리 및 실습하기</a></p>
+<p>먼저 Docker를 설치해야하는 Docker 설치 방법은 이 포스팅을 참고 바란다. <a href="/devops/2024/04/06/Docker/">DOCKER란? 도커 총 정리 및 실습하기</a></p>
 
 <h2 id="jenkins-설치과정-아래-순서대로-따라치면-설치됨">jenkins 설치과정 [아래 순서대로 따라치면 설치됨]</h2>
 
@@ -244,24 +244,28 @@ sudo docker ps는 현재 실행되고 있는 컨테이너 목록을 보여주는
   <li>Password⇒ 자신의 AccessToken</li>
   <li>ID ⇒ 자신의 이메일 주소로 해도되고, 비워놔도 된다.</li>
   <li>Save 클릭</li>
-  <li>PipeLine에 git Clone시에 아래와 같은 형식으로 입력하면 된다.
+  <li>
+    <p>PipeLine에 git Clone시에 아래와 같은 형식으로 입력하면 된다.</p>
+
     <ul>
-      <li>브랜치는 clone하고싶은 브랜치명을, credentialsId는 위에서 Username에 썼던 이메일주소를, url은 git Clone을 할 레포지토리 주소를 입력하면 된다.
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch: 'develop', credentialsId: 'email@domain.com', url: 'https://github.com/***********************'
-</code></pre></div>        </div>
-      </li>
+      <li>브랜치는 clone하고싶은 브랜치명을, credentialsId는 위에서 Username에 썼던 이메일주소를, url은 git Clone을 할 레포지토리 주소를 입력하면 된다.</li>
     </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch: 'develop', credentialsId: 'email@domain.com', url: 'https://github.com/***********************'
+</code></pre></div>    </div>
   </li>
 </ul>
 
 <hr />
 
-<h2 id="번외-필요한-내용들을-따로-정리">번외 필요한 내용들을 따로 정리..</h2>
+<h2 id="번외-필요한-내용들을-따로-정리">번외 필요한 내용들을 따로 정리</h2>
 
 <p>개인적으로 참고하기 위한 내용들이다.</p>
 
 <ul>
-  <li>젠킨스 이미지 run 명령어
+  <li>
+    <p>젠킨스 이미지 run 명령어</p>
+
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker run -d -p 9999:8080 -v /home/ubuntu/jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v /home/ubuntu/share_dir:/var/share_dir --name jenkins -u root jenkins/jenkins
 </code></pre></div>    </div>
   </li>

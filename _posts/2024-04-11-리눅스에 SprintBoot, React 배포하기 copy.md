@@ -8,7 +8,7 @@ comments: true
 type: done # done, writing, hide
 ---
 
-쉽다...겁먹지 말자
+......
 
 ## 스프링부트로 작성한 코드의 배포 개념
 
