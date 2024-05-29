@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> TDD, Junit, assertJ |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">TDD, Junit, assertJ</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>May 28, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>TDD란 테스트 주도 개발(Test driven development)의 약자로 소프트웨어 개발 방법론중에 하나이다.
+선 개발 후 테스트 방식이 아닌, 선 테스트 후 개발 방식의 프로그래밍 방법을 말한다.</p>
+
+<p>TDD를 하면 코드의 변경이 더 편하다.
+예를 들어 어떤 코드를 결과값은 변화가 없도록 수정하고 싶을 때, 테스트 코드가 결과값이 일치하는지 아닌지를 보장하여 주기때문에 오히려 코드 수정이 더 쉬워지는 것이다.
+또한, 테스트코드 자체가 팀원들에게 어떤 코드인지를 공유하는 문서 자체가 될 수도 있다.</p>
+
+<h2 id="junit과-assertj">Junit과 assertJ</h2>
+
+<p>테스트코드는 CI/CD를 통해 배포될 때, 테스트코드를 먼저 돌려봄으로서 코드에 이상유무를 파악하는 용도로도 쓰인다. 테스트를 통과하지 못한다면 배포가 멈추는 식으로 동작이 가능하다.</p>
+
+<p>Java 진영에서는 Junit이라는 것과, Junit을 조금 더 메서드 체이닝 문법을 쓰기위해서 assertJ라는 것을 많이 사용한다.</p>
+
+<p><img src="/image/TDD1.png" alt="Alt text" /><br />
+위 이미지를 보면 객체들이 구현된 코드들이 있고, 그 각각의 객체에 대한 테스트를 각각 작성하는 구조를 알 수 있다.</p>
+
+<p><img src="/image/TDD2.png" alt="Alt text" />
+위 이미지는 단위테스트 단위의 테스트코드가 구현된 것이다. 테스트코드위에는 @Test라는 어노테이션을 붙여서 하나의 테스트 메서드라는 것을 가르킬 수 있다.<br />
+@DisplayName(““)은 테스트코드에 이름을 붙이는 것이다.<br />
+junit 버전 5.0부터 나온 어노테이션이라 예전 코드에는 DisPlayName 어노테이션이 없을 수 있다.<br />
+이 어노테이션이 없을때에는 함수명에 한글로 이름을 적기도 했다고 한다.</p>
+
+<p><img src="/image/TDD3.png" alt="Alt text" />
+위 이미지의 빨간박스와 같이 Gradle을 IntelliJ IDEA로 설정을 하면 테스트를 할 때 어떤 테스트메서드가 성공하고 실패했는지 나타나게 된다.</p>
+
+<p><img src="/image/TDD4.png" alt="Alt text" />
+이렇게 나타난다. Gradle로 설정을 왼쪽 윈도우에서 나타내어주고 있는 어떤 테스트메서드가 성공했는지 안나타난다…</p>
+
+<h2 id="displayname">DisPlayName</h2>
+
+<p>도메인 정책, 용어를 사용한 명확한 문장 사용하기.</p>
+
+<p>DisPlayName은 이름작명을 섬세하게 하는게 좋다.<br />
+“음료 1개 추가 테스트”라고 짓는것보다는 “음료를 1개 추가하면 주문목록에 담긴다.”라고 문장형태로 짓는것이 좋다.<br />
+테스트 행위에 대한 결과까지 기술하는 것이 좋다!!!!! 테스트가 어떤 동작을 하는지 설명할 수 있는 문장형태로 짓도록 하자!!!<br />
+“~~~하는 테스트”라고 짓는것을 지양한다.</p>
+
+<p>또한, “특정 시간 이외에 음료를 주문하면 에러코드가 발생한다.”라고 짓지말고,
+“영업시간 이외에 음료를 주문을 할 수 없다”라고 도메인 용어를 사용하여 한층 추상화된 내용을 담아야한다.
+개발자들이 읽기보다는 클라이언트의 입장에서 문장을 작성하도록 한다.<br />
+메서드 자체의 관점보다는 도메인 정책 관점으로 작성하면 되는 것이다.</p>
+
+<h2 id="bdd-behavior-driven-development">BDD (Behavior Driven Development)</h2>
+
+<ul>
+  <li>TDD에서 파생된 개발 방법</li>
+  <li>함수 단위의 테스트에 집중하기보다, 시나리오에 기반한 테스트케이스(TC) 자체에 집중하여 테스트한다.</li>
+  <li>개발자가 아닌 사람이 봐도 이해할 수 있을 정도의 추상화 수준(레벨)을 권장</li>
+  <li>결국 TDD를 할떄 쓰는 개발방법의 일종이며, Given, when, then이라는 3단계의 개발 방식을 따른다.</li>
+  <li>BDD에는 3가지 단계가 있으며, Given/When/Then으로 나눈다.
+    <ul>
+      <li>Given : 시나리오 진행에 필요한 모든 준비과정(객체, 값, 상태 등)</li>
+      <li>When : 시나리오 행동 진행</li>
+      <li>Then : 시나리오 진행에 대한 결과 명시, 검증</li>
+      <li>어떤 환경에서(Given) 어떤 행동을 하였을 때(When) 어떤 상태변화가 일어난다(Then)</li>
+      <li>이 Given/When/Then을 DisPlayName에 나타낼 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="intellij의-livetemplate-설정">IntelliJ의 LiveTemplate 설정</h2>
+
+<p><img src="/image/TDD5.png" alt="Alt text" />
+위 이미지와 같이 설정에서 LiveTemplate에 들어가서 (+)버튼을 눌러 Java카테고리 밑에 test라는 라이브템플릿을 만든후에 이미지와 같이 코드를 작성하면<br />
+test라고 작성만 해도 BDD구조의 템플릿이 작성된다. 매우매우 편하다.</p>
+
+<h2 id="통합테스트">통합테스트</h2>
+
+<ul>
+  <li>여러 모듈이 협력하는 기능을 통합적으로 검증하는 테스트</li>
+  <li>일반적으로 작은 단위의 단위 테스트만으로는 기능 전체의 신뢰성을 보장할 수 없다.</li>
+  <li>풍부한 단위 테스트 &amp; 큰 기능 단위를 검증하는 통합 테스트</li>
+</ul>
+
+<h1 id="springboot-테스트">SpringBoot 테스트</h1>
+
+<h2 id="persistence-layer-테스트">Persistence Layer 테스트</h2>
+
+<ul>
+  <li>Persistence Layer의 특징
+    <ul>
+      <li>Data Access의 역할을 한다.</li>
+      <li>비즈니스 로직이 포함되어있으면 안되며, Data에 대한 CRUD에만 집중한 레이어이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Persistence 계층에 있는 Repository를 테스트한 코드이다.<br />
+<img src="/image/TDD6.png" alt="Alt text" />
+<img src="/image/TDD7.png" alt="Alt text" /></p>
+
+<p>위 사진처럼 SpringBoot의 코드를 테스트하는 경우에는 @DataJpaTest나 @SpringBootTest 어노테이션을 붙인다.
+@DataJpaTest는 오직 JPA 컴포넌트들만을 테스트하기 위한 어노테이션으로 JPA테스트와 연관된 config만 적용하기 때문에 가볍고 빠르다.</p>
+
+<p>@SpringBootTest는 스프링 컨테이너의 모든 Bean들을 등록한다. 즉, ApplicationContext에 모든 Bean들을 등록한다.
+스프링 부트를 사용해서 테스트를 한다는 것으로 실제 애플리케이션 환경과 유사한 테스트 환경을 제공한다.</p>
+
+<p>@SpringBootTest를 더 많이 사용한다고 한다.</p>
+
+<h2 id="businessservice-layer-테스트">Business(Service) Layer 테스트</h2>
+
+<ul>
+  <li>Business Layer의 특징
+    <ul>
+      <li>비즈니스 로직을 구현하는 역할</li>
+      <li>Persistence Layer와의 상호작용(Data를 읽고 쓰는 행위)을 통해 비즈니스 로직을 전개시킨다.</li>
+      <li>트랜잭션을 보장해야 한다. (작업단위의 원자성을 보장해야한다.)</li>
+    </ul>
+  </li>
+</ul>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//develop/2024/05/28/TDD,-Junit,-assertJ/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'TDD, Junit, assertJ'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

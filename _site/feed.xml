@@ -5,8 +5,12 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Thu, 23 May 2024 09:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Tue, 28 May 2024 09:00:00 +0900</lastBuildDate>
 	
+    
+    
+    
+    
     
       <item>
         <title>무중단배포 전략</title>
@@ -129,22 +133,6 @@ Jenkins과 Docker이미지를 사용하였다.
             <guid isPermaLink="true">http://localhost:4000/devops/2024/04/07/JENKINS%EC%99%80-CICD%EA%B5%AC%EC%84%B1%EA%B3%BC%EC%A0%95-%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/</guid>
         </item>
       
-    
-    
-      <item>
-        <title>Docker란? 도커 총 정리 및 실습하기</title>
-            
-            
-                <description>&lt;p&gt;Docker에 대한 포스팅&lt;/p&gt;
-</description>
-            
-            <pubDate>Sat, 06 Apr 2024 09:00:00 +0900</pubDate>
-            <link>http://localhost:4000/devops/2024/04/06/Docker/</link>
-            <guid isPermaLink="true">http://localhost:4000/devops/2024/04/06/Docker/</guid>
-        </item>
-      
-    
-    
     
   </channel>
 </rss>
