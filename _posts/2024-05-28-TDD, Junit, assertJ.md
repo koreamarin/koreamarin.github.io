@@ -84,16 +84,23 @@ test라고 작성만 해도 BDD구조의 템플릿이 작성된다. 매우매우
   - 비즈니스 로직이 포함되어있으면 안되며, Data에 대한 CRUD에만 집중한 레이어이다.
 
 Persistence 계층에 있는 Repository를 테스트한 코드이다.  
+persistence Layer만을 테스트하기 때문에 단위테스트의 느낌이다.  
 ![Alt text](/image/TDD6.png)
 ![Alt text](/image/TDD7.png)
 
 위 사진처럼 SpringBoot의 코드를 테스트하는 경우에는 @DataJpaTest나 @SpringBootTest 어노테이션을 붙인다.
 @DataJpaTest는 오직 JPA 컴포넌트들만을 테스트하기 위한 어노테이션으로 JPA테스트와 연관된 config만 적용하기 때문에 가볍고 빠르다.
+또한, 각 메서드마다 RollBack이 되어서 데이터가 뒤섞이지 않고 테스트 메서드가 독립적으로 작동한다.
 
 @SpringBootTest는 스프링 컨테이너의 모든 Bean들을 등록한다. 즉, ApplicationContext에 모든 Bean들을 등록한다.
 스프링 부트를 사용해서 테스트를 한다는 것으로 실제 애플리케이션 환경과 유사한 테스트 환경을 제공한다.
+DataJpaTest와 달리 RollBack이 자동으로 되지 않아서 @AfterEach를 통해 초기화 메서드를 만들면 매 테스트메서드 실행 후에 Repository를 초기화 해주어야 독립적으로 테스트 사용이 가능하다.
+또는, 테스트 클래스 위에 @Transactional 어노테이션을 붙이면 매 테스트 메서드마다 롤백되어 독립적인 테스트가 가능하다.
+하지만 @Transactional은 test코드에 붙이는 것을 지양해야한다.  
+@Transactional Service에 붙어있어야 하는데 service에 붙어있지않고,  
+Test코드에 @Transactional가 붙어있으면, @Transactional이 잘 작동하는 것처럼 보이기 떄문이다.
 
-@SpringBootTest를 더 많이 사용한다고 한다.
+그리고, @DataJpaTest보다는 @SpringBootTest를 더 많이 사용한다고 한다.
 
 ## Business(Service) Layer 테스트
 
@@ -101,3 +108,5 @@ Persistence 계층에 있는 Repository를 테스트한 코드이다.
   - 비즈니스 로직을 구현하는 역할
   - Persistence Layer와의 상호작용(Data를 읽고 쓰는 행위)을 통해 비즈니스 로직을 전개시킨다.
   - 트랜잭션을 보장해야 한다. (작업단위의 원자성을 보장해야한다.)
+
+Persistence Layer와 Business Layer를 같이 테스트하기 떄문에 통합적으로 테스트하여 통합테스트이다.
