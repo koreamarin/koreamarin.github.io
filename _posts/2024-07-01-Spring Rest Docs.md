@@ -5,7 +5,7 @@ description: Spring Rest Docs의 import 방법과 작성방법
 date: 2024-07-01 00:00:00 +0000
 categories: BackEnd # BackEnd, Life, DevOps, Conference
 comments: true
-type: writing # done, writing, hide
+type: done # done, writing, hide
 ---
 
 SpringBoot에서 API문서를 작성하는 도구는 대표적으로 Swagger와 Spring REST Docs가 있다.
