@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Swagger |  Jiwon's Blog</title>
+    <title> SpringBoot |  Jiwon's Blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,77 +68,33 @@
         <section class="section">
   <div class="container">
     <div class="heading has-text-centered">
-      <p class="title is-2">Swagger</p>
+      <p class="title is-2">SpringBoot</p>
       <p class="subtitle is-6">
-        <span class="tag is-white"><small>May 24, 2024</small></span>
+        <span class="tag is-white"><small>February 03, 2024</small></span>
       </p>
     </div>
     <br />
     <div class="columns is-multiline">
       <div class="column is-half is-offset-one-quarter">
-        <div class="content"><p>Swagger 작성 방법 알아보자잉</p>
+        <div class="content"><p>이 게시물은 귀하의 디렉토리에서 찾을 수 있습니다 <code class="language-plaintext highlighter-rouge">_posts</code> 계속해서 편집하고 사이트를 다시 구축하여 변경 사항을 확인하세요. 다양한 방법으로 사이트를 다시 구축할 수 있지만 가장 일반적인 방법은 <code class="language-plaintext highlighter-rouge">jekyll serve</code>웹 서버를 시작하고 파일이 업데이트될 때 사이트를 자동으로 다시 생성하는 를 실행하는 것입니다.</p>
 
-<h1 id="1-import-방법">1. import 방법</h1>
+<p>Jekyll에서는 블로그 게시물 파일 이름을 다음 형식에 따라 지정해야 합니다:</p>
 
-<h2 id="gradle에-아래-내용-추가">gradle에 아래 내용 추가</h2>
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
 
-<pre><code class="language-//swagger">  implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.5.0'
-</code></pre>
+<p>여기서 <code class="language-plaintext highlighter-rouge">YEAR</code>는 4자리 숫자이고 <code class="language-plaintext highlighter-rouge">MONTH</code>는 <code class="language-plaintext highlighter-rouge">DAY</code>둘 다 2자리 숫자이며 는 <code class="language-plaintext highlighter-rouge">MARKUP</code>파일에 사용된 형식을 나타내는 파일 확장자입니다. 그런 다음 필요한 머리말을 포함하세요. 이 게시물의 소스를 살펴보고 작동 방식에 대한 아이디어를 얻으세요.</p>
 
-<h2 id="설정을-원한다면-applicationyml에-아래-내용-추가">설정을 원한다면 application.yml에 아래 내용 추가</h2>
+<p>Jekyll은 또한 코드 조각에 대한 강력한 지원을 제공합니다:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spring:
-  springdoc:
-    swagger-ui:
-      path: /swagger-ui.html
-      groups-order: DESC  # path, query, body, response 순으로 정렬
-      tags-sorter: alpha  # 태그를 알파벳 순으로 정렬
-      operations-sorter: alpha  # operation을 알파벳 순으로 정렬
-</code></pre></div></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 
-<h2 id="swaggerconfigjava-파일-만들어서-아래-내용-추가">SwaggerConfig.java 파일 만들어서 아래 내용 추가</h2>
+<span class="c1"># =&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+<p>Jekyll을 최대한 활용하는 방법에 대한 자세한 내용은 <a href="https://jekyllrb.com/docs/home">Jekyll 문서</a>를 확인하세요 . 모든 버그/기능 요청은 <a href="https://github.com/jekyll/jekyll">Jekyll의 GitHub repo</a>에 제출하세요 . 궁금한 점이 있으시면 <a href="https://talk.jekyllrb.com/">Jekyll Talk</a> 에서 질문하실 수 있습니다 .</p>
 
-@RequiredArgsConstructor
-@Configuration
-@OpenAPIDefinition(
-        info = @Info(title = "Recruit API Document", description = "Recruit SERVICE", version = "v1")
-)
-public class SwaggerConfig {
-    @Bean
-    public OpenAPI openAPI() {
-        String jwt = "JWT";
-        SecurityRequirement securityRequirement = new SecurityRequirement().addList(jwt);
-        Components components = new Components().addSecuritySchemes(jwt, new SecurityScheme()
-                .name(jwt)
-                .type(SecurityScheme.Type.HTTP)
-                .scheme("bearer")
-                .bearerFormat("JWT")
-        );
-        return new OpenAPI()
-                .components(new Components())
-                .addSecurityItem(securityRequirement)
-                .components(components);
-    }
-}
-</code></pre></div></div>
-
-<p>그럼 스웨거가 들어가진다. localhost:8080/swagger-ui/index.html</p>
-
-<h1 id="2-swagger-작성방법">2. Swagger 작성방법</h1>
-
-<p><img src="/image/swagger1.png" alt="Alt text" />
-OpenAPIDefinition안의 내용을 바꾸면 아래 그림의 빨간 박스처럼 바뀐다.
-<img src="/image/swagger2.png" alt="Alt text" /></p>
 </div>
       </div>
     </div>
@@ -150,8 +106,8 @@ OpenAPIDefinition안의 내용을 바꾸면 아래 그림의 빨간 박스처럼
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    this.page.url = "https://koreamarin.github.io//develop/2024/05/24/Swagger/";  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = 'Swagger'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = "https://koreamarin.github.io//backend/2024/02/03/SpringBoot/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'SpringBoot'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');

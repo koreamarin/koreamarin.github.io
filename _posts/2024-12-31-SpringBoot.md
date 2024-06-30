@@ -3,7 +3,7 @@ layout: post
 title: SpringBoot
 description: SpringBoot
 date: 2024-02-03 00:00:00 +0000
-categories: Develop # Develop, Life, DevOps, Conference
+categories: BackEnd # BackEnd, Life, DevOps, Conference
 comments: true
 type: hide # done, writing, hide
 ---
@@ -23,7 +23,9 @@ def print_hi(name)
 puts "Hi, #{name}"
 end
 print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
+
+# => prints 'Hi, Tom' to STDOUT.
+
 {% endhighlight %}
 
 Jekyll을 최대한 활용하는 방법에 대한 자세한 내용은 [Jekyll 문서][jekyll-docs]를 확인하세요 . 모든 버그/기능 요청은 [Jekyll의 GitHub repo][jekyll-gh]에 제출하세요 . 궁금한 점이 있으시면 [Jekyll Talk][jekyll-talk] 에서 질문하실 수 있습니다 .

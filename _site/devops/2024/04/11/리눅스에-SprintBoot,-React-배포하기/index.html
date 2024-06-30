@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 리눅스에 SprintBoot, React 배포되는 과정 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">리눅스에 SprintBoot, React 배포되는 과정</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>April 11, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>……</p>
+
+<h2 id="스프링부트로-작성한-코드의-배포-개념">스프링부트로 작성한 코드의 배포 개념</h2>
+
+<p>스프링부트에서 작성한 코드는 Build를 하면 jar파일이라는게 나온다.
+이 jar파일을 구동하면 개발자가 springBoot에서 코드를 running시키는 것과 똑같은 역할을 한다.
+개발자는 스크링부트 코드를 Build하여 jar파일이 나오면 그 jar파일을 리눅스에 옮기고, 똑같은 버전의 JVM을 설치한 후, Jar파일을 실행시키기만 하면 BackEnd 코드는 배포되는 것이다.</p>
+
+<h2 id="프론트엔드-코드의-배포-개념">프론트엔드 코드의 배포 개념</h2>
+
+<p>프론트엔드에서 작성한 코드는 그 코드 자체를 배포하는 것이 아니다.
+프론트엔드 프레임워크의 존재이유는 프론트엔드 코드를 쉽게 만들기 위함이고, 백엔드코드처럼 백엔드코드가 직접 running되는게 아니다.<br />
+프론트엔드 프레임워크(React, Vue 등)에서 작성한 코드들은 Build를 시키면 index.html과 그 문서에 필요한 CSS, scipt 파일, 이미지 등이 함꼐 static 파일 등이 폴더에 함께 담겨 나오게 된다.<br />
+Build과정을 거쳐 하나의 폴더에 담긴 Static파일들을 nginx가 호스팅하는 것이다.<br />
+다시말하면 프론트엔드코드를 배포하는 것이 아니라, 프론트엔드 프레임워크에서 작성한 코드를 Build시키면 index.html과 그 외 파일들이 함께 나오고, 이 Build되어 나온 index.html을 nginx로 배포하는 것이다.</p>
+
+<h1 id="스프링부트-배포방법">스프링부트 배포방법</h1>
+
+<p>스프링부트에 <code class="language-plaintext highlighter-rouge">./gradlew clean build</code>라고 입력하면 build/libs에 jar 파일이 생성된다.
+이 jar파일을 리눅스에서 실행시키면 배포가 되는거다.</p>
+
+<p>jar파일을 리눅스의 아무 폴더에나 옮긴 후에 <code class="language-plaintext highlighter-rouge">java -jar 빌드파일명.jar</code> 라고 입력하면 실행이 된다. SpringBoot로 작성한 파일 배포 완료다.<br />
+물론 jvm이 설치되어 있어야한다.</p>
+
+<h1 id="리엑트-배포방법">리엑트 배포방법</h1>
+
+<p>리엑트를 작성 후 <code class="language-plaintext highlighter-rouge">npm run build</code>를 하면 build 폴더가 생기고, 그 안에 index.html와 그 외 정적파일들이 생길거다.
+이 build폴더가 통째로 필요하다.
+이 build폴더를 리눅스로 옮긴 후 nginx으로 index.html을 호스팅해주면 끝이다.
+여기서 Nginx를 다루지는 않겠다.
+굳이 찾아보고싶다면 이 블로그에 [NGINX 리눅스 설치 및 사용법]이라는 글이 있으니 참고하기 바란다.</p>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = '리눅스에 SprintBoot, React 배포되는 과정'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
