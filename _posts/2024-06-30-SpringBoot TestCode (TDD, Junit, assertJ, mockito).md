@@ -97,10 +97,10 @@ test라고 작성만 해도 BDD구조의 템플릿이 작성된다. 매우매우
 
 Presentation Test에서는 @WebMvcTest를 사용한다. 로직(Service Layer)의 검증 없이 Controller만 테스트를 수행하기 위한 어노테이션이다.
 Controller만 테스트를 수행하기 위해, Controller만 주입하고, Service와 리포지토리는 주입해주지 않는다.
-Service는 주입해주지 않는 대신, Service 객체를 가짜로 있다고 가정해 주는 모의 객체인 Mock객체를 생성해야 한다.
+Service는 주입해주지 않는 대신, Service 객체를 가짜로 있다고 가정해 주는 모의 객체인 Mock객체를 자동으로 주입해준다.
 또한, WebMvcTest는 controller테스트시에 필요한 MockMvc라는 객체를 주입해주기도 한다.
 MockMvc는 Get, Post, put, delete 등의 요청을 만들어 보내어 controller를 테스트할 수 있는 수단이다.
-Service에 대한 Mock객체을 만들어 Service는 정상적으로 동작한다고 가정하고, Controller만을 테스트하여 단위테스트를 수행한다.
+Service에 대한 Mock객체을 만들어 자동으로 주입해주고 Service는 정상적으로 동작한다고 가정하고, Controller만을 테스트하여 단위테스트를 수행할 떄 사용하는 것이 WebMvcTest인 것이다.
 
 ### @SpringBootTest
 
