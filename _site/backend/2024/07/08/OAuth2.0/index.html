@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> OAuth2.0 로직 설명, 시퀀스 다이어그램 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">OAuth2.0 로직 설명, 시퀀스 다이어그램</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>July 08, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>프로젝트에 Kakao OAuth2.0을 도입하였던 방법에 대해 작성한 글 입니다.</p>
+
+<p><img src="/image/OAuth2.0적용방법1.png" alt="image" /></p>
+
+<h2 id="용어-정리">용어 정리</h2>
+
+<ul>
+  <li>Authorizaion Code : Access Token을 발급받기 위한 코드이다. 클라이언트가 가지고 있다면 클라이언트가 해킹당하거나 부정 사용시에 보안상 위험이 생길 수 있다. 그래서 주로 서버가 사용한다. 한번 사용되면 만료된다.</li>
+  <li>Access Token : Access Token을 Oauth를 인증인가해주는 측에 실어보내어 사용자 정보나 기타 사용자 관련 정보를 획득할 수 있다. API을 인증수단인 셈이다. Access Token 또한 클라이언트가 가지고 있으면 보안상 좋지않다.</li>
+</ul>
+
+<h2 id="oauth20-적용과정과-서비스에서의-인증로직-시퀀스-상세-설명-위-이미지-설명">OAuth2.0 적용과정과 서비스에서의 인증로직 시퀀스 상세 설명 [위 이미지 설명]</h2>
+
+<ol>
+  <li>Client는 Kakao 로그인을 눌렀을 시 서비스하고 있는 서버로 요청이 전달된다.</li>
+  <li>Server는 Kakao측에서 받은 Client ID와 이를 Kakao측에 바로 전달하기 위한 Redirect URL을 Client에게 반환한다.</li>
+  <li>Client는 Server로부터 Client ID와 Redirect URI를 받자마자 Redirect URI에 그 정보를 리다이렉트 한다. 그렇게 카카오에 Client ID를 제공함으로써 카카오측에 우리 서비스가 인증,인가를 요청하고 있다는 신호를 보내게 된다.</li>
+  <li>OAuth를 제공하는 측은 로그인 페이지를 반환하여 준다. 이제서야 Client는 카카로 로그인 페이지를 보게 된다.</li>
+  <li>Client는 카카오 ID와 PW를 입력하여 전송함으로써 카카오에 로그인 하게 된다.</li>
+  <li>카카오측은 Client측에 Authorization Code와 Redirect URI를 포함하여 반환한다.</li>
+  <li>Authorization Code는 바로 서비스 server로 리다이렉트된다.</li>
+  <li>서비스 Server는 Authorization Code를 받자마자 카카오의 Auth Server로 보내어 Access Token을 을 요청한다.</li>
+  <li>카카오측의 Auth Server는 Authorization Code를 확인 후, Access Token을 반환해준다. 6~9번이 한번에 이루어지게 되는 것이다. 6~9번 과정으로써 Authorization Code는 클라이언트가 사용하지도 못하고 서버에게 바로 전달되어 Access Token으로 바꿔서 Authorization Code는 만료되어버린다. 또한, Access Token을 서비스 서버만 가지고 있게 되어 보안상 안전해지게 된다.</li>
+  <li>서비스 Server는 사용자 정보를 가지고 있는 카카오측에 인허가에 필요한 Access Token을 포함하여 사용자 정보 를 달라고 요청을 보낸다.</li>
+  <li>카카오 서버측은 Access Token확인 후, 사용자 정보에 대한 것들을 반환한다. 이름, 나이, 성별 등 카카오 로그인시 승인한 내역에 대해서 반환하는 것이다.</li>
+  <li>사용자 정보를 받게 된 서비스 Server는 이 사용자 정보를 DB에서 확인한다. 이미 회원가입한 내역이 있다면 우리 서비스를 이용하던 기존 사용자이므로 JWT를 발급하여 로그인 시켜주면 된다.
+만약 우리 서비스DB에 이 사용자가 없다면 우리 서비스를 처음 사용하는 사용자인 것이다. 그러면 DB에 이 사용자에 대한 정보를 저장하던가, 회원가입 페이지로 이동하여 추가정보를 받던간데 회원가입 로직을 실행하면 된다. (이미지 상에는 자기 자신에게 요청을 보낸 것처럼 나타내어져 있는데 그렇지는 않고, 그냥 로직을 구현 하는 과정을 이미지 상으로 나타낸 것입니다.)</li>
+  <li>12번 과정으로 인해 로그인을 했던, 회원가입을 했던, 인가가 됐다면 jwt를 반환하여 클라이언트에게 반환한다.</li>
+</ol>
+
+<p>설명을 위해 카카오라고 명시하였는데, 다른 Oauth서버도 크게 다르지 않다. 네이버나 구글 등 조금씩은 다를 수 있으나 Authorization Code로 Access token으로 바꿔 먹는 다는 것에서는 거의 비슷할 것임.</p>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//backend/2024/07/08/OAuth2.0/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'OAuth2.0 로직 설명, 시퀀스 다이어그램'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
