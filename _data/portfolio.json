@@ -2,6 +2,25 @@
   "items": [
     {
       "type": "Web application",
+      "name": "글그림",
+      "link": "https://github.com/koreamarin/geulgeurim",
+      "image": "/image/글그림.png",
+      "date_added": "2024.04.08 - 2024.05.17",
+      "item_description": "웹툰 종사자들을 위한 종합 플랫폼 / <a href='https://www.youtube.com/watch?v=gI8kyC8gDWo' target='_blank'>프로젝트 UCC</a>",
+      "my_role": [
+        "Oauth2.0을 도입하여 로그인 및 회원가입 구현",
+        "MSA 구조에서의 인프라 설계 및 인가 로직 설계",
+        "구인구직/이력서 도메인 Micro Server의 API 전반적 개발"
+      ],
+      "skills": {
+        "platforms": ["React.js", "Node.js", "SpringBoot"],
+        "language": ["JavaScript", "Java"],
+        "Etc": ["Jenkins", "Docker", "Nginx", "SpringCloud", "API Gateway", "Eureka"]
+      },
+      "retrospective_essay_link": "" // "/retrospect/2024/07/09/자율프로젝트회고/"
+    },
+    {
+      "type": "Web application",
       "name": "끼리끼리",
       "link": "https://github.com/koreamarin/kkirikkiri",
       "image": "/image/kkirikkiri.gif",

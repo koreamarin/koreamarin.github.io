@@ -5,8 +5,10 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Mon, 08 Jul 2024 09:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Tue, 09 Jul 2024 09:00:00 +0900</lastBuildDate>
 	
+    
+    
     
       <item>
         <title>OAuth2.0 로직 설명, 시퀀스 다이어그램</title>
@@ -119,23 +121,6 @@
             <pubDate>Wed, 10 Apr 2024 09:00:00 +0900</pubDate>
             <link>http://localhost:4000/etc/2024/04/10/SQL-%EA%B3%B5%EB%B6%80%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/</link>
             <guid isPermaLink="true">http://localhost:4000/etc/2024/04/10/SQL-%EA%B3%B5%EB%B6%80%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/</guid>
-        </item>
-      
-    
-    
-      <item>
-        <title>DNS 설정 방법 (Name Server, 가비아)</title>
-            
-            
-                <description>&lt;p&gt;가비아 정말 쉽다…&lt;br /&gt;
-나는 가장 싼 500원짜리 도메인을 구입하였고, 아래 이미지에서 보는 설정 이외에 해준 것이 없다.&lt;br /&gt;
-서브도메인 등 다른 것들 적용하려면 설정이 더 필요하겠지만, 나는 메인도메인 하나만 설정하였다.&lt;br /&gt;
-서브도메인도 별거 없다..여기서는 설명안할거지만 겁먹지말자.&lt;/p&gt;
-</description>
-            
-            <pubDate>Wed, 10 Apr 2024 09:00:00 +0900</pubDate>
-            <link>http://localhost:4000/devops/2024/04/10/DNS-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-(Name-Server,-%EA%B0%80%EB%B9%84%EC%95%84)/</link>
-            <guid isPermaLink="true">http://localhost:4000/devops/2024/04/10/DNS-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-(Name-Server,-%EA%B0%80%EB%B9%84%EC%95%84)/</guid>
         </item>
       
     
