@@ -17,7 +17,7 @@
         "language": ["JavaScript", "Java"],
         "Etc": ["Jenkins", "Docker", "Nginx", "SpringCloud", "API Gateway", "Eureka"]
       },
-      "retrospective_essay_link": "" // "/retrospect/2024/07/09/자율프로젝트회고/"
+      "retrospective_essay_link": ""
     },
     {
       "type": "Web application",
