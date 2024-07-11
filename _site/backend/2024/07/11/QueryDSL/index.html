@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> QueryDSL |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">QueryDSL</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>July 11, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>QueryDSL을 소개하고, 사용하는 방법에 대해서 작성한 글</p>
+
+<p>참고할 레포지토리 : <a href="https://github.com/koreamarin/PracticalTestCode">🔗 https://github.com/koreamarin/PracticalTestCode</a></p>
+
+<h1 id="목차">목차</h1>
+
+<h4 id="1-querydsl-소개">1. QueryDSL 소개</h4>
+
+<h4 id="2-querydsl--spring-data-jpa-환경-설정을-위한-import-방법">2. QueryDSL + Spring Data JPA 환경 설정을 위한 import 방법</h4>
+
+<h4 id="3-벌크연산의-주의점">3. 벌크연산의 주의점</h4>
+
+<h4 id="4-querydsl과-dto-연결-방법-4가지-소개와-가장-추천하는-방식">4. QueryDSL과 DTO 연결 방법 4가지 소개와 가장 추천하는 방식</h4>
+
+<h4 id="5-querydsl을-이용한-동적쿼리-방법-2가지-소개와-추천하는-방식">5. QueryDSL을 이용한 동적쿼리 방법 2가지 소개와 추천하는 방식</h4>
+
+<h4 id="6-페이징-처리-방식과-페이징-성능-최적화-기법">6. 페이징 처리 방식과 페이징 성능 최적화 기법</h4>
+
+<hr />
+
+<h1 id="1-querydsl-소개-1">1. QueryDSL 소개</h1>
+
+<p>QueryDSL은 JPQL의 단점을 보완하기 위해 등장하였다.
+JPQL은 문자열 형태로 쿼리를 작성해야 해서 IDE에서 오류를 잡아주지 못하고, runtime환경에서만 에러가 발견된다는 단점이 있다.<br />
+QueryDSL을 사용하면 SQL문법을 작성할 때처럼 직관적인 문법을 사용할 수 있으며, IDE에서 문법오류를 잡아준다.<br />
+또한, 쿼리를 동적으로 사용할 수 있는 동적쿼리를 작성할 수 있다는 장점도 있다.<br />
+QueryDSL은 JPQL의 단점을 보완해준, JPQL을 빌더하는 역할을 하여 DB에서 Entity에 매칭하는 역항을 대신해준다.</p>
+
+<hr />
+
+<h1 id="2-querydsl--spring-data-jpa-환경-설정을-위한-import-방법-1">2. QueryDSL + Spring Data JPA 환경 설정을 위한 import 방법</h1>
+
+<h2 id="querydslapplicationjava-application-파일">QuerydslApplication.java (Application 파일)</h2>
+
+<p>JPAQueryFactory클래스를 EntityManager를 사용하여 빈으로 등록한다.<br />
+EntityManager는 자동으로 Spring Data JPA에 의해 빈에 등록되어 있으므로 반으로 등록하지 않아도 된다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@SpringBootApplication
+public class QuerydslApplication {
+
+ public static void main(String[] args) {
+  SpringApplication.run(QuerydslApplication.class, args);
+ }
+
+ @Bean
+ JPAQueryFactory jpaQueryFactory(EntityManager em) {  // JPAQueryFactory를 빈으로 등록
+  return new JPAQueryFactory(em);
+ }
+
+}
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="buildgradle">build.gradle</h2>
+
+<p>plugins 속 QueryDSL 구문, dependencies 속 QueryDSL 구문, dependencies아래에 있는 쿼리 관련 구문을 사용한다.<br />
+QueryDSL을 사용하기 위해서는 Q파일이라는 것이 필요한데, 실행을 하면 Q파일이 build폴더 내에 생성된다.<br />
+이 생성된 Q파일은 개발시에도 쓰이고, Build폴더 내에 있으므로 실제 운영환경에서도 쓰일 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins {
+ id 'java'
+ id 'org.springframework.boot' version '3.3.1'
+ id 'io.spring.dependency-management' version '1.1.5'
+
+ // querydsl 추가
+ id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+group = 'study'
+version = '0.0.1-SNAPSHOT'
+
+java {
+ toolchain {
+  languageVersion = JavaLanguageVersion.of(17)
+ }
+}
+
+configurations {
+ compileOnly {
+  extendsFrom annotationProcessor
+ }
+}
+
+repositories {
+ mavenCentral()
+}
+
+dependencies {
+ // spring boot
+ implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+ implementation 'org.springframework.boot:spring-boot-starter-web'
+
+ // lombok
+ compileOnly 'org.projectlombok:lombok'
+ annotationProcessor 'org.projectlombok:lombok'
+
+ // h2
+ runtimeOnly 'com.h2database:h2'
+
+ // test
+ testImplementation 'org.springframework.boot:spring-boot-starter-test'
+ testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+ // querydsl 추가
+ implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+ annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+ annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+ annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+ implementation "com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0" // querydsl 로그 확인용
+}
+
+tasks.named('test') {
+ useJUnitPlatform()
+}
+
+// querydsl 추가 시작
+def querydslDir = "$buildDir/generated/querydsl"
+
+querydsl {
+ jpa = true
+ querydslSourcesDir = querydslDir
+}
+sourceSets {
+ main.java.srcDir querydslDir
+}
+configurations {
+ querydsl.extendsFrom compileClasspath
+}
+compileQuerydsl {
+ options.annotationProcessorPath = configurations.querydsl
+}
+// querydsl 추가 끝
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="applicationyml">application.yml</h2>
+
+<p>만약 QueryDSL로 생성된 JPQL문법을 로그에서 확인하고 싶다면 application.yml 파일에서 아래 구문을 추가한다
+spring.jpa.properties.hibernate.use_sql_comments: true</p>
+
+<hr />
+
+<h2 id="그-외-필요한-파일들">그 외 필요한 파일들</h2>
+
+<p>QueryDSL을 Spring Data JPA에서 사용하려면 구현코드를 만들어서 써야하는데 Spring Data JPA는 인터페이스 형태로 되어 있어서,<br />
+내가 원하는 구현 코드를 넣으려면 사용자 정의 리포지토리를 만들어서 상속하는 조금 복잡한 방법을 써야한다.<br />
+즉, 사용자 정의 리포지토리를 생성해야 한다.</p>
+
+<p>Member라는 Entity가 있다고 치면,<br />
+Member Entity를 매핑하기 위해 필요한 Repository파일은 3가지가 필요하다.</p>
+
+<ol>
+  <li>스프링 데이터 리포지토리에 사용자 정의 인터페이스 상속<br />
+[MemberRepository 인터페이스]<br />
+ (JpaRepository와 MemberRepositoryCustom 인터페이스를 상속받음)
+<br /><br /></li>
+  <li>사용자 정의 인터페이스 작성<br />
+[MemberRepositoryCustom 인터페이스]
+<br /><br /></li>
+  <li>사용자 정의 인터페이스 구현<br />
+[MemberRepositoryImpl 구현체]<br />
+ (MemberRepositoryCustom 인터페이스의 구현체. 이름생성시 JpaRepository에 연결된 인터페이스 이름 + Impl 이라는 규칙을 지켜주어야 함.)</li>
+</ol>
+
+<hr />
+
+<h1 id="3-벌크연산의-주의점-단건x-다건-update">3. 벌크연산의 주의점 (단건X, 다건 UPDATE)</h1>
+
+<p>벌크 연산은 영속성 컨텍스트를 무시하고 바로 DB에 쿼리를 날린다.<br />
+그래서 DB와 영속성 컨텍스트의 값이 다를 수 있다. 벌크 연산 수행 후에는 영속성 컨텍스트를 꼭 초기화 해주기</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    @DisplayName("벌크 연산 - 나이가 28살 이하인 회원의 나이를 20살로 변경하기")
+    @Test
+//    @Commit // 이 테스트를 수행할 때에는 commit을 해서 DB와 영속성컨텍스트 비교하기, Transactional에 의해 원래는 초기화 되지만, commit을 붙이면 DB에 반영이 됨.
+    void bulkUpdate() {
+        long count = queryFactory
+                .update(member)
+                .set(member.username, "비회원")
+                .where(member.age.lt(28))
+                .execute();
+
+        // bulk연산은 영속성 컨텍스트를 무시하고 DB에 바로 쿼리를 날림
+        /** member1 = 10 -&gt; DB 비회원      영속성 컨텍스트 member1
+         * member2 = 20 -&gt; DB 비회원       영속성 컨텍스트 member2
+         * member3 = 30 -&gt; DB member3     영속성 컨텍스트 member3
+         * member4 = 40 -&gt; DB member4     영속성 컨텍스트 member4
+         */
+
+        // 이때 영속성 컨텍스트와 DB의 데이터가 다르기 때문에 영속성 컨텍스트를 초기화해주어야 함.
+        // 영속성 컨텍스트에 있는 데이터가 우선권을 가지기 때문에 DB에서 다시 불러와도 영속성 컨텍스트에 있는 데이터가 우선권을 가져서 반영되지 않음.
+        List&lt;Member&gt; result1 = queryFactory
+                .selectFrom(member)
+                .fetch();
+        for (Member member1 : result1) {
+            System.out.println("member1 = " + member1);
+        }
+        /**
+         *  member1 = Member(id=1, username=member1, age=10)
+         *  member2 = Member(id=2, username=member2, age=20)
+         *  member3 = Member(id=3, username=member3, age=30)
+         *  member4 = Member(id=4, username=member4, age=40)
+         */
+
+
+        // 그러기 때문에 영속성 컨텍스트를 초기화해주어야 함.
+        em.flush();
+        em.clear();
+
+        // 초기화 이후 DB에서 다시 조회
+        List&lt;Member&gt; result2 = queryFactory
+                .selectFrom(member)
+                .fetch();
+
+        for (Member member1 : result2) {
+            System.out.println("member1 = " + member1);
+        }
+        /**
+         *  member1 = Member(id=1, username=비회원, age=10)
+         *  member2 = Member(id=2, username=비회원, age=20)
+         *  member3 = Member(id=3, username=member3, age=30)
+         *  member4 = Member(id=4, username=member4, age=40)
+         */
+    }
+</code></pre></div></div>
+
+<h1 id="4-querydsl과-dto-연결-방법-4가지-소개와-가장-추천하는-방식-1">4. QueryDSL과 DTO 연결 방법 4가지 소개와 가장 추천하는 방식</h1>
+
+<p>queryDSL을 이용하여 DTO에 연결하는 방식은 4가지가 있다.</p>
+
+<ol>
+  <li>프로퍼티 접근방식(DTO에 기본생성자와 Setter필요)</li>
+  <li>field 접근방식</li>
+  <li>constructor를 이용한 생성자 접근 방식(DTO에 모든 필드 생성자가 필요)</li>
+  <li>queryProjection를 이용한 생성자 접근 방식(DTO에 모든 필드 생성자와 그 위 @QueryProjection 어노테이션이 필요) [추천방식]</li>
+</ol>
+
+<p>이 네가지를 사용한 방식이 있다.</p>
+
+<p>3번 방식 constructor 생성자 접근 방식은 ide에서 오류를 못 잡아 줄 떄가 있다. 런타임을 해봐야 오류를 발견할 수 있어서 위험하다.<br />
+4번 방식 QueryProjection은 이런 것을 해결해 주어 IDE에서 오류를 발견하여 준다.<br />
+QueryProjection을 사용하는 방식에도 단점이 있는데, 어노테이션을 DTO의 생성자에 붙여야한다는 점이다.
+어노테이션을 붙임으로써 DTO는 QueryDSL에 결합도가 높아져 버린다.<br />
+나중에 querydsl을 빼거나 하는등의 변경이 있을 시, DTO에서 에러가 나게 될 것이다.</p>
+
+<p>DTO를 깔끔하게 가져가고 싶다면(QueryDSL에 결합성 있지 않게 DTO를 가져가고 싶다면) 3번 방식인 constructor 생성자 접근 방식으로 DTO를 매핑해주는 것이 좋다.</p>
+
+<h2 id="testcode로-보는-예시">TestCode로 보는 예시</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    @DisplayName("JPQL을 사용하여 DTO로 조회하기")
+    @Test
+    void findDtoByJPQL() {
+        List&lt;MemberDto&gt; result = em.createQuery("select new study.querydsl.dto.MemberDto(m.username, m.age) from Member m", MemberDto.class)
+                .getResultList();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
+        }
+    }
+
+    @DisplayName("QueryDSL을 사용하여 DTO로 조회하기 - 프로퍼티 접근(DTO에 기본생성자 필요, 기본생성자로 생성한 후 setter로 값 주입하는 방식)")
+    @Test
+    void findDtoBySetter() {
+        List&lt;MemberDto&gt; result = queryFactory
+                .select(
+                        Projections.bean(MemberDto.class,
+                                member.username,
+                                member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
+        }
+    }
+
+    @DisplayName("QueryDSL을 사용하여 DTO로 조회하기 - 필드 직접 접근(DTO에 기본생성자 필요, 필드 직접 접근 방식)")
+    @Test
+    void findDtoByField() {
+        List&lt;MemberDto&gt; result = queryFactory
+                .select(
+                        Projections.fields(MemberDto.class,
+                                member.username,
+                                member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
+        }
+    }
+
+    @DisplayName("QueryDSL을 사용하여 DTO로 조회하기 - constructor를 이용한 생성자 접근 방식(DTO에 모든 필드 생성자 필요, 생성자로 생성하는 방식)")
+    @Test
+    void findDtoByConstructor() {
+        List&lt;MemberDto&gt; result = queryFactory
+                .select(
+                        Projections.constructor(MemberDto.class,
+                                member.username,
+                                member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
+        }
+    }
+
+    @DisplayName("QueryDSL을 사용하여 DTO로 조회하기 - QueryProjection을 사용하여 DTO로 조회하기")
+    @Test
+    void findDtoByQueryProjection() {
+        List&lt;MemberDto&gt; result = queryFactory
+                .select(new QMemberDto(member.username, member.age))
+                .from(member)
+                .fetch();
+
+        for (MemberDto memberDto : result) {
+            System.out.println("memberDto = " + memberDto);
+        }
+    }
+    ```
+</code></pre></div></div>
+
+<h2 id="memberdtojava">MemberDto.java</h2>
+
+<p>QueryProjection을 사용한 DTO 매핑방식으로 생성자위에 @QueryProjection이 있어야 함. 이로써 QueryDSL과 결합도가 높아져버려서 순수헌 객체로 남지 않게 된는 단점이 있다.<br />
+다른 방식은 어노테이션 필요없음. 생성자만 있으면 됨.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Data
+@NoArgsConstructor
+public class MemberDto {
+    private String username;
+    private int age;
+
+    @QueryProjection
+    public MemberDto(String username, int age) {
+        this.username = username;
+        this.age = age;
+    }
+}
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="5-querydsl을-이용한-동적쿼리-방법-2가지-소개와-추천하는-방식-1">5. QueryDSL을 이용한 동적쿼리 방법 2가지 소개와 추천하는 방식</h1>
+
+<p>동적쿼리를 사용하는 방법에는 2가지가 있다.</p>
+
+<ol>
+  <li>BooleanBuilder를 사용하는 방식</li>
+  <li>Where 다중 파마리터 방식 (BooleanExpression 사용) [추천하는 방식] - 조건에 null을 넣어서 조건을 무시하도록 하는 방식</li>
+</ol>
+
+<h2 id="booleanbuilder-사용-방식">BooleanBuilder 사용 방식</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@DisplayName("동적쿼리 - BooleanBuilder 사용하기")
+    @Test
+    void dynamicQuery_BooleanBuilder() {
+        String usernameParam = "member1";
+        Integer ageParam = null;
+
+        List&lt;Member&gt; result = searchMember1(usernameParam, ageParam);
+        assertThat(result.size()).isEqualTo(1);
+    }
+
+    private List&lt;Member&gt; searchMember1(String usernameCond, Integer ageCond) {
+//         BooleanBuilder builder = new BooleanBuilder(member.username.eq(usernameCond));   // username이 null이 아닌 것이 확실 할 때, 초기값으로 넣어줄 수 있음
+        BooleanBuilder builder = new BooleanBuilder();
+        if (usernameCond != null) { // username이 null이 아닌 경우
+            builder.and(member.username.eq(usernameCond));  // member.username == usernameCond 조건 추가
+        }
+        if (ageCond != null) {  // age가 null이 아닌 경우
+            builder.and(member.age.eq(ageCond));    // member.age == ageCond 조건 추가
+        }
+
+        return queryFactory
+                .selectFrom(member)
+                .where(builder)
+                .fetch();
+    }
+</code></pre></div></div>
+
+<h2 id="where-다중-파라메터-방식-booleanexpression-사용">Where 다중 파라메터 방식 (BooleanExpression 사용)</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    @DisplayName("동적쿼리 - Where 다중 파라미터 사용하기")
+    @Test
+    void dynamicQuery_WhereParam() {
+        String usernameParam = "member1";
+        Integer ageParam = null;
+
+        List&lt;Member&gt; result = searchMember2(usernameParam, ageParam);
+        assertThat(result.size()).isEqualTo(1);
+    }
+
+    private List&lt;Member&gt; searchMember2(String usernameCond, Integer ageCond) {
+        return queryFactory
+                .selectFrom(member)
+                .where(usernameEq(usernameCond), ageEq(ageCond))    // usernameEq, ageEq 메서드를 사용하여 조건을 추가, null이 들어가면 그 조건은 무시된다.
+//                .where(allEq(usernameCond, ageCond))    // 이런 방식으로 조건을 합쳐서 동적 쿼리로 사용할 수도 있다.
+                .fetch();
+    }
+
+    private BooleanExpression usernameEq(String usernameCond) {
+        return usernameCond != null ? member.username.eq(usernameCond) : null;
+    }
+
+    private BooleanExpression ageEq(Integer ageCond) {
+        return ageCond != null ? member.age.eq(ageCond) : null;
+    }
+
+    private BooleanExpression allEq(String usernameCond, Integer ageCond) {
+        return usernameEq(usernameCond).and(ageEq(ageCond));
+    }
+</code></pre></div></div>
+
+<h1 id="6-페이징-처리-방식과-페이징-성능-최적화-기법-1">6. 페이징 처리 방식과 페이징 성능 최적화 기법</h1>
+
+<p>PageableExecutionUtils라는 SpringFrameWork에서 제공하는 기능이 있다.<br />
+페이징 시에는 컨텐츠와 totalCount을 구하기 위해 2번의 DB를 조회하게 되는데,<br />
+이 PageableExecutionUtils를 사용하면 totalCount를 조회를 안해도 되는 상황이 있다면 조회를 하지 않아 데이터베이스 부하를 줄이고, 페이징 처리 성능을 최적화 할 수 있다.</p>
+
+<h2 id="사용자-정의-레포지토리-구현체-memberrepositoryimpljava">사용자 정의 레포지토리 구현체 (MemberRepositoryImpl.java)</h2>
+
+<p>이 사용자 정의 레포지토리 구현체의 메소드를 보면 return시에 PageableExecutionUtils로 생성하여 리턴하였다.
+이렇게 Page객체를 생성하면 count 쿼리를 사용하지않아도 될 때, 사용하지 않아 데이터베이스 부하를 줄이고, 페이징 처리 성능을 최적화 할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MemberRepositoryImpl implements MemberRepositoryCustom {
+
+    private final JPAQueryFactory queryFactory;
+
+    @Override
+    public Page&lt;MemberTeamDto&gt; searchPageComplex(MemberSearchCondition condition, Pageable pageable) {
+        List&lt;MemberTeamDto&gt; content = queryFactory
+                .select(new QMemberTeamDto(
+                        member.id.as("memberId"),
+                        member.username,
+                        member.age,
+                        team.id.as("teamId"),
+                        team.name.as("teamName")))
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(
+                        usernameEq(condition.getUserName()),
+                        teamNameEq(condition.getTeamName()),
+                        ageGoe(condition.getAgeGoe()),
+                        ageLoe(condition.getAgeLoe())
+                )
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetch();
+
+        JPAQuery&lt;Member&gt; countQuery = queryFactory
+                .select(member)
+                .from(member)
+                .leftJoin(member.team, team)
+                .where(
+                        usernameEq(condition.getUserName()),
+                        teamNameEq(condition.getTeamName()),
+                        ageGoe(condition.getAgeGoe()),
+                        ageLoe(condition.getAgeLoe())
+                );
+
+        // 페이징 성능 최적화 기법, count 쿼리가 생략 가능한 경우 생략해서 처리
+//        return PageableExecutionUtils.getPage(content, pageable, () -&gt; countQuery.fetchCount());
+        return PageableExecutionUtils.getPage(content, pageable, countQuery::fetchCount);
+    }
+
+    private BooleanExpression usernameEq(String username) {
+        return hasText(username) ? member.username.eq(username) : null;
+    }
+    private BooleanExpression teamNameEq(String teamName) {
+        return hasText(teamName) ? team.name.eq(teamName) : null;
+    }
+
+    private BooleanExpression ageGoe(Integer ageGoe) {
+        return ageGoe != null ? member.age.goe(ageGoe) : null;
+    }
+
+    private BooleanExpression ageLoe(Integer ageLoe) {
+        return ageLoe != null ? member.age.loe(ageLoe) : null;
+    }
+
+}
+</code></pre></div></div>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//backend/2024/07/11/QueryDSL/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'QueryDSL'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
