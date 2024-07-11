@@ -9,6 +9,20 @@
 	
     
       <item>
+        <title>테스트코드로 보는 QueryDSL문법</title>
+            
+            
+                <description>&lt;p&gt;QueryDSL 문법 정리 글&lt;/p&gt;
+</description>
+            
+            <pubDate>Thu, 11 Jul 2024 09:00:00 +0900</pubDate>
+            <link>http://localhost:4000/backend/2024/07/11/QueryDSL%EB%AC%B8%EB%B2%95/</link>
+            <guid isPermaLink="true">http://localhost:4000/backend/2024/07/11/QueryDSL%EB%AC%B8%EB%B2%95/</guid>
+        </item>
+      
+    
+    
+      <item>
         <title>QueryDSL</title>
             
             
@@ -119,20 +133,6 @@
             <pubDate>Thu, 11 Apr 2024 09:00:00 +0900</pubDate>
             <link>http://localhost:4000/devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/</link>
             <guid isPermaLink="true">http://localhost:4000/devops/2024/04/11/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90-SprintBoot,-React-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0/</guid>
-        </item>
-      
-    
-    
-      <item>
-        <title>SQLD 공부내용 정리</title>
-            
-            
-                <description>&lt;p&gt;시간이 지나면 노력하여 공부했던 SQLD 지식들이 잊혀질걸 안다. 그 노력들이 아까워서 미리 정리해 두겠다.&lt;/p&gt;
-</description>
-            
-            <pubDate>Wed, 10 Apr 2024 09:00:00 +0900</pubDate>
-            <link>http://localhost:4000/etc/2024/04/10/SQL-%EA%B3%B5%EB%B6%80%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/</link>
-            <guid isPermaLink="true">http://localhost:4000/etc/2024/04/10/SQL-%EA%B3%B5%EB%B6%80%EB%82%B4%EC%9A%A9%EC%A0%95%EB%A6%AC/</guid>
         </item>
       
     
