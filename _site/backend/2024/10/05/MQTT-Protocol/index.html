@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> MQTT Protocol |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">MQTT Protocol</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>October 05, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>회사에서 MQTT프로토콜이란 것을 사용하는 프로젝트를 맡게 되었다.
+민감한 내용은 생략하고, MQTT 프로토콜에 대한 이론적인 내용과 아두이노, SpringBoot server를 이용하여 MQTT 통신하는 방법에 대해 기술하는 포스터이다.</p>
+
+<h2 id="1-mqtt-특징">1. MQTT 특징</h2>
+
+<ul>
+  <li>저대역폭 환경에서 M2M(machine to machine) 원격 측정을 위해 설계된 발행-구독 메시징 프로토콜</li>
+  <li>헤더가 작게는 2byte일 정도로 작아 IOT통신에 적합하다.</li>
+  <li>TCP/IP 프로토콜을 사용하여 Wifi 환경에서도 통신이 가능하다.</li>
+  <li>웹통신에서 Client와 Server간의 통신을 하듯, MQTT통신에는 Client와 Broker가 서로 통신을 한다.</li>
+  <li>Client들은 Publisher와 Subscriber로 나뉜다. 하나의 디바이스가 Publisher와 Subscriber을 동시에 수행할 수도 있다.</li>
+  <li>통신을 할 때 ‘토픽’이라는 개념을 사용한다.</li>
+  <li>Topic을 구독하는 Device를 Subscriber라고 하고, Topic에 메시지를 게시하는 Device를 Publisher라고 한다.</li>
+  <li>Subscriber가 “KBS뉴스”라는 토픽을 구독한다고 가정하자. 어떤 다른 Publisher가 “KBS뉴스”라는 토픽에 메시지를 게시하면 그 토픽을 구독하고 있는 모든 Subscriber는 메시지를 전달받게 된다.</li>
+  <li>클라이언트간의 통신은 ‘브로커’라고 불리는 서버에 의해 중계된다.</li>
+  <li>
+    <p>Publisher나 Subscriber는 모두 브로커를 바라보고 있으며, Broker를 통해 Topic과 메시지가 중계된다.</p>
+  </li>
+  <li>예시) 유튜브 서버는 Broker이다. KBS뉴스 채널의 관리자는 Publisher이고, KBS뉴스의 구독자들은 Subscriber이다. KBS 뉴스의 관리자(Publisher)가 유튜브(Broker)에 영상을 게시하면 KBS뉴스 채널을 구독하고 있는 구독자들(Subscriber)은 모두 알람(Message)을 받게 된다. -&gt; 이런 개념으로 이해하면 됩니당</li>
+</ul>
+
+<h2 id="2-mqtt-통신-기본-구조">2. MQTT 통신 기본 구조</h2>
+
+<ul>
+  <li>Topic을 Fire라고 하고, Fire 토픽에 메세지를 발행하는 Publisher와 Fire토픽을 구독하는 Subscriber 3개가 있는 모습이다.</li>
+  <li>Device간의 통신을 Broker라는 MQTT Server가 관리하고 있다.</li>
+  <li>Publisher가 화재를 감지하여 Fire라는 Topic에 true라는 메세지를 게시하면, Fire토픽을 구독하고 있는 Subscriber들은 True라는 메세지를 받게되고, Subscriber들은 건물의 각 공간에 경보를 울리는 식으로 작동하는 모습을 생각하면 된다.</li>
+  <li>true라는 메세지를 주고받는 것으로 묘사되었는데, 실제 boolean값을 통신하지는 않고 문자열을 전송하게된다. 문자열 통신을 하므로 json형식으로 주로 통신을 한다. 여기서는 예시상황을 들기위해 true을 주고받았다고 표현하였다.</li>
+</ul>
+
+<p><img src="/image/MQTT프로토콜1.png" alt="image" /></p>
+
+<h2 id="3-qosqueality-of-service제어">3. Qos(Queality Of Service)제어</h2>
+
+<ul>
+  <li>MQTT 통신에는 Qos라는 개념이 있다.</li>
+  <li>
+    <p>Qos-0, Qos-1, Qos-2가 있는데, 숫자가 높아질수록 더 높은 수준의 통신서비스를 제공한다.</p>
+
+    <p><img src="/image/MQTT프로토콜2.png" alt="image" /></p>
+  </li>
+</ul>
+
+<h2 id="4-mqtt-broker-종류">4. MQTT Broker 종류</h2>
+
+<ul>
+  <li>MQTT의 Broker를 만들기 위해서는 Broker프로그램을 설치하면 된다.</li>
+  <li>시장에는 여러 Broker가 있는데, 나는 Mosquitto라는 Broker를 사용하였다.</li>
+  <li>ISO 표준이 MQTT v3.1.1버전이라고 한다. Mosquitto는 3.1.1버전을 지원하며, 가장 많이 쓰이는 broker이고, 오픈소스라서 무료이다.</li>
+  <li><a href="https://mosquitto.org/download/">Mosquitto 다운로드 링크는 여기</a></li>
+  <li>아래 이미지의 내용을 참고하여 다른 Broker도 참고하도록!
+<img src="/image/MQTT프로토콜3.png" alt="image" /></li>
+</ul>
+
+<h2 id="5-broker-viewer-mqttfx">5. Broker viewer (MQTT.fx)</h2>
+
+<ul>
+  <li>MQTT Broker의 토픽 송신 수신 상황을 GUI형태로 볼 수 있는 프로그램 MQTT.fx를 추천한다. 사실 이거 밖에 안써봐서 잘 모르긴한데 사용하는데 불편함 없고 좋았다.</li>
+  <li><a href="https://www.softblade.de/">MQTT.fx 다운로드 링크</a></li>
+  <li>일종의 MQTT Client 프로그램이다. Broker에 연결해서 쓰면 된다.</li>
+  <li>Broker에 연결해서 Topic을 구독하여 데이터가 잘 들어오고 나가는지 모니터링할 수도 있고, 데이터를 Publishing 할 수도 있다.</li>
+</ul>
+
+<h2 id="6-topic-level">6. Topic Level</h2>
+
+<ul>
+  <li>Topic에는 계층이 존재한다. 단일 Topic으로 발행할수도 있고, 슬래시(/)를 사용하여 계층적인 구조의 Topic을 사용할 수도 있다.</li>
+  <li>Topic이름은 대소문자를 구문한다. home/temperature와 home/Temperature은 서로 다른 토픽이다.</li>
+  <li>
+    <p>빈 레벨은 존재하지 않는다. home//temperature와 같이 빈 레벨은 유효하지 않다.</p>
+
+    <p><img src="/image/MQTT프로토콜4.png" alt="image" /></p>
+  </li>
+  <li>
+    <h3 id="와일드카드">와일드카드</h3>
+
+    <ul>
+      <li>구독자는 Topic Filter를 사용하여 Topic을 구독하는데, Wildcard를 사용할 수 있다.</li>
+      <li>
+        <p>Wildcard 문자는 2가지 종류가 있다. ‘#’과 ‘+’이다.
+<br /><br /></p>
+      </li>
+      <li>
+        <h4 id="multi-level-wildcard-">Multi Level Wildcard (#)</h4>
+
+        <ul>
+          <li>여러 단계의 Topic Level을 대체할 수 있다. 해당 Level의 모든 Topic을 수신가능하게 하는 와일드 카드이다.</li>
+          <li>Multi Level wildcard는 단독으로 쓰이거나 Topic Filter의 마지막 Level에 위치 가능하다.</li>
+          <li>예시) “sport/tennis/#” : sport/tennis 밑의 모든 Topic의 메세지를 수신한다.</li>
+          <li>잘못된 예시1) “sport/tennis#” : 잘못된 예시이다.</li>
+          <li>잘못된 예시2) “sport/tennis/#/ranking” : 중간 Level에 사용불가하다. 단독으로 쓰이거나 마지막 Level에 위치해야한다.
+<br /><br /></li>
+        </ul>
+      </li>
+      <li>
+        <h4 id="single-level-wildcard-">Single Level Wildcard (+)</h4>
+
+        <ul>
+          <li>한 단계의 Topic Level을 대체할 수 있다.</li>
+          <li>Single Level Wildcard는 단독으로 쓰이거나 특정 Topic Level에 위치 가능하다.</li>
+          <li>예시1) “+” : 한 단계로 구성된 Topic을 구독 가능. “sport”은 구독가능하다 “sport/tennis”는 구독 불가하다.</li>
+          <li>예시2) “sport/+/player1” : 이와 같이 중간 Level에 사용 가능하다.</li>
+          <li>예시3) “+/tennis/#” : Multi Level Wildcard (#)와 같이 사용 가능하다.</li>
+          <li>잘못된 예시1) “sport+” : 슬래시(/)뒤에 있어야 유효하다. 잘못된 예시이다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-arduino-springboot-예시-상황">7. Arduino, SpringBoot 예시 상황</h2>
+
+<ul>
+  <li>
+    <p>예시 코드를 보기 전 어떤 인프라 구조인지, 어떤 상황인지 먼저 설명하겠다.
+<img src="/image/MQTT프로토콜5.png" alt="image" /></p>
+
+    <ul>
+      <li>
+        <p>데이터센터가 있다고 가정하자. 데이터센터는 온도 관리가 중요하고, 냉방을 잘 해줘야한다. 여기에 온도 감지 모니터링 시스템이 설치되어 있다고 가정하자.</p>
+      </li>
+      <li>Arduino는 건물 내부의 온도를 탐지하고, 10초에 한번씩 Broker에 temp라는 Topic으로 현재 온도 데이터를 발행한다.</li>
+      <li>Server는 Broker로부터 Temp라는 Topic을 구독하고 있다. artuino가 temp 토픽에 데이터를 발행하면 server는 이 데이터를 받게된다. 이 온도 데이터를 시간별로 DB에 저장하여 기록을 남긴다.</li>
+      <li>Server가 Topic을 발행하여 Arduino가 데이터를 받도록 만들 수도 있다. Server로부터 메세지를 받으면 Arduino가 air conditioner을 켜는 식으로 동작이 가능하다.</li>
+    </ul>
+
+    <p>코드는 공유하지 않는다. 깃허브에 private로 올려놓겠음 (어차피 나만 보려고 쓴 글)</p>
+  </li>
+</ul>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//backend/2024/10/05/MQTT-Protocol/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'MQTT Protocol'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
