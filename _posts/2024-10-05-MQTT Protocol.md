@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MQTT Protocol
-description: MQTT Protocol에 관한 이론 및 구현 코드 정리
+description: MQTT Protocol에 관한 이론 및 구현 내용
 date: 2024-10-05 00:00:00 +0000
 categories: BackEnd # BackEnd, Life, DevOps, Conference
 comments: true
@@ -90,15 +90,6 @@ type: done # done, writing, hide
     - 예시3) "+/tennis/#" : Multi Level Wildcard (\#)와 같이 사용 가능하다.
     - 잘못된 예시1) "sport+" : 슬래시(/)뒤에 있어야 유효하다. 잘못된 예시이다.
 
-## 7. Arduino, SpringBoot 예시 상황
+## 7. Arduino, SpringBoot 코드
 
-- 예시 코드를 보기 전 어떤 인프라 구조인지, 어떤 상황인지 먼저 설명하겠다.
-  ![image](/image/MQTT프로토콜5.png)
-
-  - 데이터센터가 있다고 가정하자. 데이터센터는 온도 관리가 중요하고, 냉방을 잘 해줘야한다. 여기에 온도 감지 모니터링 시스템이 설치되어 있다고 가정하자.
-
-  - Arduino는 건물 내부의 온도를 탐지하고, 10초에 한번씩 Broker에 temp라는 Topic으로 현재 온도 데이터를 발행한다.
-  - Server는 Broker로부터 Temp라는 Topic을 구독하고 있다. artuino가 temp 토픽에 데이터를 발행하면 server는 이 데이터를 받게된다. 이 온도 데이터를 시간별로 DB에 저장하여 기록을 남긴다.
-  - Server가 Topic을 발행하여 Arduino가 데이터를 받도록 만들 수도 있다. Server로부터 메세지를 받으면 Arduino가 air conditioner을 켜는 식으로 동작이 가능하다.
-
-  코드는 공유하지 않는다. 깃허브에 private로, MQTT Protocol Basic Code라는 레파지토리로 올려놨어.
+- 코드는 공유하지 않는다. 깃허브에 private로, MQTT Protocol Basic Code라는 레파지토리로 올려놨어. (나중의 나를 위한 코드)

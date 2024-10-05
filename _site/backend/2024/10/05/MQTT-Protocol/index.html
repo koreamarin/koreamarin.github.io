@@ -186,24 +186,10 @@
   </li>
 </ul>
 
-<h2 id="7-arduino-springboot-예시-상황">7. Arduino, SpringBoot 예시 상황</h2>
+<h2 id="7-arduino-springboot-코드">7. Arduino, SpringBoot 코드</h2>
 
 <ul>
-  <li>
-    <p>예시 코드를 보기 전 어떤 인프라 구조인지, 어떤 상황인지 먼저 설명하겠다.
-<img src="/image/MQTT프로토콜5.png" alt="image" /></p>
-
-    <ul>
-      <li>
-        <p>데이터센터가 있다고 가정하자. 데이터센터는 온도 관리가 중요하고, 냉방을 잘 해줘야한다. 여기에 온도 감지 모니터링 시스템이 설치되어 있다고 가정하자.</p>
-      </li>
-      <li>Arduino는 건물 내부의 온도를 탐지하고, 10초에 한번씩 Broker에 temp라는 Topic으로 현재 온도 데이터를 발행한다.</li>
-      <li>Server는 Broker로부터 Temp라는 Topic을 구독하고 있다. artuino가 temp 토픽에 데이터를 발행하면 server는 이 데이터를 받게된다. 이 온도 데이터를 시간별로 DB에 저장하여 기록을 남긴다.</li>
-      <li>Server가 Topic을 발행하여 Arduino가 데이터를 받도록 만들 수도 있다. Server로부터 메세지를 받으면 Arduino가 air conditioner을 켜는 식으로 동작이 가능하다.</li>
-    </ul>
-
-    <p>코드는 공유하지 않는다. 깃허브에 private로 올려놓겠음 (어차피 나만 보려고 쓴 글)</p>
-  </li>
+  <li>코드는 공유하지 않는다. 깃허브에 private로, MQTT Protocol Basic Code라는 레파지토리로 올려놨어. (나중의 나를 위한 코드)</li>
 </ul>
 </div>
       </div>
