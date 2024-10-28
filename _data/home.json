@@ -9,8 +9,8 @@
   ],
 
   "skills": {
-    "platforms": ["SpringBoot", "React.js", "JPA", "MyBatis", "Vue.js", "Django"],
-    "language": ["Java", "JavaScript", "TypeScript", "Python", "MySQL"],
+    "platforms": ["SpringBoot", "React.js", "JPA", "MyBatis", "Vue.js", "Django", ".Net FrameWork"],
+    "language": ["Java", "JavaScript", "TypeScript", "Python", "MySQL", "C#"],
     "Etc": ["AWS EC2", "Jenkins", "Docker", "NginX", "Jira"]
   }
 }
