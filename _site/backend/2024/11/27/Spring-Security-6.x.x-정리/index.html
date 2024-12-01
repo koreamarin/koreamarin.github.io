@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Spring Security 6.x.x 정리 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">Spring Security 6.x.x 정리</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>November 27, 2024</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>추 후 개발할 서비스는 보안이 중효하다.
+Spring Security 6.x.x 강의를 듣고 정리한 글이다.</p>
+
+<h1 id="기본-설정">기본 설정</h1>
+
+<h3 id="buildgradle">build.gradle</h3>
+
+<p><img src="/image/security1.png" alt="alt text" /><br />
+시큐리티 의존성을 추가한다.</p>
+
+<h3 id="시큐리티-간단-테스트">시큐리티 간단 테스트</h3>
+
+<p><img src="/image/security2.png" alt="alt text" /><br />
+간단한 컨트롤러를 만들어서 서버를 러닝시키면 아래 이미지처럼 password가 나온다. 이 password는 매번 서버가 러닝될때마다 랜덤으로 바뀐다.<br />
+<img src="/image/security3.png" alt="alt text" /><br />
+브라우저로 URL을 접속하면 인증을 위한 로그인페이지로 리다이렉트 된다. 시큐리티에서 기본 제공하는 로그인 페이지이다.<br />
+<img src="/image/security4.png" alt="alt text" /><br />
+아이디는 user이고, 비밀번호는 서버러닝시 나왔던 password이다. 아이디와 비밀번호를 입력하면 원하던 정보가 표시된다.<br />
+<img src="/image/security5.png" alt="alt text" /></p>
+
+<h3 id="시큐리티-config-파일-만들어서-커스텀-클래스-만들기">시큐리티 config 파일 만들어서 커스텀 클래스 만들기</h3>
+
+<p>SecurityConfig 클래스를 만든다.<br />
+<img src="/image/security6.png" alt="alt text" /><br />
+이 클래스 안에 어떻게 인증을 하고 인가를 할 것인지를 설정할 수 있다.<br />
+위 이미지는 기본 상태로, 서버를 러닝 시켜보면 시큐리티 간단 테스트에서 했던것과 같이 시큐리티에서 password를 제공하고 id는 user인 상태가 된다.<br />
+아무것도 설정하지 않은 기본 상태이다.</p>
+
+<h3 id="user직접-추가해보기">User직접 추가해보기</h3>
+<p>User를 직접 추가하는 방법에는 2가지 방법이 있다.<br />
+하나는 application.yml에서 user 정보를 설정하는 방법이고, 다른 하나는 SecurityConfig파일에서 userDetailsService객체를 생성해주는 방법이 있다.</p>
+<h4 id="applicationyml을-이용하여-user를-추가하는-방법">application.yml을 이용하여 user를 추가하는 방법</h4>
+<p><img src="/image/security7.png" alt="alt text" /><br />
+위 처럼 application.yml에서 user와 password를 설정할 수 있다. roles는 user의 권한을 설정해주는 것이다.<br />
+설정을 하고 서버를 실행시키면 매번 실행시 나오던 password가 로그에 표시되지 않는것을 볼 수 있으며, login페이지에서 직접 설정한 id와 password로 로그인이 가능하다.</p>
+
+<h4 id="userdetailsservice객체를-만들어서-추가하는-방법">userDetailsService객체를 만들어서 추가하는 방법</h4>
+<p><img src="/image/security8.png" alt="alt text" />
+securityConfig클래스에 유저객체를 직접 만들어 준 방식이다.<br />
+유저를 여러개 만들어줄 수도 있다.<br />
+application.yml방식과 현재 이 방식을 둘 다 적용한 경우, userDetailsService객체를 만들어서 추가하는 방법이 우선순위가 되어 이 방식만 적용이 된다.<br />
+password앞에 {noop}이라는 문자열을 넣어줘야 한다. 비밀번호를 암호화하지 않고 평문으로 지정하겠다는 것인데 개발 환경같은데서 사용하는 방식이다.</p>
+
+<h3 id="폼-인증---formlogin">폼 인증 - formLogin</h3>
+<p><img src="/image/security9.png" alt="alt text" /></p>
+<ol>
+  <li>loginPage
+    <ul>
+      <li>인증 실패 시 이동시킬 URL을 지정해주는 곳이다. 기본 설정은 “/login”으로 되어있으며, 이 메서드를 호출하지 않으면 기본설정이 적용된다.</li>
+    </ul>
+  </li>
+  <li>loginProcessingUrl
+    <ul>
+      <li>id와 password를 post방식으로 보낼 url을 지정해주는 곳이다. 기본 설정은 “/login”으로 되어있으며, 이 메서드를 호출하지 않으면 기본설정이 적용된다.</li>
+      <li>기본 로그인 페이지의 form의 action에 이 메서드에서 적용한 url이 바로 적용되어진다.</li>
+    </ul>
+  </li>
+  <li>defaultSuccessUrl
+    <ul>
+      <li>로그인 인증 성공 시 어떤 url로 리다이렉트 할 지 설정하는 곳이다. 두번째 인자는 true를 주면 첫번째 인자의 path로 연결시켜주고, false를 주면 인증페이지 전에 보고 있던 페이지로 이동시켜 준다.</li>
+      <li>내부에서 Hanlder가 동작하고 있다. 아래에서 설명할 successHandler를 설정했다면 defaultSuccessUrl보다 SuccessHandler가 우선시 되어 SuccessHandler만 동작하게 된다.</li>
+    </ul>
+  </li>
+  <li>failureUrl
+    <ul>
+      <li>인증 실패 시 어떤 URL로 이동시켜줄 지 적용하는 메서드이다.</li>
+      <li>내부에서 Hanlder가 동작하고 있다. 아래에 failureHandler를 설정했다면 failureUrl보다 failureHandler가 우선시 되어 failureHandler만 동작하게 된다.</li>
+    </ul>
+  </li>
+  <li>usernameParameter
+    <ul>
+      <li>form에서 읽어들일 username의 name을 다른 것으로 지정하고 싶을 때 쓰는 메서드이다. 기본은 “username”이며, 이 메서드를 통해 userId로 바꾸면 input의 name이 userId로 적용되어 있다.</li>
+    </ul>
+  </li>
+  <li>usernameParameter
+    <ul>
+      <li>form에서 읽어들일 password의 name을 다른 것으로 지정하고 싶을 때 쓰는 메서드이다. 기본은 “password의”이며, 이 메서드를 통해 passwd의로 바꾸면 input의 name이 passwd로 적용되어 있다.</li>
+    </ul>
+  </li>
+  <li>successHandler
+    <ul>
+      <li>인증 성공 시에 실행시켜줄 코드를 넣을 수 있는 메서드이다.</li>
+    </ul>
+  </li>
+  <li>failureHandler
+    <ul>
+      <li>인증 실패 시에 실행시켜줄 코드를 넣을 수 있는 메서드이다.</li>
+    </ul>
+  </li>
+  <li>permitAll
+    <ul>
+      <li>loginPage, loginProcessingUrl, failureUrl에 대한 접근은 인가 없이도 허용하는 메서드이다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="폼-안중-필터---usernamepasswordauthenticationfilter">폼 안중 필터 - UsernamePasswordAuthenticationFilter</h3>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//backend/2024/11/27/Spring-Security-6.x.x-%EC%A0%95%EB%A6%AC/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = 'Spring Security 6.x.x 정리'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
