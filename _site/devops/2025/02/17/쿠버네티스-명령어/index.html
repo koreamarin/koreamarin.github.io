@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 쿠버네티스 명령어 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">쿠버네티스 명령어</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>February 17, 2025</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><ul>
+  <li>파드 조회 : kubectl get pods
+<br /><br /></li>
+  <li>
+    <p>파드 포트 포워딩 : kubectl port-forward pod/[파드명] [로컬 포트]/[파드 포트]<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl port-forward pod/nginx-pod 80:80</code>
+<br /><br /></p>
+  </li>
+  <li>파드 삭제 : kubectl delete pod [파드명]<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl delete pod nginx-pod</code>
+<br /><br /></li>
+  <li>
+    <p>파드 디버깅</p>
+
+    <ul>
+      <li>
+        <p>파드 세부 정보 조회하기 : kubectl describe pods [파드명]<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl describe pods nginx-add</code></p>
+      </li>
+      <li>
+        <p>파드 로그 확인하기 : kubectl logs [파드명]<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl logs nginx-add</code></p>
+      </li>
+      <li>
+        <p>파드 내부로 접속하기1 : kubectl exec -it [파드명] –bash<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl exec -it nginx-pod --bash</code></p>
+      </li>
+      <li>
+        <p>파드 내부로 접속하기2 : kubectl exec -it [파드명] –sh<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl exec -it nginx-pod --sh</code></p>
+
+        <p><br /><br /></p>
+      </li>
+    </ul>
+  </li>
+  <li>매니페스트 파일에 적혀져있는 리소스(파드 등) 생성 : kubectl apply -f [파일명]<br />
+<code class="language-plaintext highlighter-rouge">EX) kubectl apply -f nginx-pod.yaml</code></li>
+</ul>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//devops/2025/02/17/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EB%AA%85%EB%A0%B9%EC%96%B4/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = '쿠버네티스 명령어'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
