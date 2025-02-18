@@ -12,13 +12,7 @@
         <title>쿠버네티스 명령어</title>
             
             
-                <description>&lt;ul&gt;
-  &lt;li&gt;파드 조회 : kubectl get pods
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;파드 포트 포워딩 : kubectl port-forward pod/[파드명] [로컬 포트]/[파드 포트]&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EX) kubectl port-forward pod/nginx-pod 80:80&lt;/code&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+                <description>&lt;p&gt;쿠버네티스에서 자주 쓰이는 명령어들을 정리한 포스터&lt;/p&gt;
 </description>
             
             <pubDate>Mon, 17 Feb 2025 09:00:00 +0900</pubDate>
