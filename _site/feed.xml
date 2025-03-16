@@ -5,8 +5,22 @@
     <description>A blog and a portfolio</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-	<lastBuildDate>Mon, 17 Feb 2025 09:00:00 +0900</lastBuildDate>
+	<lastBuildDate>Sun, 16 Mar 2025 09:00:00 +0900</lastBuildDate>
 	
+    
+      <item>
+        <title>쿠버네티스 용어 정리 및 개념 및 구성도</title>
+            
+            
+                <description>&lt;p&gt;쿠버네티스 용어 및 개념 정리&lt;/p&gt;
+</description>
+            
+            <pubDate>Sun, 16 Mar 2025 09:00:00 +0900</pubDate>
+            <link>http://localhost:4000/devops/2025/03/16/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B5%AC%EC%84%B1%EB%8F%84/</link>
+            <guid isPermaLink="true">http://localhost:4000/devops/2025/03/16/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B5%AC%EC%84%B1%EB%8F%84/</guid>
+        </item>
+      
+    
     
       <item>
         <title>쿠버네티스 명령어</title>
@@ -119,20 +133,6 @@
             <pubDate>Mon, 01 Jul 2024 09:00:00 +0900</pubDate>
             <link>http://localhost:4000/backend/2024/07/01/Spring-Rest-Docs/</link>
             <guid isPermaLink="true">http://localhost:4000/backend/2024/07/01/Spring-Rest-Docs/</guid>
-        </item>
-      
-    
-    
-      <item>
-        <title>SpringBoot TestCode (TDD, Junit, assertJ, mockito)</title>
-            
-            
-                <description>&lt;p&gt;SpringBoot Test에 대한 설명들을 정리해놓았다.&lt;/p&gt;
-</description>
-            
-            <pubDate>Sun, 30 Jun 2024 09:00:00 +0900</pubDate>
-            <link>http://localhost:4000/backend/2024/06/30/SpringBoot-TestCode-(TDD,-Junit,-assertJ,-mockito)/</link>
-            <guid isPermaLink="true">http://localhost:4000/backend/2024/06/30/SpringBoot-TestCode-(TDD,-Junit,-assertJ,-mockito)/</guid>
         </item>
       
     

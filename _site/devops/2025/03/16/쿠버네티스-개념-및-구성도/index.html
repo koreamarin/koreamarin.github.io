@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 쿠버네티스 용어 정리 및 개념 및 구성도 |  Jiwon's Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jiwon Ryu">
+    <meta name="description" content="A blog and a portfolio">
+    <link rel="shortcut icon" type="image/png" href="/image/개발자이모티콘2.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95PRM2RDE8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-95PRM2RDE8');
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="container">
+        <div class="nav-left">
+            <a id="home" class="nav-item" href="/">
+                <span class="icon">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            
+            <a id="project" class="nav-item " href="/project/">
+                <span>Project</span>
+            </a>
+            
+            <a id="category" class="nav-item " href="/category/">
+                <span>Blog</span>
+            </a>
+            
+        </div>
+
+        <div class="nav-center">
+            
+        </div>
+
+        <!--
+        <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        </span>
+
+        
+        <div class="nav-right nav-menu">
+            
+        </div>
+        -->
+
+</nav>
+    <div class='content'>
+        <section class="section">
+  <div class="container">
+    <div class="heading has-text-centered">
+      <p class="title is-2">쿠버네티스 용어 정리 및 개념 및 구성도</p>
+      <p class="subtitle is-6">
+        <span class="tag is-white"><small>March 16, 2025</small></span>
+      </p>
+    </div>
+    <br />
+    <div class="columns is-multiline">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="content"><p>쿠버네티스 용어 및 개념 정리</p>
+
+<h4 id="클러스터">클러스터</h4>
+<ul>
+  <li>가장 큰 단위.</li>
+  <li>여러 노드가 모여서 애플리케이션을 실행하고 관리하는 단위.</li>
+  <li>마스터 노드와 워커 노드들로 구성되어 있음.</li>
+  <li>단일 노드 클러스터(Single node cluster)이면 컴퓨터 한대가 master와 worke의 역할을 모두 수행하는 것이고, 멀티 노드 클러스터(multi node cluster)이면 컴퓨터를 여러 개 묶어서 사용하여 마스터노드와 워커노드가 컴퓨터 여러대로 구성된 형태를 말하는 것이다.</li>
+</ul>
+
+<h4 id="마스터노드">마스터노드</h4>
+<ul>
+  <li>워커 모니터링, 파드 스케쥴링, 파드 모니터링, 파드 오토헬싱 등의 역할을 함.</li>
+  <li>워커를 모니터링을 할 뿐 컨트롤 하거나 오토헬싱하지는 않음.</li>
+  <li>일반적으로 컨테이너 안에서 동작시키지 않는다. 컨테이너는 주기적인 재시작이나 스케일링에 의한 불안정성 문제를 겪을 수 있으므로 컨테이너화를 안한다고 함.</li>
+  <li>마스터 노드 내부에 etcd라는 것이 포함되어 있음</li>
+</ul>
+
+<h4 id="디플로이먼트">디플로이먼트</h4>
+<ul>
+  <li>매니페스트 파일로 디플로이먼트를 정의함</li>
+  <li>디플로이먼트는 파일 이름이 아닌 쿠버네티스 리소스 종류중 하나임. 마스터 노드에서 동작하며 마스터 노드가 관리함. 디플로이먼트 파일을 실행시키면 마스터 노드에서 디플로이먼트가 실행됨.</li>
+  <li>하나의 디플로이먼트는 하나의 레플리카셋을 생성함. 파드의 배포 및 관리를 돕는 쿠버네티스 리소스의 종류 중 하나</li>
+  <li>파드의 배포, 파드 업데이트 전략, 롤백, 복제본 수, 파드안에 실행할 이미지, 환경 변수 등을 설정하여 관리함.</li>
+  <li>디플로이먼트는 하나의 애플리케이션에 대한 설정을 정의하는 것이므로, 여러 애플리케이션을 동작시키고 싶다면 디플로이먼트도 여러 개 만들어야 함. 애플리케이션 개수만큼 디플로이먼트도 여러 개 실행되는 것임.</li>
+  <li>하나의 마스터노드에만 디플로이먼트를 생성하면, 다른 마스터노드에 디플로이먼트가 같이 생성되지는 않으며 etcd에 의해 상태는 모두 공유되어진다. 때문에 리더 마스터노드가 죽어도 다른 마스터 노드가 계속 일을 할 수 있다. 하나의 마스터노드에만 매니패스트 파일을 실행시켜주면 되며, 그 상태는 모든 마스터 노드에도 공유되어진다.</li>
+</ul>
+
+<h4 id="레플리카셋">레플리카셋</h4>
+<ul>
+  <li>마스터 노드에서 관리함. 실행되는 것은 아니며 파드들을 묶은 단위, 추상적인 개념이다. 파드 복제본 수를 유지하려는 논리적인 객체의 개념.</li>
+  <li>디플로이먼트에 의해 생성되는 객체임, 파드의 복제본 수를 관하는 역할을 함. 마스터 노드에서 동작하며, 워커노드들에게 파드 생성을 지시하여 생성함.</li>
+  <li>레플리카셋은 하나의 워커 안에서만 제한되는게 아니라 다른 워커에서도 파드들을 하나의 레플리카로 묶을 수 있음.</li>
+</ul>
+
+<h4 id="etcd">Etcd</h4>
+<ul>
+  <li>etcd는 레디스 비슷한 분산 키-값 데이터베이스이다. 마스터 노드 안에 ETCD가 자동으로 설치되어 있음</li>
+  <li>쿠버네티스 클러스터의 상태 정보를 저장하는 역할을 한다. 여기에는 파드, 서비스, 워크로드, 네임스페이스 등의 정보가 포함된다.</li>
+  <li>마스터 노드들은 etcd에 저장된 정보를 기반으로 워커 노드와 파드를 관리한다. 어떤 파드가 어떤 워커 노드에서 실행되고 있는지에 대한 정보도 etcd에 저장됨.</li>
+  <li>워크로드, 파드 등의 자원 상태는 etcd에 지속적으로 기록되고, 이를 API 서버, 컨트롤러 매니저, 스케줄러 등 쿠버네티스의 다른 구성 요소들이 참조하여 클러스터를 운영한다.</li>
+  <li>만약 관리중인 마스터 노드가 죽으면 다른 마스터 노드가 워커와 파드들을 관리하게 되는데, 이들에 대한 정보를 etcd에서 읽어와서 계속 일을 진행할 수 있음</li>
+  <li>따라서, etcd는 쿠버네티스 클러스터의 상태를 일관되게 유지하고, 마스터 노드가 변경되거나 장애가 발생해도 클러스터의 상태를 복구하고 지속적으로 운영할 수 있게 한다.</li>
+</ul>
+
+<h4 id="마스터노드에-접근을-위한-로드밸런싱">마스터노드에 접근을 위한 로드밸런싱</h4>
+<ul>
+  <li>마스터 노드도 여러 개가 구성되면 마스터노드에 접근하기 위한 로드밸런싱이 필요함</li>
+  <li>이 때 Kube-vip라는 것을 사용하는 방식이 있고, L4스위치나 L7스위치를 사용한 로드 밸런서 사용방식이 있음</li>
+  <li>Kube-vip는 각 마스터노드 앞단에 있어서 워커나 사용자가 마스터노드에 접근할 때 리더 마스터노드에게 고정된 ip를 할당해 주는 역할을 함. 만약 이 리더 마스터노드가 죽으면 다른 마스터노드들이 이를 감지하고 그 ip를 가져감. 이 역할을 하는 것이 kube-vip임. 다만 이 방식은 트래픽 분산 용도의 로드밸런싱 기능은 없고, ip를 가져가서 고가용성을 위한 기능만 있는 형태임.</li>
+  <li>L4스위치나 L7스위치를 이용한 로드밸런싱 방식은 하드웨어를 추가하여 대신 로드밸런싱을 해주는 식인데, 고가용성 및 트래픽 분산용도의 로드밸런싱 기능까지 수행함. 대신 L4, L7스위치 자체의 하드웨어 고가용성 상태를 유지하기 위해서는 L4스위치나 L7스위치를 2개 이상 구성해야 함</li>
+</ul>
+
+<p>결론 : 3개의 마스터노드용 서버를 띄우고 클러스터를 구성하면 마스터노드의 고가용성은 유지된다!!!!!</p>
+
+<hr />
+<h4 id="워커">워커</h4>
+<ul>
+  <li>파드들이 돌아가는 단위. 워커는 마스터 노드가 명령한대로 여러 종류의 파드들을 생성하여 돌림. 워커가 죽으면 마스터 노드의 스케쥴러에 의해 다른 워커들에게 파드가 분배됨.</li>
+</ul>
+
+<h4 id="서비스">서비스</h4>
+<ul>
+  <li>클라이언트에게 요청을 받는 역할과 여러 파드에게 요청을 분재해주는 로드밸런싱 역할까지 하는 녀석. 실제 서비스라는 것이 러닝되는 것은 아니고, 각 워커노드들의 kube-proxy가 만든 추상화된 논리적인 객체임.</li>
+  <li>클라이언트가 요청을 할 수 있는 진입점을 제공하여 IP를 제공함. 서비스에 대한 관리는 마스터노드에서 이루어지며, 매니패스트 파일을 작성하여 설정함.</li>
+</ul>
+
+<h4 id="ingress">Ingress</h4>
+<ul>
+  <li>API Gateway같은 역할을 해서 api의 path에 따라 어느 서비스(클러스터)에 접속할 지 라우팅을 해줌. 또한 SSL인증서 설치하 가능하여 외부에서 HTTPS로 접속하면 복호화/암호화 하기도 함.</li>
+  <li>Kubernetes 클러스터 내에서 리소스로 존재하는 추상화된 개념. 따라서  인그레스는 서버로 띄우는 것이 아님. 매니패스트 파일로 정의하여 마스터 노드에서 실행하면 됨.</li>
+</ul>
+
+<h2 id="쿠버네티스k8s-구성도">쿠버네티스(K8s) 구성도</h2>
+<p><img src="/image/쿠버네티스 개념 및 구성도1.png" alt="Alt text" /></p>
+
+<h2 id="경량-쿠버네티스k8s">경량 쿠버네티스(K8s)</h2>
+<ul>
+  <li>단일 노드 클러스터로 동작하여 마스터노드와 워커의 동작을 하나의 노드에서 모두 수행함. Etcd는 SQLite로 대체되어 실행됨.</li>
+  <li>
+    <p>워커 자체가 죽으면 사용할 수 없게 되지만, 애플리케이션이 장애를 일으켰을 때 파드에서 수행되고 있던 거라면 셀프헬싱이 가능하고, 관리가 가능하다는 장점이 있어 가용할 수 있는 서버의 수가 적을 때 가용성을 높이기 위해 사용하는 방식임.</p>
+  </li>
+  <li>노드를 서버노드로 만들면 마스터 + 워커의 역할을 둘 다 수행하는 노드가 되고, 에이전트 노드로 만들면 워커의 역할만 하는 노드가 된다.</li>
+  <li>서버 노드 2개 이상을 묶으면 가용성이 높아지기는 하지만, SQLite는 2대를 동시에 접근할 수 있게 하지 못하기 떄문에, Sqlite를 운용하는 노드가 다운되면 서비스가 다운될 수 있다.</li>
+  <li>그래서 각 서버노드에 etcd를 띄워주어 데이터 상태를 공유해야한다. 그런데 etcd는 홀수 개수로만 운용이 가능하므로 고가용성을 위한 노드의 최소 개수는 3개가 된다.</li>
+  <li>그 이후 노드를 더 추가하고싶다면, 고가용성은 확보되었으니 에이전트 노드만 추가하면 된다.</li>
+</ul>
+
+<h2 id="경량-쿠버네티스k8s-구성도-단일-클러스터">경량 쿠버네티스(K8s) 구성도 (단일 클러스터)</h2>
+<p><img src="/image/쿠버네티스 개념 및 구성도2.png" alt="Alt text" /></p>
+
+<h2 id="경량-쿠버네티스-k3s-고가용성-구성도-멀티-클러스터링">경량 쿠버네티스 (K3s) 고가용성 구성도 (멀티 클러스터링)</h2>
+<p><img src="/image/쿠버네티스 개념 및 구성도3.png" alt="Alt text" /></p>
+</div>
+      </div>
+    </div>
+    
+    <div id="disqus" style="padding: 41px"><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    this.page.url = "https://koreamarin.github.io//devops/2025/03/16/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B5%AC%EC%84%B1%EB%8F%84/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = '쿠버네티스 용어 정리 및 개념 및 구성도'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://koreamarin-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+    
+  </div>
+</section>
+
+    </div>
+    <footer style='background-color: #eefffd;'>
+    <address class="footer_wrap">
+        <div class="information">
+            <div class="myname">
+                Jiwon's Blog
+            </div>
+            <a href="mailto:awldnjs2@gmail.com" class="email">
+                awldnjs2@gmail.com
+            </a>
+            <div class="accounts">
+                <span class="icon">
+                    <a class="nav-item" target="_blank" href="https://www.github.com/koreamarin/">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </span>
+                
+                <!--
+                    <span class="icon">
+                        <a class="nav-item" target="_blank" href="https://www.twitter.com/username/">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </span>
+                -->
+            </div>
+        </div>
+        <div class="copyright">
+            <span>
+                © koreamarin. <span id="year">2023</span>
+            </span>
+        </div>    
+    </address>
+</footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
